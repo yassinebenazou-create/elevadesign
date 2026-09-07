@@ -176,6 +176,31 @@ button:disabled {
   height: auto;
 }
 
+.mobile-header-actions {
+  align-items: center;
+  display: none;
+  gap: clamp(0.55rem, 2vw, 1rem);
+  margin-left: auto;
+}
+
+.mobile-header-contact {
+  color: currentColor;
+  font-family: var(--ed-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.site-header--hero .mobile-header-contact {
+  color: var(--ed-ivory);
+}
+
+.site-header--hero.solid .mobile-header-contact {
+  color: var(--ed-black);
+}
+
 .site-header--hero .header-logo img {
   filter: drop-shadow(0 0.55rem 1.4rem rgba(0, 0, 0, 0.42));
 }
@@ -1766,6 +1791,18 @@ button:disabled {
   align-self: start;
 }
 
+.contact-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .contact-copy > p {
   color: var(--ed-black);
   font-family: var(--ed-serif);
@@ -2933,5 +2970,171 @@ canvas {
 
   .contact-copy > p {
     font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+}
+
+@media (max-width: 1099px) {
+  .mobile-header-actions {
+    display: inline-flex;
+  }
+
+  .header-logo {
+    min-width: 0;
+  }
+
+  .header-logo img {
+    width: min(10.75rem, 43vw);
+  }
+
+  .mobile-header-actions .language-switcher__button {
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+  }
+
+  .mobile-header-actions .language-switcher__menu {
+    right: -3.5rem;
+  }
+
+  .nav-toggle {
+    flex: 0 0 auto;
+    margin-left: 0.45rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-page {
+    border-top: 0;
+    padding-top: 4.75rem;
+  }
+
+  .contact-layout {
+    display: block;
+    padding-block: clamp(3.25rem, 10vw, 4.75rem) clamp(4rem, 12vw, 6rem);
+  }
+
+  .contact-title {
+    position: static;
+    display: grid;
+    width: auto;
+    height: auto;
+    clip: auto;
+    margin: 0 0 clamp(2.2rem, 8vw, 3rem);
+    overflow: visible;
+    color: var(--ed-black);
+    font-family: var(--ed-serif);
+    font-size: clamp(4.2rem, 19vw, 6.65rem);
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 0.92;
+    white-space: normal;
+  }
+
+  .contact-title em {
+    color: rgba(20, 18, 15, 0.48);
+    font-style: italic;
+  }
+
+  .contact-copy > p {
+    max-width: none;
+    border-bottom: 1px solid var(--ed-border);
+    color: rgba(20, 18, 15, 0.5);
+    font-size: clamp(1.45rem, 7vw, 2.05rem);
+    line-height: 1.72;
+    padding-bottom: clamp(2rem, 8vw, 3rem);
+  }
+
+  .contact-copy__details {
+    max-width: none;
+    border-bottom: 1px solid var(--ed-border);
+    gap: 0.55rem;
+    margin-top: clamp(2rem, 8vw, 3rem);
+    padding-bottom: clamp(2.3rem, 8vw, 3rem);
+  }
+
+  .contact-form-reveal {
+    margin-top: clamp(3.4rem, 11vw, 5rem);
+  }
+
+  .contact-form {
+    gap: 0;
+    margin-top: 0;
+  }
+
+  .contact-form__grid {
+    gap: 0;
+  }
+
+  .contact-form__grid > div,
+  .contact-form > div:not(.contact-form__grid) {
+    border-bottom: 1px solid var(--ed-border);
+    padding-block: 1.5rem;
+  }
+
+  .contact-form label {
+    margin-bottom: 1.2rem;
+    font-size: 0.68rem;
+    line-height: 1.6;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    border-bottom: 0;
+    font-size: 1rem;
+    min-height: 2rem;
+    padding: 0;
+  }
+
+  .contact-form textarea {
+    min-height: 8.5rem;
+  }
+
+  .contact-form__submit {
+    min-height: 4.4rem;
+    margin-top: clamp(1.6rem, 7vw, 2.4rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .header-logo img {
+    width: min(8.7rem, 38vw);
+  }
+
+  .mobile-header-actions {
+    gap: 0.42rem;
+  }
+
+  .mobile-header-actions .language-switcher__button {
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .mobile-header-contact {
+    font-size: 0.88rem;
+  }
+
+  .mobile-header-actions .language-switcher__button .language-switcher__flag {
+    width: 1.05rem;
+    height: 0.72rem;
+  }
+
+  .mobile-header-actions .language-switcher__menu {
+    right: -4.1rem;
+  }
+
+  .contact-title {
+    font-size: clamp(3.65rem, 18vw, 5.6rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-header-contact {
+    display: none;
+  }
+
+  .header-logo img {
+    width: min(8.5rem, 48vw);
   }
 }

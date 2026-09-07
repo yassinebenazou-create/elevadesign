@@ -117,6 +117,7 @@ export const translations = {
       cta: 'Parler de mon projet →',
     },
     contact: {
+      titleParts: ['Parlons', 'de votre', 'Projet'],
       text:
         "Eleva Design intervient sur les projets d'aménagement intérieur et extérieur, résidentiels et commerciaux, au Maroc et à l'international.",
       emailProjects: 'Email projets',
@@ -256,6 +257,7 @@ export const translations = {
       cta: 'Start a project →',
     },
     contact: {
+      titleParts: ["Let's talk", 'about your', 'Project'],
       text:
         'Eleva Design works on interior and exterior design projects, residential and commercial, in Morocco and internationally.',
       emailProjects: 'Project email',
@@ -395,6 +397,7 @@ export const translations = {
       cta: 'Hablar de mi proyecto →',
     },
     contact: {
+      titleParts: ['Hablemos', 'de su', 'Proyecto'],
       text:
         'Eleva Design interviene en proyectos de interior y exterior, residenciales y comerciales, en Marruecos y a nivel internacional.',
       emailProjects: 'Email proyectos',
@@ -534,6 +537,7 @@ export const translations = {
       cta: 'Parlare del progetto →',
     },
     contact: {
+      titleParts: ['Parliamo', 'del tuo', 'Progetto'],
       text:
         'Eleva Design segue progetti di interni ed esterni, residenziali e commerciali, in Marocco e a livello internazionale.',
       emailProjects: 'Email progetti',

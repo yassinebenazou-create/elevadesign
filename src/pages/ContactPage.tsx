@@ -53,8 +53,12 @@ export function ContactPage() {
         canonicalPath="/contact"
       />
       <Container size="wide" className="contact-layout">
-        <h1 className="sr-only">{pageSeo.contact.h1}</h1>
         <Reveal className="contact-copy">
+          <h1 className="contact-title">
+            <span>{t.contact.titleParts[0]}</span>
+            <em>{t.contact.titleParts[1]}</em>
+            <span>{t.contact.titleParts[2]}</span>
+          </h1>
           <p>{t.contact.text}</p>
           <div className="contact-copy__details">
             <span className="contact-copy__label">{t.contact.emailProjects}</span>

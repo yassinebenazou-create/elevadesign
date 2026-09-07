@@ -12,7 +12,7 @@ export const siteConfig = {
   locale: 'fr-FR',
   contact: {
     email: 'contact@elevadesign.example',
-    phone: '+212 6 00 00 00 00',
+    phone: '+212 657-075454',
     whatsappNumber: '212657075454',
     whatsappMessage: 'Bonjour, je souhaite échanger sur un projet Eleva Design.',
     whatsappIcon: '/images/brand/whatsapp-icon.png',

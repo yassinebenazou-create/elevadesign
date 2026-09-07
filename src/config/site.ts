@@ -13,6 +13,7 @@ export const siteConfig = {
   contact: {
     email: 'contact@elevadesign.example',
     phone: '+212 657-075454',
+    phoneIcon: '/images/brand/call-icon.jpg',
     whatsappNumber: '212657075454',
     whatsappMessage: 'Bonjour, je souhaite échanger sur un projet Eleva Design.',
     whatsappIcon: '/images/brand/whatsapp-icon.png',

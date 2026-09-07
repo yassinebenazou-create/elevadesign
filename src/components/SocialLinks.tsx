@@ -27,6 +27,14 @@ export function SocialLinks({ className = '' }: SocialLinksProps) {
     <div className={`social-links ${className}`.trim()}>
       <a
         className="social-link"
+        href={`tel:${siteConfig.contact.phone.replaceAll(/[^\d+]/g, '')}`}
+        aria-label={`Appeler Eleva Design au ${siteConfig.contact.phone}`}
+      >
+        <img className="social-link__image" src={siteConfig.contact.phoneIcon} alt="" aria-hidden="true" />
+        <span>{siteConfig.contact.phone}</span>
+      </a>
+      <a
+        className="social-link"
         href={siteConfig.contact.instagramUrl}
         target="_blank"
         rel="noreferrer"

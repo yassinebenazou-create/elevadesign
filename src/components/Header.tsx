@@ -52,9 +52,6 @@ export function Header() {
 
           <div className="mobile-header-actions" aria-label="Actions rapides">
             <LanguageSwitcher isHeroStyle={useHeroStyle} />
-            <NavLink className="mobile-header-contact" to="/contact">
-              {t.navigation['/contact']}
-            </NavLink>
           </div>
 
           <nav className="nav-list" aria-label="Navigation principale">

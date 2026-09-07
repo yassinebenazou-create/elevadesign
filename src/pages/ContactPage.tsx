@@ -87,7 +87,7 @@ export function ContactPage() {
               </div>
               <div>
                 <label htmlFor="phone">{t.contact.phone}</label>
-                <input id="phone" name="phone" placeholder="+212 6 00 00 00 00" />
+                <input id="phone" name="phone" placeholder={siteConfig.contact.phone} />
               </div>
               <div>
                 <label htmlFor="projectType">{t.contact.projectType}</label>

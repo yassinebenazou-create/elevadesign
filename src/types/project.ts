@@ -3,6 +3,7 @@ export type ProjectCategory =
   | 'Architecture résidentielle'
   | 'Design intérieur'
   | 'Aménagement extérieur'
+  | 'Habillage mural'
   | 'Design commercial'
   | 'Résidentiel'
   | 'Commercial'

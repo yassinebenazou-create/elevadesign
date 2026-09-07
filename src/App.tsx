@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { ScrollToTop } from './components/ScrollToTop'
 import { WhatsAppFloat } from './components/WhatsAppFloat'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
@@ -13,6 +14,7 @@ import { ServicesPage } from './pages/ServicesPage'
 export default function App() {
   return (
     <div className="site-shell">
+      <ScrollToTop />
       <Header />
       <main id="main-content">
         <Routes>

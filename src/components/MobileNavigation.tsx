@@ -1,6 +1,8 @@
 import { X } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { navigationItems, siteConfig } from '../config/site'
+import { useI18n } from '../i18n/I18nProvider'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 type MobileNavigationProps = {
   isOpen: boolean
@@ -8,6 +10,8 @@ type MobileNavigationProps = {
 }
 
 export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
+  const { t } = useI18n()
+
   return (
     <nav
       className={`mobile-nav ${isOpen ? 'open' : ''}`}
@@ -19,15 +23,18 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
         <NavLink className="mobile-nav__logo" to="/" onClick={onClose} tabIndex={isOpen ? 0 : -1}>
           <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} />
         </NavLink>
-        <button
-          type="button"
-          className="grid size-11 place-items-center border border-white/20"
-          onClick={onClose}
-          aria-label="Fermer le menu"
-          tabIndex={isOpen ? 0 : -1}
-        >
-          <X size={20} />
-        </button>
+        <div className="mobile-nav__actions">
+          <LanguageSwitcher isHeroStyle />
+          <button
+            type="button"
+            className="grid size-11 place-items-center border border-white/20"
+            onClick={onClose}
+            aria-label="Fermer le menu"
+            tabIndex={isOpen ? 0 : -1}
+          >
+            <X size={20} />
+          </button>
+        </div>
       </div>
       <div className="mobile-nav__links">
         {navigationItems.map((item) => (
@@ -38,7 +45,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
             tabIndex={isOpen ? 0 : -1}
             to={item.href}
           >
-            {item.label}
+            {t.navigation[item.href as keyof typeof t.navigation] ?? item.label}
           </NavLink>
         ))}
       </div>

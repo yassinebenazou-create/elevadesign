@@ -9,6 +9,7 @@ type ProjectInput = {
   year: string
   type: string
   featured?: boolean
+  imageFolder?: string
   files: string[]
   altBase: string
   shortDescription: string
@@ -25,15 +26,16 @@ const uploadedProject = ({
   year,
   type,
   featured = false,
+  imageFolder = slug,
   files,
   altBase,
   shortDescription,
-  description = shortDescription,
+  description,
   scope = ['Concept décoratif', 'Aménagement intérieur', 'Sélection des matières'],
   materials = ['Bois', 'Pierre', 'Tons neutres'],
 }: ProjectInput): Project => {
   const gallery: ProjectGalleryImage[] = files.map((file, index) => ({
-    src: `/images/projects/${slug}/${file}`,
+    src: `/images/projects/${imageFolder}/${file}`,
     alt: `${altBase}, vue ${index + 1}.`,
   }))
 
@@ -49,7 +51,9 @@ const uploadedProject = ({
     coverImage: gallery[0].src,
     coverAlt: gallery[0].alt,
     shortDescription,
-    description,
+    description:
+      description ??
+      `${title} présente une intention d'aménagement claire, pensée pour révéler le potentiel du lieu sans surcharger sa lecture. Les volumes, les matières et la lumière sont organisés avec sobriété afin de composer une ambiance élégante, fonctionnelle et facile à faire évoluer lorsque les informations définitives du projet seront disponibles.`,
     scope,
     materials,
     gallery,
@@ -74,7 +78,7 @@ export const projects: Project[] = [
     shortDescription:
       'Réaménagement d’une résidence contemporaine aux lignes épurées, associant lumière naturelle, matériaux chaleureux et mobilier sur mesure.',
     description:
-      'Réaménagement d’une résidence contemporaine aux lignes épurées, associant lumière naturelle, matériaux chaleureux et mobilier sur mesure.',
+      'Pensée comme une résidence lumineuse et fluide, Résidence Ivoire met en dialogue des volumes sobres, des matières chaleureuses et des détails dessinés avec précision. Le projet privilégie une circulation claire, une lumière naturelle généreuse et une atmosphère contemporaine capable de rester douce au quotidien.',
     scope: ['Réaménagement intérieur', 'Sélection matières', 'Mobilier sur mesure'],
     materials: ['Bois chaleureux', 'Verre', 'Tons ivoire'],
     gallery: [
@@ -114,7 +118,7 @@ export const projects: Project[] = [
     shortDescription:
       'Conception d’une villa moderne ouverte sur son jardin, avec de grandes baies vitrées, une piscine et des espaces extérieurs élégants.',
     description:
-      'Conception d’une villa contemporaine ouverte sur son environnement, avec de grandes baies vitrées, une piscine et des espaces de vie lumineux.',
+      'Villa Horizon développe une relation continue entre intérieur, terrasse et jardin. Les lignes architecturales restent volontairement épurées afin de laisser la lumière, les perspectives et les espaces extérieurs structurer l’expérience du lieu, du séjour jusqu’aux abords de la piscine.',
     scope: ['Architecture résidentielle', 'Aménagement extérieur', 'Ambiance lumineuse'],
     materials: ['Pierre', 'Verre', 'Enduit clair'],
     gallery: [
@@ -154,7 +158,7 @@ export const projects: Project[] = [
     shortDescription:
       'Création d’un espace commercial raffiné combinant textures naturelles, éclairage d’ambiance et mobilier contemporain.',
     description:
-      'Création d’un espace commercial élégant combinant textures naturelles, éclairage chaleureux et mobilier contemporain.',
+      'Maison Néroli imagine un espace commercial enveloppant où la première impression compte autant que le confort d’usage. Les textures naturelles, les contrastes mesurés et l’éclairage d’ambiance composent une identité raffinée, pensée pour accueillir, orienter et marquer la mémoire du visiteur.',
     scope: ['Concept commercial', 'Mobilier contemporain', 'Éclairage d’ambiance'],
     materials: ['Textures naturelles', 'Bois', 'Lumière chaude'],
     gallery: [
@@ -400,6 +404,23 @@ export const projects: Project[] = [
     files: rangeFiles('villas-assinie-int', 'webp', 10),
     altBase: 'Villa avec espaces intérieurs aménagés et atmosphère résidentielle',
     shortDescription: 'Série d’espaces intérieurs pour villas, organisée autour du confort, de la lumière et de matières naturelles.',
+  }),
+  uploadedProject({
+    slug: 'habillage-mural',
+    title: 'Habillage Mural',
+    category: 'Habillage mural',
+    location: 'Maroc',
+    year: 'À renseigner',
+    type: 'Décor mural',
+    imageFolder: 'habillages mural',
+    files: ['a2.jfif', 'a3.jfif', 'a4.jfif', 'a5.jfif', 'a6.jfif'],
+    altBase: 'Habillage mural décoratif avec finitions contemporaines',
+    shortDescription:
+      'Création d’habillages muraux décoratifs pour structurer les volumes, enrichir les matières et signer l’identité d’un espace.',
+    description:
+      'Ce projet d’habillage mural explore la surface comme un véritable élément architectural. Les textures, les reliefs et les finitions sont pensés pour donner de la profondeur au lieu, cadrer les perspectives et apporter une signature décorative sans alourdir l’espace.',
+    scope: ['Décor mural', 'Sélection des finitions', 'Composition des matières'],
+    materials: ['Panneaux décoratifs', 'Textures murales', 'Tons chaleureux'],
   }),
   uploadedProject({
     slug: 'lotissement-campus',

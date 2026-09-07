@@ -1,13 +1,16 @@
 import { Menu } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { navigationItems, siteConfig } from '../config/site'
+import { useI18n } from '../i18n/I18nProvider'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { MobileNavigation } from './MobileNavigation'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
   const { pathname } = useLocation()
+  const { t } = useI18n()
   const isHome = pathname === '/'
   const useHeroStyle = isHome && !hasScrolled && !isMenuOpen
 
@@ -56,9 +59,12 @@ export function Header() {
               ].join(' ')
 
               return (
-                <NavLink className={className} key={item.href} to={item.href}>
-                  {item.label}
-                </NavLink>
+                <Fragment key={item.href}>
+                  {isContact ? <LanguageSwitcher isHeroStyle={useHeroStyle} /> : null}
+                  <NavLink className={className} to={item.href}>
+                    {t.navigation[item.href as keyof typeof t.navigation] ?? item.label}
+                  </NavLink>
+                </Fragment>
               )
             })}
           </nav>

@@ -1,75 +1,112 @@
+import type { FormEvent } from 'react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
+import { Reveal } from '../components/Reveal'
+import { Seo } from '../components/Seo'
 import { SocialLinks } from '../components/SocialLinks'
+import { pageSeo } from '../config/seo'
 import { siteConfig } from '../config/site'
+import { useI18n } from '../i18n/I18nProvider'
 
 export function ContactPage() {
+  const { t } = useI18n()
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const form = event.currentTarget
+
+    if (!form.reportValidity()) {
+      return
+    }
+
+    const formData = new FormData(form)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const phone = String(formData.get('phone') ?? '').trim()
+    const projectType = String(formData.get('projectType') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+    const whatsappMessage = [
+      siteConfig.contact.whatsappMessage,
+      '',
+      `${t.contact.name.replace(' *', '')}: ${name}`,
+      `${t.contact.email.replace(' *', '')}: ${email}`,
+      phone ? `${t.contact.phone}: ${phone}` : '',
+      projectType ? `${t.contact.projectType}: ${projectType}` : '',
+      `${t.contact.message.replace(' *', '')}: ${message}`,
+    ]
+      .filter(Boolean)
+      .join('\n')
+
+    window.open(
+      `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+      '_blank',
+      'noopener,noreferrer',
+    )
+  }
+
   return (
     <section className="contact-page">
-      <Container size="wide" className="contact-intro">
-        <h1>
-          Parlons
-          <span>de votre</span>
-          Projet
-        </h1>
-
-        <div className="contact-intro__content">
-          <p>
-            Eleva Design accompagne les projets d'aménagement intérieur et extérieur avec une
-            approche attentive aux volumes, aux matières et au rythme de vie.
-          </p>
-          <div className="contact-intro__details">
+      <Seo
+        title={pageSeo.contact.title}
+        description={pageSeo.contact.description}
+        canonicalPath="/contact"
+      />
+      <Container size="wide" className="contact-layout">
+        <h1 className="sr-only">{pageSeo.contact.h1}</h1>
+        <Reveal className="contact-copy">
+          <p>{t.contact.text}</p>
+          <div className="contact-copy__details">
+            <span className="contact-copy__label">{t.contact.emailProjects}</span>
+            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+            <span className="contact-copy__label">{t.contact.phone}</span>
             <a href={`tel:${siteConfig.contact.phone.replaceAll(' ', '')}`}>
               {siteConfig.contact.phone}
             </a>
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
-            <span>{siteConfig.contact.address}</span>
-            <span>{siteConfig.contact.city}</span>
+            <span className="contact-copy__label">{t.contact.address}</span>
+            <span className="contact-copy__value">{siteConfig.contact.address}</span>
+            <span className="contact-copy__value">{siteConfig.contact.city}</span>
             <SocialLinks className="contact-social-links" />
           </div>
-        </div>
-      </Container>
+        </Reveal>
 
-      <Container size="wide" className="contact-form-wrap">
-        <form className="contact-form" noValidate>
-          <div className="contact-form__grid">
-            <div>
-              <label htmlFor="name">Nom complet *</label>
-              <input id="name" name="name" placeholder="Votre nom" required />
+        <Reveal className="contact-form-reveal" delay={0.08}>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="contact-form__grid">
+              <div>
+                <label htmlFor="name">{t.contact.name}</label>
+                <input id="name" name="name" placeholder={t.contact.namePlaceholder} required />
+              </div>
+              <div>
+                <label htmlFor="email">{t.contact.email}</label>
+                <input id="email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
+              </div>
+              <div>
+                <label htmlFor="phone">{t.contact.phone}</label>
+                <input id="phone" name="phone" placeholder="+212 6 00 00 00 00" />
+              </div>
+              <div>
+                <label htmlFor="projectType">{t.contact.projectType}</label>
+                <select id="projectType" name="projectType" defaultValue="">
+                  <option value="" disabled>
+                    {t.contact.select}
+                  </option>
+                  <option>{t.contact.interior}</option>
+                  <option>{t.contact.exterior}</option>
+                  <option>{t.contact.decor}</option>
+                  <option>{t.contact.other}</option>
+                </select>
+              </div>
             </div>
             <div>
-              <label htmlFor="email">Email *</label>
-              <input id="email" name="email" type="email" placeholder="votre@email.com" required />
+              <label htmlFor="message">{t.contact.message}</label>
+              <textarea id="message" name="message" placeholder={t.contact.messagePlaceholder} required />
             </div>
-            <div>
-              <label htmlFor="phone">Téléphone</label>
-              <input id="phone" name="phone" placeholder="+212 6 00 00 00 00" />
-            </div>
-            <div>
-              <label htmlFor="projectType">Type de projet</label>
-              <select id="projectType" name="projectType" defaultValue="">
-                <option value="" disabled>
-                  Sélectionner
-                </option>
-                <option>Intérieur</option>
-                <option>Extérieur</option>
-                <option>Home decor</option>
-                <option>Autre</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label htmlFor="message">Décrivez votre projet *</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Lieu, superficie, budget estimé, vos inspirations..."
-            />
-          </div>
-          <Button disabled type="submit" className="contact-form__submit">
-            Envoyer la demande
-          </Button>
-        </form>
+            <Button type="submit" className="contact-form__submit">
+              {t.contact.submit}
+            </Button>
+          </form>
+        </Reveal>
       </Container>
     </section>
   )

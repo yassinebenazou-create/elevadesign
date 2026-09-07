@@ -41,7 +41,7 @@ export function Button({
   variant = 'primary',
   ...props
 }: ButtonProps) {
-  const classes = `inline-flex min-h-11 items-center justify-center border px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors ${variantClass[variant]} ${className}`
+  const classes = `button button--${variant} inline-flex min-h-11 items-center justify-center border px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors ${variantClass[variant]} ${className}`
 
   if ('to' in props && props.to) {
     return (

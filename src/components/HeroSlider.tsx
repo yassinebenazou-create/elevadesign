@@ -1,9 +1,9 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useEffect, useMemo, useState, type KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { siteConfig } from '../config/site'
 import { heroSlides } from '../data/heroSlides'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+import { useI18n } from '../i18n/I18nProvider'
 
 const AUTOPLAY_DELAY = 5000
 
@@ -11,6 +11,7 @@ export function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const prefersReducedMotion = usePrefersReducedMotion()
+  const { t } = useI18n()
   const slideCount = heroSlides.length
 
   const activeSlide = heroSlides[activeIndex]
@@ -28,8 +29,8 @@ export function HeroSlider() {
   }
 
   const slideLabel = useMemo(
-    () => `Image ${activeIndex + 1} sur ${slideCount}`,
-    [activeIndex, slideCount],
+    () => t.hero.slideLabel(activeIndex + 1, slideCount),
+    [activeIndex, slideCount, t],
   )
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export function HeroSlider() {
     <section
       className="hero hero-slider loaded"
       id="hero"
-      aria-label="Accueil Eleva Design"
+      aria-label={t.hero.aria}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}
@@ -87,18 +88,18 @@ export function HeroSlider() {
       <div className="hero-slider__overlay" />
 
       <div className="hero-slider__content">
-        <p className="hero-slider__eyebrow">{siteConfig.activity}</p>
-        <h1 className="hero-slider__title">Élever chaque espace avec mesure.</h1>
+        <p className="hero-slider__eyebrow">{t.hero.eyebrow}</p>
+        <h1 className="hero-slider__title">{t.hero.title}</h1>
         <Link className="hero-slider__cta" to="/projets">
-          Voir les projets
+          {t.hero.cta}
         </Link>
       </div>
 
       <div className="hero-slider__controls" aria-label="Navigation du diaporama">
-        <button type="button" onClick={previousSlide} aria-label="Image précédente">
+        <button type="button" onClick={previousSlide} aria-label={t.hero.previous}>
           <ArrowLeft size={20} />
         </button>
-        <button type="button" onClick={nextSlide} aria-label="Image suivante">
+        <button type="button" onClick={nextSlide} aria-label={t.hero.next}>
           <ArrowRight size={20} />
         </button>
       </div>
@@ -107,7 +108,7 @@ export function HeroSlider() {
         {heroSlides.map((slide, index) => (
           <button
             type="button"
-            aria-label={`Afficher l’image ${index + 1}`}
+            aria-label={t.hero.showSlide(index + 1)}
             aria-current={index === activeIndex}
             key={slide.id}
             onClick={() => goToSlide(index)}
@@ -116,7 +117,7 @@ export function HeroSlider() {
       </div>
 
       <div className="hero-slider__scroll" aria-hidden="true">
-        <span>Défiler</span>
+        <span>{t.hero.scroll}</span>
         <i />
       </div>
 

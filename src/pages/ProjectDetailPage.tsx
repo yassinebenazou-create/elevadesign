@@ -2,53 +2,76 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { Container } from '../components/Container'
 import { ProjectGallery } from '../components/ProjectGallery'
+import { Reveal } from '../components/Reveal'
+import { Seo } from '../components/Seo'
 import { getAdjacentProjects, getProjectBySlug } from '../data/projects'
+import { useI18n } from '../i18n/I18nProvider'
+import { breadcrumbSchema, projectSchema } from '../utils/structuredData'
 import { NotFoundPage } from './NotFoundPage'
 
 export function ProjectDetailPage() {
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
+  const { projectText, t } = useI18n()
 
   if (!project) {
     return <NotFoundPage />
   }
 
   const { previousProject, nextProject } = getAdjacentProjects(project.slug)
+  const translatedProject = projectText(project)
+  const seoTitle = `${project.title} | Projet ${translatedProject.category} au Maroc | Eleva Design`
+  const seoDescription = translatedProject.shortDescription
 
   return (
     <article className="project-detail">
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        canonicalPath={`/projets/${project.slug}`}
+        image={project.coverImage}
+        type="article"
+        jsonLd={[
+          breadcrumbSchema([
+            { name: 'Accueil', path: '/' },
+            { name: 'Projets', path: '/projets' },
+            { name: project.title, path: `/projets/${project.slug}` },
+          ]),
+          projectSchema(project, seoDescription),
+        ]}
+      />
       <section className="project-detail__hero" aria-label={project.title}>
         <img src={project.coverImage} alt={project.coverAlt} fetchPriority="high" />
         <div className="project-detail__hero-overlay" aria-hidden="true" />
         <Container size="wide" className="project-detail__hero-inner">
           <Link className="project-detail__back project-detail__back--hero" to="/projets">
             <ArrowLeft size={16} />
-            Retour aux projets
+            {t.projectDetail.back}
           </Link>
           <p className="project-detail__kicker">
-            {project.category} / {project.location} / {project.year}
+            {translatedProject.category} / {translatedProject.location} / {translatedProject.year}
           </p>
           <h1>{project.title}</h1>
         </Container>
       </section>
 
-      <section className="project-detail__meta-band" aria-label={`Informations du projet ${project.title}`}>
+      <section className="project-detail__meta-band" aria-label={t.projectDetail.infoAria(project.title)}>
         <Container size="wide">
           <dl className="project-detail__info">
             <div>
-              <dt>Catégorie</dt>
-              <dd>{project.category}</dd>
+              <dt>{t.projectDetail.category}</dt>
+              <dd>{translatedProject.category}</dd>
             </div>
             <div>
-              <dt>Ville</dt>
-              <dd>{project.location}</dd>
+              <dt>{t.projectDetail.city}</dt>
+              <dd>{translatedProject.location}</dd>
             </div>
             <div>
-              <dt>Année</dt>
-              <dd>{project.year}</dd>
+              <dt>{t.projectDetail.year}</dt>
+              <dd>{translatedProject.year}</dd>
             </div>
             <div>
-              <dt>Studio</dt>
+              <dt>{t.projectDetail.studio}</dt>
               <dd>{project.studio}</dd>
             </div>
           </dl>
@@ -56,10 +79,12 @@ export function ProjectDetailPage() {
       </section>
 
       <section className="project-detail__story">
-        <Container size="wide" className="project-detail__story-inner">
-          <p className="project-detail__section-title">Le projet</p>
-          <p className="project-detail__description">{project.description}</p>
-        </Container>
+        <Reveal>
+          <Container size="wide" className="project-detail__story-inner">
+            <p className="project-detail__section-title">{t.projectDetail.storyTitle}</p>
+            <p className="project-detail__description">{translatedProject.description}</p>
+          </Container>
+        </Reveal>
       </section>
 
       <section className="project-detail__gallery-section">
@@ -73,7 +98,7 @@ export function ProjectDetailPage() {
               <Link to={`/projets/${previousProject.slug}`} className="project-detail__nav-link">
                 <ArrowLeft size={18} />
                 <span>
-                  <small>Projet précédent</small>
+                  <small>{t.projectDetail.previous}</small>
                   {previousProject.title}
                 </span>
               </Link>
@@ -85,7 +110,7 @@ export function ProjectDetailPage() {
                 className="project-detail__nav-link project-detail__nav-link--next"
               >
                 <span>
-                  <small>Projet suivant</small>
+                  <small>{t.projectDetail.next}</small>
                   {nextProject.title}
                 </span>
                 <ArrowRight size={18} />
@@ -93,7 +118,7 @@ export function ProjectDetailPage() {
             ) : null}
           </div>
           <Link className="project-detail__all" to="/projets">
-            Voir tous les projets
+            {t.projectDetail.all}
             <ArrowRight size={16} />
           </Link>
         </Container>

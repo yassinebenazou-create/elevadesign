@@ -183,6 +183,14 @@ button:disabled {
   margin-left: auto;
 }
 
+.mobile-quote-link {
+  display: none;
+}
+
+.mobile-quote-link__short {
+  display: none;
+}
+
 .site-header--hero .header-logo img {
   filter: drop-shadow(0 0.55rem 1.4rem rgba(0, 0, 0, 0.42));
 }
@@ -315,6 +323,7 @@ button:disabled {
   min-width: 7.2rem;
   padding: 0.66rem 1.05rem;
   text-align: center;
+  white-space: nowrap;
 }
 
 .nav-link--contact::after {
@@ -2965,8 +2974,58 @@ canvas {
 }
 
 @media (max-width: 1099px) {
+  .header-inner {
+    gap: 0.55rem;
+  }
+
   .mobile-header-actions {
     display: inline-flex;
+  }
+
+  .mobile-header-actions .language-switcher {
+    display: none;
+  }
+
+  .mobile-quote-link {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    min-height: 2.32rem;
+    justify-content: center;
+    border: 1px solid var(--ed-black);
+    color: var(--ed-black);
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    line-height: 1.15;
+    padding: 0.46rem 0.62rem;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease;
+  }
+
+  .mobile-quote-link:hover,
+  .mobile-quote-link:focus-visible,
+  .mobile-quote-link.active {
+    border-color: var(--ed-gold);
+    background: var(--ed-gold);
+    color: var(--ed-black);
+    outline: 0;
+  }
+
+  .mobile-quote-link--hero {
+    border-color: rgba(247, 241, 232, 0.72);
+    color: var(--ed-ivory);
+  }
+
+  .site-header--hero.solid .mobile-quote-link,
+  .site-header--hero .mobile-quote-link.active {
+    border-color: var(--ed-black);
+    color: var(--ed-black);
   }
 
   .header-logo {
@@ -2989,7 +3048,14 @@ canvas {
 
   .nav-toggle {
     flex: 0 0 auto;
-    margin-left: 0.45rem;
+    width: 2.32rem;
+    height: 2.32rem;
+    margin-left: 0;
+  }
+
+  .nav-toggle svg {
+    width: 1.15rem;
+    height: 1.15rem;
   }
 }
 
@@ -3089,11 +3155,31 @@ canvas {
 
 @media (max-width: 420px) {
   .header-logo img {
-    width: min(8.7rem, 38vw);
+    width: min(8.2rem, 36vw);
   }
 
   .mobile-header-actions {
-    gap: 0.42rem;
+    gap: 0.35rem;
+  }
+
+  .mobile-quote-link {
+    min-height: 2.22rem;
+    padding: 0.44rem 0.58rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.08em;
+  }
+
+  .mobile-quote-link__full {
+    display: none;
+  }
+
+  .mobile-quote-link__short {
+    display: inline;
+  }
+
+  .nav-toggle {
+    width: 2.22rem;
+    height: 2.22rem;
   }
 
   .mobile-header-actions .language-switcher__button {
@@ -3118,6 +3204,6 @@ canvas {
 
 @media (max-width: 360px) {
   .header-logo img {
-    width: min(8.5rem, 48vw);
+    width: min(7.7rem, 36vw);
   }
 }

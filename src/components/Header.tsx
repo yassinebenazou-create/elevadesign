@@ -51,6 +51,14 @@ export function Header() {
           </NavLink>
 
           <div className="mobile-header-actions" aria-label="Actions rapides">
+            <NavLink
+              className={`mobile-quote-link ${useHeroStyle ? 'mobile-quote-link--hero' : ''}`}
+              to="/contact"
+              aria-label={t.navigation['/contact']}
+            >
+              <span className="mobile-quote-link__full">{t.navigation['/contact']}</span>
+              <span className="mobile-quote-link__short">{t.contact.quoteShort}</span>
+            </NavLink>
             <LanguageSwitcher isHeroStyle={useHeroStyle} />
           </div>
 

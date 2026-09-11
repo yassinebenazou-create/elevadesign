@@ -31,5 +31,5 @@ export const navigationItems: NavItem[] = [
   { label: 'Projets', href: '/projets' },
   { label: 'À propos', href: '/a-propos' },
   { label: 'Services', href: '/services' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Demande de devis', href: '/contact' },
 ]

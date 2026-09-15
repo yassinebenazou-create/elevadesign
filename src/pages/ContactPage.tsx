@@ -1,4 +1,5 @@
 import type { FormEvent } from 'react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
@@ -10,6 +11,9 @@ import { useI18n } from '../i18n/I18nProvider'
 
 export function ContactPage() {
   const { t } = useI18n()
+  const addressHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${siteConfig.contact.address} ${siteConfig.contact.city}`,
+  )}`
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -52,44 +56,44 @@ export function ContactPage() {
         description={pageSeo.contact.description}
         canonicalPath="/contact"
       />
-      <Container size="wide" className="contact-layout">
-        <Reveal className="contact-copy">
-          <h1 className="contact-title">
-            <span>{t.contact.titleParts[0]}</span>
-            <em>{t.contact.titleParts[1]}</em>
-            <span>{t.contact.titleParts[2]}</span>
-          </h1>
-          <p>{t.contact.text}</p>
-          <div className="contact-copy__details">
-            <span className="contact-copy__label">{t.contact.emailProjects}</span>
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
-            <span className="contact-copy__label">{t.contact.phone}</span>
-            <a href={`tel:${siteConfig.contact.phone.replaceAll(' ', '')}`}>
-              {siteConfig.contact.phone}
-            </a>
-            <span className="contact-copy__label">{t.contact.address}</span>
-            <span className="contact-copy__value">{siteConfig.contact.address}</span>
-            <span className="contact-copy__value">{siteConfig.contact.city}</span>
-            <SocialLinks className="contact-social-links" />
-          </div>
-        </Reveal>
+      <section className="contact-hero" aria-label={pageSeo.contact.h1}>
+        <Container size="narrow" className="contact-hero__inner">
+          <Reveal className="contact-copy">
+            <h1 className="contact-title">
+              <span>{t.contact.titleParts[0]}</span>
+              {' '}
+              <em>{t.contact.titleParts[1]}</em>
+              {' '}
+              <span>{t.contact.titleParts[2]}</span>
+            </h1>
+            <p>{t.contact.text}</p>
+          </Reveal>
+        </Container>
+      </section>
 
+      <Container size="narrow" className="contact-layout">
         <Reveal className="contact-form-reveal" delay={0.08}>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-form__grid">
-              <div>
+              <div className="contact-field">
                 <label htmlFor="name">{t.contact.name}</label>
                 <input id="name" name="name" placeholder={t.contact.namePlaceholder} required />
               </div>
-              <div>
+              <div className="contact-field">
                 <label htmlFor="email">{t.contact.email}</label>
-                <input id="email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
+                <div className="contact-input-wrap">
+                  <Mail size={18} aria-hidden="true" />
+                  <input id="email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
+                </div>
               </div>
-              <div>
+              <div className="contact-field">
                 <label htmlFor="phone">{t.contact.phone}</label>
-                <input id="phone" name="phone" placeholder={siteConfig.contact.phone} />
+                <div className="contact-input-wrap">
+                  <Phone size={18} aria-hidden="true" />
+                  <input id="phone" name="phone" placeholder={siteConfig.contact.phone} />
+                </div>
               </div>
-              <div>
+              <div className="contact-field">
                 <label htmlFor="projectType">{t.contact.projectType}</label>
                 <select id="projectType" name="projectType" defaultValue="">
                   <option value="" disabled>
@@ -102,14 +106,65 @@ export function ContactPage() {
                 </select>
               </div>
             </div>
-            <div>
+            <div className="contact-field contact-field--message">
               <label htmlFor="message">{t.contact.message}</label>
               <textarea id="message" name="message" placeholder={t.contact.messagePlaceholder} required />
             </div>
-            <Button type="submit" className="contact-form__submit">
-              {t.contact.submit}
-            </Button>
+            <div className="contact-form__actions">
+              <Button type="submit" variant="secondary" className="contact-form__submit">
+                {t.contact.submit}
+              </Button>
+            </div>
           </form>
+        </Reveal>
+
+        <Reveal className="contact-details" delay={0.12}>
+          <div className="contact-details__intro">
+            <h2>{t.contact.detailsTitle}</h2>
+            <p>{t.contact.detailsText}</p>
+          </div>
+          <div className="contact-details__grid">
+            <a className="contact-detail-card" href={`mailto:${siteConfig.contact.email}`}>
+              <span className="contact-detail-card__icon">
+                <Mail size={18} aria-hidden="true" />
+              </span>
+              <span>
+                <span className="contact-copy__label">{t.contact.emailProjects}</span>
+                <span className="contact-detail-card__value contact-detail-card__value--email">
+                  {siteConfig.contact.email}
+                </span>
+              </span>
+            </a>
+            <a className="contact-detail-card" href={`tel:${siteConfig.contact.phone.replaceAll(' ', '')}`}>
+              <span className="contact-detail-card__icon">
+                <Phone size={18} aria-hidden="true" />
+              </span>
+              <span>
+                <span className="contact-copy__label">{t.contact.phone}</span>
+                <span className="contact-detail-card__value">{siteConfig.contact.phone}</span>
+              </span>
+            </a>
+            <a
+              className="contact-detail-card"
+              href={addressHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.contact.address}: ${siteConfig.contact.address}, ${siteConfig.contact.city}`}
+            >
+              <span className="contact-detail-card__icon">
+                <MapPin size={18} aria-hidden="true" />
+              </span>
+              <span>
+                <span className="contact-copy__label">{t.contact.address}</span>
+                <span className="contact-detail-card__value">
+                  {siteConfig.contact.address}
+                  <br />
+                  {siteConfig.contact.city}
+                </span>
+              </span>
+            </a>
+          </div>
+          <SocialLinks className="contact-social-links" showArrow showPhone={false} />
         </Reveal>
       </Container>
     </section>

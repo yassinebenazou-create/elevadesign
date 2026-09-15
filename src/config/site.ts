@@ -11,7 +11,7 @@ export const siteConfig = {
   tagline: 'Espaces intérieurs et extérieurs composés avec justesse.',
   locale: 'fr-FR',
   contact: {
-    email: 'contact@elevadesign.example',
+    email: 'elevadesign@gmail.com',
     phone: '+212 657-075454',
     phoneIcon: '/images/brand/call-icon.jpg',
     whatsappNumber: '212657075454',

@@ -1,7 +1,10 @@
+import { ArrowUpRight } from 'lucide-react'
 import { siteConfig } from '../config/site'
 
 type SocialLinksProps = {
   className?: string
+  showArrow?: boolean
+  showPhone?: boolean
 }
 
 function InstagramIcon() {
@@ -22,17 +25,20 @@ function FacebookIcon() {
   )
 }
 
-export function SocialLinks({ className = '' }: SocialLinksProps) {
+export function SocialLinks({ className = '', showArrow = false, showPhone = true }: SocialLinksProps) {
   return (
     <div className={`social-links ${className}`.trim()}>
-      <a
-        className="social-link"
-        href={`tel:${siteConfig.contact.phone.replaceAll(/[^\d+]/g, '')}`}
-        aria-label={`Appeler Eleva Design au ${siteConfig.contact.phone}`}
-      >
-        <img className="social-link__image" src={siteConfig.contact.phoneIcon} alt="" aria-hidden="true" />
-        <span>{siteConfig.contact.phone}</span>
-      </a>
+      {showPhone ? (
+        <a
+          className="social-link"
+          href={`tel:${siteConfig.contact.phone.replaceAll(/[^\d+]/g, '')}`}
+          aria-label={`Appeler Eleva Design au ${siteConfig.contact.phone}`}
+        >
+          <img className="social-link__image" src={siteConfig.contact.phoneIcon} alt="" aria-hidden="true" />
+          <span>{siteConfig.contact.phone}</span>
+          {showArrow ? <ArrowUpRight className="social-link__arrow" size={16} aria-hidden="true" /> : null}
+        </a>
+      ) : null}
       <a
         className="social-link"
         href={siteConfig.contact.instagramUrl}
@@ -42,6 +48,7 @@ export function SocialLinks({ className = '' }: SocialLinksProps) {
       >
         <InstagramIcon />
         <span>{siteConfig.contact.instagramHandle}</span>
+        {showArrow ? <ArrowUpRight className="social-link__arrow" size={16} aria-hidden="true" /> : null}
       </a>
       <a
         className="social-link"
@@ -52,6 +59,7 @@ export function SocialLinks({ className = '' }: SocialLinksProps) {
       >
         <FacebookIcon />
         <span>Facebook</span>
+        {showArrow ? <ArrowUpRight className="social-link__arrow" size={16} aria-hidden="true" /> : null}
       </a>
     </div>
   )

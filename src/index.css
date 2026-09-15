@@ -2332,6 +2332,16 @@ a.contact-detail-card:focus-visible .contact-detail-card__icon {
   text-align: center;
 }
 
+.footer-bottom__link {
+  color: rgba(163, 117, 48, 0.78);
+  font-weight: 500;
+}
+
+.footer-bottom__link:hover,
+.footer-bottom__link:focus-visible {
+  color: var(--ed-gold);
+}
+
 @media (max-width: 1023px) {
   .footer-top {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -48,7 +48,17 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>{t.footer.rights}</p>
+        <p>
+          © 2026 Eleva Design. Tous droits réservés. — Site créé par{' '}
+          <a
+            className="footer-link footer-bottom__link"
+            href="https://github.com/yassinebenazou-create"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yassine Benazzou
+          </a>
+        </p>
       </div>
     </footer>
   )

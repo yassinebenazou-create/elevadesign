@@ -781,7 +781,8 @@ button:disabled {
   }
 
   .hero-slider__image,
-  .hero-slider__image.is-active {
+  .hero-slider__image.is-active,
+  .services-hero::before {
     transform: scale(1);
   }
 
@@ -1205,18 +1206,52 @@ button:disabled {
 }
 
 .services-hero {
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(247, 241, 232, 0.72)),
-    var(--ed-white);
+  align-items: center;
+  background: var(--ed-black);
   border-top: 1px solid var(--ed-border);
   border-bottom: 1px solid var(--ed-border);
+  display: grid;
+  min-height: 600px;
+  overflow: hidden;
   padding-block: clamp(5rem, 9vw, 8rem);
+  position: relative;
+}
+
+.services-hero::before,
+.services-hero::after {
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.services-hero::before {
+  animation: servicesHeroZoom 24s ease-in-out infinite alternate;
+  background-image: url('/images/services/services-hero.webp');
+  background-position: center 48%;
+  background-size: cover;
+  transform: scale(1);
+  transform-origin: center;
+  will-change: transform;
+  z-index: 0;
+}
+
+.services-hero::after {
+  background:
+    linear-gradient(180deg, rgba(42, 32, 24, 0.48), rgba(38, 28, 20, 0.55)),
+    linear-gradient(90deg, rgba(54, 42, 31, 0.36), rgba(34, 25, 18, 0.2));
+  z-index: 1;
+}
+
+.services-hero > div {
+  position: relative;
+  z-index: 2;
 }
 
 .services-hero__content {
   margin-inline: auto;
   max-width: 58rem;
   text-align: center;
+  text-shadow: 0 0.9rem 2.4rem rgba(18, 13, 8, 0.34);
 }
 
 .services-hero h1,
@@ -1229,19 +1264,37 @@ button:disabled {
 }
 
 .services-hero h1 {
+  color: var(--ed-white);
   font-size: clamp(5rem, 9vw, 9rem);
   line-height: 0.92;
   margin-top: 1.3rem;
+  text-shadow: 0 1rem 2.6rem rgba(18, 13, 8, 0.36);
+}
+
+.services-hero .eyebrow {
+  color: var(--ed-gold);
+  text-shadow: 0 0.75rem 1.8rem rgba(18, 13, 8, 0.28);
 }
 
 .services-hero__content > p:last-child {
-  color: var(--ed-muted);
+  color: rgba(255, 253, 248, 0.88);
   font-family: var(--ed-serif);
   font-size: clamp(1.55rem, 2.5vw, 2.55rem);
   font-style: italic;
   font-weight: 300;
   line-height: 1.5;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  text-shadow: 0 0.85rem 2.2rem rgba(18, 13, 8, 0.34);
+}
+
+@keyframes servicesHeroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.045);
+  }
 }
 
 .service-panel {
@@ -2855,7 +2908,12 @@ a.contact-detail-card:focus-visible .contact-detail-card__icon {
   }
 
   .services-hero {
+    min-height: 480px;
     padding-block: 4rem;
+  }
+
+  .services-hero::before {
+    background-position: 52% center;
   }
 
   .services-hero h1 {

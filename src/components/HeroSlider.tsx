@@ -80,6 +80,8 @@ export function HeroSlider() {
             fetchPriority={index === 0 ? 'high' : 'auto'}
             key={slide.id}
             loading={index === 0 ? 'eager' : 'lazy'}
+            width={5749}
+            height={3833}
             src={slide.src}
             style={{ objectPosition: slide.position }}
           />

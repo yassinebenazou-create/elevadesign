@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
 import { Seo } from '../components/Seo'
-import { pageSeo } from '../config/seo'
 import { projects } from '../data/projects'
 import { useI18n } from '../i18n/I18nProvider'
+import { getRouteSeo } from '../seo/routeSeo'
 import type { Project } from '../types/project'
 
 type FilterKey = 'all' | 'villas' | 'interior' | 'commercial' | 'residential' | 'offices' | 'wall'
@@ -48,6 +48,7 @@ const projectFilters: ProjectFilter[] = [
 export function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<FilterKey>('all')
   const { t } = useI18n()
+  const seo = getRouteSeo('/projets')
   const selectedFilter =
     projectFilters.find((filter) => filter.key === activeFilter) ?? projectFilters[0]
   const visibleProjects = useMemo(
@@ -58,9 +59,10 @@ export function ProjectsPage() {
   return (
     <section className="portfolio-projects" aria-label={t.projects.aria}>
       <Seo
-        title={pageSeo.projects.title}
-        description={pageSeo.projects.description}
+        title={seo.title}
+        description={seo.description}
         canonicalPath="/projets"
+        jsonLd={seo.jsonLd}
       />
       <header className="portfolio-hero">
         <p>{t.projects.eyebrow}</p>

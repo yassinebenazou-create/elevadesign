@@ -3,8 +3,8 @@ import { Container } from '../components/Container'
 import { ImageReveal } from '../components/ImageReveal'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
-import { pageSeo } from '../config/seo'
 import { useI18n } from '../i18n/I18nProvider'
+import { getRouteSeo } from '../seo/routeSeo'
 
 const serviceAssets = [
   {
@@ -31,13 +31,15 @@ const serviceAssets = [
 
 export function ServicesPage() {
   const { t } = useI18n()
+  const seo = getRouteSeo('/services')
 
   return (
-    <main className="services-page">
+    <section className="services-page">
       <Seo
-        title={pageSeo.services.title}
-        description={pageSeo.services.description}
+        title={seo.title}
+        description={seo.description}
         canonicalPath="/services"
+        jsonLd={seo.jsonLd}
       />
       <section className="services-hero">
         <Container size="wide">
@@ -73,6 +75,24 @@ export function ServicesPage() {
         })}
       </section>
 
+      <section className="services-seo-hub">
+        <Container size="wide">
+          <Reveal className="services-seo-hub__heading">
+            <p className="eyebrow">{t.services.hubEyebrow}</p>
+            <h2>{t.services.hubTitle}</h2>
+            <p>{t.services.hubText}</p>
+          </Reveal>
+          <div className="services-seo-hub__grid">
+            {t.services.hubItems.map(([title, text], index) => (
+              <Reveal as="article" className="services-seo-hub__item" delay={index * 0.06} key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="services-cta">
         <Container size="narrow">
           <Reveal className="services-cta__inner">
@@ -85,6 +105,6 @@ export function ServicesPage() {
           </Reveal>
         </Container>
       </section>
-    </main>
+    </section>
   )
 }

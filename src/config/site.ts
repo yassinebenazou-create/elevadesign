@@ -11,10 +11,10 @@ export const siteConfig = {
   tagline: 'Espaces intérieurs et extérieurs composés avec justesse.',
   locale: 'fr-FR',
   contact: {
-    email: 'elevadesign@gmail.com',
-    phone: '+212 657-075454',
+    email: 'elevadesignn@gmail.com',
+    phone: '0613790624',
     phoneIcon: '/images/brand/call-icon.jpg',
-    whatsappNumber: '212657075454',
+    whatsappNumber: '212613790624',
     whatsappMessage: 'Bonjour, je souhaite échanger sur un projet Eleva Design.',
     whatsappIcon: '/images/brand/whatsapp-icon.png',
     address: 'Adresse du studio à renseigner',
@@ -29,6 +29,7 @@ export const siteConfig = {
 export const navigationItems: NavItem[] = [
   { label: 'Accueil', href: '/' },
   { label: 'Projets', href: '/projets' },
+  { label: 'Nos Réalisations', href: '/realisations' },
   { label: 'À propos', href: '/a-propos' },
   { label: 'Services', href: '/services' },
   { label: 'Demande de devis', href: '/contact' },

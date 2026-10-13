@@ -21,7 +21,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
     >
       <div className="mobile-nav__top">
         <NavLink className="mobile-nav__logo" to="/" onClick={onClose} tabIndex={isOpen ? 0 : -1}>
-          <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} />
+          <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} width={2172} height={724} />
         </NavLink>
         <div className="mobile-nav__actions">
           <LanguageSwitcher isHeroStyle />

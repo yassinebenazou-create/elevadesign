@@ -21,6 +21,7 @@ export const translations = {
     navigation: {
       '/': 'Accueil',
       '/projets': 'Projets',
+      '/realisations': 'Nos Réalisations',
       '/a-propos': 'À propos',
       '/services': 'Services',
       '/contact': 'Demande de devis',
@@ -39,6 +40,13 @@ export const translations = {
     home: {
       recent: 'Réalisations récentes',
       allProjects: 'Voir tous les projets',
+      nationalEyebrow: 'Au Maroc',
+      nationalTitle: 'Architecture intérieure et décoration au Maroc',
+      nationalText:
+        'Eleva Design accompagne les villas, appartements, restaurants, cafés, commerces et espaces professionnels avec une approche mesurée de l’architecture intérieure, de la décoration, de la rénovation et de l’aménagement extérieur.',
+      nationalLinksLabel: 'Découvrir les pages principales Eleva Design',
+      servicesLink: 'Découvrir les services',
+      projectsLink: 'Voir les projets',
     },
     projectCard: {
       view: 'Voir le projet',
@@ -59,6 +67,18 @@ export const translations = {
         offices: 'Bureaux',
         wall: 'Habillage mural',
       },
+    },
+    realisations: {
+      aria: 'Nos Réalisations Eleva Design',
+      eyebrow: 'Portfolio Instagram',
+      title: 'Nos Réalisations',
+      intro:
+        'Une sélection de publications Instagram officielles Eleva Design, présentée comme une galerie vivante et accessible.',
+      curated: 'Publications sélectionnées manuellement depuis le compte Instagram du studio.',
+      profileCta: 'Voir le profil',
+      galleryAria: 'Galerie des publications Instagram Eleva Design',
+      openPost: 'Voir la publication sur Instagram',
+      loading: 'Chargement de la publication Instagram',
     },
     projectDetail: {
       back: 'Retour aux projets',
@@ -115,6 +135,20 @@ export const translations = {
       ctaTextA: 'Vous imaginez un nouvel espace ?',
       ctaTextB: "Nous serions heureux d'en découvrir l'histoire.",
       cta: 'Parler de mon projet →',
+      hubEyebrow: 'Expertises au Maroc',
+      hubTitle: 'Un accompagnement complet pour les espaces résidentiels et professionnels',
+      hubText:
+        'Chaque mission est construite autour des usages réels du lieu : recevoir, cuisiner, travailler, se reposer, accueillir une clientèle ou prolonger la maison vers l’extérieur.',
+      hubItems: [
+        ['Architecture intérieure', 'Agencement des volumes, circulation, lumière, matières et détails architecturaux pour créer des intérieurs cohérents.'],
+        ['Décoration intérieure', 'Sélection des couleurs, textures, mobilier, objets et finitions pour donner une identité élégante aux salons, séjours et chambres.'],
+        ['Cuisines et salons', 'Conception d’espaces de vie fonctionnels et chaleureux, pensés pour le quotidien, la réception et le confort familial.'],
+        ['Villas et appartements', 'Aménagement global ou partiel de biens résidentiels, de la pièce principale aux suites parentales, dressings et salles de bain.'],
+        ['Restaurants, cafés et commerces', 'Création d’ambiances commerciales mémorables pour accueillir, orienter et valoriser l’expérience client.'],
+        ['Bureaux et espaces professionnels', 'Organisation d’environnements de travail lisibles, confortables et représentatifs de l’image du lieu.'],
+        ['Rénovation', 'Relecture d’espaces existants avec une attention portée aux proportions, aux finitions et aux nouveaux usages.'],
+        ['Aménagement extérieur', 'Terrasses, jardins, balcons, piscines et espaces extérieurs conçus comme une continuité naturelle de l’intérieur.'],
+      ],
     },
     contact: {
       titleParts: ['Parlons', 'de votre', 'Projet'],
@@ -141,8 +175,7 @@ export const translations = {
       submit: 'Envoyer la demande',
     },
     footer: {
-      tagline:
-        'Home Decor - Aménagement intérieur & extérieur. Contenu de démonstration, prêt à être remplacé par les informations officielles du studio.',
+      tagline: '',
       navigation: 'Navigation',
       contact: 'Contact',
       follow: 'Suivez-nous',
@@ -164,6 +197,7 @@ export const translations = {
     navigation: {
       '/': 'Home',
       '/projets': 'Projects',
+      '/realisations': 'Our Work',
       '/a-propos': 'About',
       '/services': 'Services',
       '/contact': 'Request a quote',
@@ -182,6 +216,13 @@ export const translations = {
     home: {
       recent: 'Recent work',
       allProjects: 'View all projects',
+      nationalEyebrow: 'In Morocco',
+      nationalTitle: 'Interior architecture and decoration in Morocco',
+      nationalText:
+        'Eleva Design supports villas, apartments, restaurants, cafés, shops and professional spaces with a measured approach to interior architecture, decoration, renovation and outdoor planning.',
+      nationalLinksLabel: 'Discover the main Eleva Design pages',
+      servicesLink: 'Discover services',
+      projectsLink: 'View projects',
     },
     projectCard: {
       view: 'View project',
@@ -202,6 +243,18 @@ export const translations = {
         offices: 'Offices',
         wall: 'Wall cladding',
       },
+    },
+    realisations: {
+      aria: 'Eleva Design work',
+      eyebrow: 'Instagram portfolio',
+      title: 'Our Work',
+      intro:
+        'A selection of official Eleva Design Instagram posts, presented as a living and accessible gallery.',
+      curated: "Posts manually selected from the studio's Instagram account.",
+      profileCta: 'View profile',
+      galleryAria: 'Eleva Design Instagram post gallery',
+      openPost: 'View post on Instagram',
+      loading: 'Loading Instagram post',
     },
     projectDetail: {
       back: 'Back to projects',
@@ -258,6 +311,20 @@ export const translations = {
       ctaTextA: 'Are you imagining a new space?',
       ctaTextB: 'We would be happy to discover its story.',
       cta: 'Start a project →',
+      hubEyebrow: 'Expertise in Morocco',
+      hubTitle: 'Complete support for residential and professional spaces',
+      hubText:
+        'Each mission is shaped around real uses: receiving, cooking, working, resting, welcoming customers or extending the home outdoors.',
+      hubItems: [
+        ['Interior architecture', 'Volumes, circulation, light, materials and architectural details for coherent interiors.'],
+        ['Interior decoration', 'Colours, textures, furniture, objects and finishes for elegant living rooms, lounges and bedrooms.'],
+        ['Kitchens and living rooms', 'Functional and warm living spaces designed for daily life, hosting and family comfort.'],
+        ['Villas and apartments', 'Complete or partial residential planning, from main rooms to master suites, dressings and bathrooms.'],
+        ['Restaurants, cafés and shops', 'Memorable commercial atmospheres that welcome, guide and enhance the customer experience.'],
+        ['Offices and professional spaces', 'Readable, comfortable work environments that reflect the place’s identity.'],
+        ['Renovation', 'Reworking existing spaces with attention to proportions, finishes and new uses.'],
+        ['Outdoor planning', 'Terraces, gardens, balconies, pools and outdoor spaces designed as a natural continuation of the interior.'],
+      ],
     },
     contact: {
       titleParts: ["Let's talk", 'about your', 'Project'],
@@ -284,8 +351,7 @@ export const translations = {
       submit: 'Send request',
     },
     footer: {
-      tagline:
-        'Home Decor - Interior & exterior design. Demonstration content, ready to be replaced with official studio information.',
+      tagline: '',
       navigation: 'Navigation',
       contact: 'Contact',
       follow: 'Follow us',
@@ -307,6 +373,7 @@ export const translations = {
     navigation: {
       '/': 'Inicio',
       '/projets': 'Proyectos',
+      '/realisations': 'Realizaciones',
       '/a-propos': 'Estudio',
       '/services': 'Servicios',
       '/contact': 'Solicitar presupuesto',
@@ -325,6 +392,13 @@ export const translations = {
     home: {
       recent: 'Realizaciones recientes',
       allProjects: 'Ver todos los proyectos',
+      nationalEyebrow: 'En Marruecos',
+      nationalTitle: 'Arquitectura interior y decoración en Marruecos',
+      nationalText:
+        'Eleva Design acompaña villas, apartamentos, restaurantes, cafés, comercios y espacios profesionales con un enfoque medido de arquitectura interior, decoración, renovación y diseño exterior.',
+      nationalLinksLabel: 'Descubrir las páginas principales de Eleva Design',
+      servicesLink: 'Descubrir servicios',
+      projectsLink: 'Ver proyectos',
     },
     projectCard: {
       view: 'Ver el proyecto',
@@ -345,6 +419,18 @@ export const translations = {
         offices: 'Oficinas',
         wall: 'Revestimiento mural',
       },
+    },
+    realisations: {
+      aria: 'Realizaciones Eleva Design',
+      eyebrow: 'Portfolio Instagram',
+      title: 'Realizaciones',
+      intro:
+        'Una selección de publicaciones oficiales de Instagram de Eleva Design, presentada como una galería viva y accesible.',
+      curated: 'Publicaciones seleccionadas manualmente desde la cuenta de Instagram del estudio.',
+      profileCta: 'Ver perfil',
+      galleryAria: 'Galería de publicaciones Instagram de Eleva Design',
+      openPost: 'Ver la publicación en Instagram',
+      loading: 'Cargando publicación de Instagram',
     },
     projectDetail: {
       back: 'Volver a proyectos',
@@ -401,6 +487,20 @@ export const translations = {
       ctaTextA: '¿Imagina un nuevo espacio?',
       ctaTextB: 'Nos encantaría descubrir su historia.',
       cta: 'Hablar de mi proyecto →',
+      hubEyebrow: 'Experiencias en Marruecos',
+      hubTitle: 'Acompañamiento completo para espacios residenciales y profesionales',
+      hubText:
+        'Cada misión se construye alrededor de los usos reales del lugar: recibir, cocinar, trabajar, descansar, acoger clientes o prolongar la casa hacia el exterior.',
+      hubItems: [
+        ['Arquitectura interior', 'Volúmenes, circulación, luz, materiales y detalles arquitectónicos para interiores coherentes.'],
+        ['Decoración interior', 'Colores, texturas, mobiliario, objetos y acabados para salones, estancias y dormitorios elegantes.'],
+        ['Cocinas y salones', 'Espacios de vida funcionales y cálidos pensados para el día a día, la recepción y el confort familiar.'],
+        ['Villas y apartamentos', 'Diseño residencial completo o parcial, desde las piezas principales hasta suites, vestidores y baños.'],
+        ['Restaurantes, cafés y comercios', 'Ambientes comerciales memorables para acoger, orientar y valorizar la experiencia del cliente.'],
+        ['Oficinas y espacios profesionales', 'Entornos de trabajo claros, cómodos y representativos de la identidad del lugar.'],
+        ['Renovación', 'Relectura de espacios existentes con atención a proporciones, acabados y nuevos usos.'],
+        ['Diseño exterior', 'Terrazas, jardines, balcones, piscinas y exteriores concebidos como continuación natural del interior.'],
+      ],
     },
     contact: {
       titleParts: ['Hablemos', 'de su', 'Proyecto'],
@@ -427,8 +527,7 @@ export const translations = {
       submit: 'Enviar solicitud',
     },
     footer: {
-      tagline:
-        'Home Decor - Diseño interior y exterior. Contenido de demostración, listo para reemplazarse por la información oficial del estudio.',
+      tagline: '',
       navigation: 'Navegación',
       contact: 'Contacto',
       follow: 'Síganos',
@@ -450,6 +549,7 @@ export const translations = {
     navigation: {
       '/': 'Home',
       '/projets': 'Progetti',
+      '/realisations': 'Realizzazioni',
       '/a-propos': 'Studio',
       '/services': 'Servizi',
       '/contact': 'Richiedi preventivo',
@@ -468,6 +568,13 @@ export const translations = {
     home: {
       recent: 'Realizzazioni recenti',
       allProjects: 'Vedi tutti i progetti',
+      nationalEyebrow: 'In Marocco',
+      nationalTitle: 'Architettura d’interni e decorazione in Marocco',
+      nationalText:
+        'Eleva Design accompagna ville, appartamenti, ristoranti, caffè, negozi e spazi professionali con un approccio misurato ad architettura d’interni, decorazione, ristrutturazione e progettazione esterna.',
+      nationalLinksLabel: 'Scoprire le pagine principali Eleva Design',
+      servicesLink: 'Scopri i servizi',
+      projectsLink: 'Vedi i progetti',
     },
     projectCard: {
       view: 'Vedi progetto',
@@ -488,6 +595,18 @@ export const translations = {
         offices: 'Uffici',
         wall: 'Rivestimento murale',
       },
+    },
+    realisations: {
+      aria: 'Realizzazioni Eleva Design',
+      eyebrow: 'Portfolio Instagram',
+      title: 'Realizzazioni',
+      intro:
+        'Una selezione di pubblicazioni Instagram ufficiali di Eleva Design, presentata come una galleria viva e accessibile.',
+      curated: "Pubblicazioni selezionate manualmente dall'account Instagram dello studio.",
+      profileCta: 'Vedi profilo',
+      galleryAria: 'Galleria delle pubblicazioni Instagram Eleva Design',
+      openPost: 'Vedi la pubblicazione su Instagram',
+      loading: 'Caricamento della pubblicazione Instagram',
     },
     projectDetail: {
       back: 'Torna ai progetti',
@@ -544,6 +663,20 @@ export const translations = {
       ctaTextA: 'Stai immaginando un nuovo spazio?',
       ctaTextB: 'Saremo felici di scoprirne la storia.',
       cta: 'Parlare del progetto →',
+      hubEyebrow: 'Competenze in Marocco',
+      hubTitle: 'Un accompagnamento completo per spazi residenziali e professionali',
+      hubText:
+        'Ogni missione nasce dagli usi reali del luogo: ricevere, cucinare, lavorare, riposare, accogliere clienti o prolungare la casa verso l’esterno.',
+      hubItems: [
+        ['Architettura d’interni', 'Volumi, percorsi, luce, materiali e dettagli architettonici per interni coerenti.'],
+        ['Decorazione d’interni', 'Colori, texture, arredi, oggetti e finiture per soggiorni, living e camere eleganti.'],
+        ['Cucine e soggiorni', 'Spazi di vita funzionali e caldi pensati per il quotidiano, l’accoglienza e il comfort familiare.'],
+        ['Ville e appartamenti', 'Progettazione residenziale completa o parziale, dagli ambienti principali alle suite, cabine armadio e bagni.'],
+        ['Ristoranti, caffè e negozi', 'Atmosfere commerciali memorabili per accogliere, orientare e valorizzare l’esperienza cliente.'],
+        ['Uffici e spazi professionali', 'Ambienti di lavoro chiari, confortevoli e rappresentativi dell’identità del luogo.'],
+        ['Ristrutturazione', 'Rilettura degli spazi esistenti con attenzione a proporzioni, finiture e nuovi usi.'],
+        ['Progettazione esterna', 'Terrazze, giardini, balconi, piscine e spazi esterni come naturale continuità degli interni.'],
+      ],
     },
     contact: {
       titleParts: ['Parliamo', 'del tuo', 'Progetto'],
@@ -570,8 +703,7 @@ export const translations = {
       submit: 'Invia richiesta',
     },
     footer: {
-      tagline:
-        'Home Decor - Progettazione interni ed esterni. Contenuto dimostrativo, pronto per essere sostituito dalle informazioni ufficiali dello studio.',
+      tagline: '',
       navigation: 'Navigazione',
       contact: 'Contatto',
       follow: 'Seguici',

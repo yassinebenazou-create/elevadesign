@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ProjectDetailPage } from './pages/ProjectDetailPage'
 import { ProjectsPage } from './pages/ProjectsPage'
+import { RealisationsPage } from './pages/RealisationsPage'
 import { ServicesPage } from './pages/ServicesPage'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/projets" element={<ProjectsPage />} />
           <Route path="/projets/:slug" element={<ProjectDetailPage />} />
+          <Route path="/realisations" element={<RealisationsPage />} />
           <Route path="/a-propos" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />

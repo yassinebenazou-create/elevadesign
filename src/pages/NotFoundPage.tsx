@@ -1,8 +1,8 @@
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
 import { Seo } from '../components/Seo'
-import { pageSeo } from '../config/seo'
 import { useI18n } from '../i18n/I18nProvider'
+import { notFoundRouteSeo } from '../seo/routeSeo'
 
 export function NotFoundPage() {
   const { t } = useI18n()
@@ -10,8 +10,8 @@ export function NotFoundPage() {
   return (
     <section className="section-space">
       <Seo
-        title={pageSeo.notFound.title}
-        description={pageSeo.notFound.description}
+        title={notFoundRouteSeo.title}
+        description={notFoundRouteSeo.description}
         canonicalPath="/404"
         robots="noindex, follow"
       />

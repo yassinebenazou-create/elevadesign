@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
+import { useHasMounted } from '../hooks/useHasMounted'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useI18n } from '../i18n/I18nProvider'
 import type { Project } from '../types/project'
@@ -10,21 +11,30 @@ type ProjectCardProps = {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const hasMounted = useHasMounted()
   const prefersReducedMotion = usePrefersReducedMotion()
   const { projectText, t } = useI18n()
   const translatedProject = projectText(project)
+  const canAnimate = hasMounted && !prefersReducedMotion
 
   return (
     <motion.article
       className="project-card"
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
-      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={canAnimate ? { opacity: 0, y: 36 } : false}
+      whileInView={canAnimate ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.72, ease: [0.25, 0.1, 0.25, 1] }}
       viewport={{ once: true, amount: 0.16 }}
     >
       <Link to={`/projets/${project.slug}`} className="project-card__link">
         <div className="project-card__media">
-          <img src={project.coverImage} alt={project.coverAlt} loading="lazy" />
+          <img
+            src={project.coverImage}
+            alt={project.coverAlt}
+            loading="lazy"
+            decoding="async"
+            width={1920}
+            height={1280}
+          />
           <div className="project-card__overlay" aria-hidden="true">
             <span>{t.projectCard.view}</span>
           </div>

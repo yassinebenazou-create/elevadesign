@@ -13,6 +13,7 @@ export function organizationSchema() {
     name: siteConfig.name,
     url: seoConfig.siteUrl,
     logo: absoluteSiteUrl(siteConfig.logo.src),
+    email: siteConfig.contact.email,
     sameAs: [siteConfig.contact.instagramUrl, siteConfig.contact.facebookUrl].filter(Boolean),
   }
 }
@@ -36,6 +37,7 @@ export function professionalServiceSchema() {
     logo: absoluteSiteUrl(siteConfig.logo.src),
     image: absoluteSiteUrl(seoConfig.defaultImage),
     telephone: siteConfig.contact.phone,
+    email: siteConfig.contact.email,
     areaServed: {
       '@type': 'Country',
       name: 'Maroc',
@@ -48,6 +50,22 @@ export function professionalServiceSchema() {
       'Décoration intérieure',
     ],
     sameAs: [siteConfig.contact.instagramUrl, siteConfig.contact.facebookUrl].filter(Boolean),
+  }
+}
+
+export function webPageSchema(name: string, description: string, path: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description,
+    url: absoluteSiteUrl(path),
+    inLanguage: 'fr-FR',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: seoConfig.siteName,
+      url: seoConfig.siteUrl,
+    },
   }
 }
 
@@ -65,6 +83,8 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
 }
 
 export function projectSchema(project: Project, description: string) {
+  const knownLocation = !project.location.toLowerCase().includes('renseigner')
+
   return {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
@@ -77,7 +97,7 @@ export function projectSchema(project: Project, description: string) {
       url: seoConfig.siteUrl,
     },
     about: project.category,
-    contentLocation: project.location,
+    contentLocation: knownLocation ? project.location : undefined,
     dateCreated: project.year.match(/^\d{4}$/) ? project.year : undefined,
     url: absoluteSiteUrl(`/projets/${project.slug}`),
   }

@@ -4,9 +4,9 @@ import { Container } from '../components/Container'
 import { ImageReveal } from '../components/ImageReveal'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
-import { pageSeo } from '../config/seo'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useI18n } from '../i18n/I18nProvider'
+import { getRouteSeo } from '../seo/routeSeo'
 
 const universeImages = [
   {
@@ -30,13 +30,15 @@ const universeImages = [
 export function AboutPage() {
   const prefersReducedMotion = usePrefersReducedMotion()
   const { t } = useI18n()
+  const seo = getRouteSeo('/a-propos')
 
   return (
-    <main className="about-page">
+    <section className="about-page">
       <Seo
-        title={pageSeo.about.title}
-        description={pageSeo.about.description}
+        title={seo.title}
+        description={seo.description}
         canonicalPath="/a-propos"
+        jsonLd={seo.jsonLd}
       />
       <section className="about-hero">
         <Container size="wide" className="about-hero__inner">
@@ -143,6 +145,6 @@ export function AboutPage() {
           </Reveal>
         </Container>
       </section>
-    </main>
+    </section>
   )
 }

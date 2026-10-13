@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { useRef, useState } from 'react'
+import { useHasMounted } from '../hooks/useHasMounted'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import type { ProjectGalleryImage } from '../types/project'
 import { Lightbox } from './Lightbox'
@@ -11,7 +12,9 @@ type ProjectGalleryProps = {
 export function ProjectGallery({ images }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const hasMounted = useHasMounted()
   const prefersReducedMotion = usePrefersReducedMotion()
+  const canAnimate = hasMounted && !prefersReducedMotion
 
   const openLightbox = (index: number) => {
     setActiveIndex(index)
@@ -46,8 +49,8 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
         {images.map((image, index) => (
           <motion.figure
             className={`project-gallery__item project-gallery__item--${index + 1}`}
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            initial={canAnimate ? { opacity: 0, y: 28 } : false}
+            whileInView={canAnimate ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, amount: 0.18 }}
             key={image.src}
@@ -60,7 +63,14 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
                 triggerRefs.current[index] = element
               }}
             >
-              <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                width={1920}
+                height={1280}
+              />
             </button>
           </motion.figure>
         ))}

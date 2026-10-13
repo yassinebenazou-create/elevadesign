@@ -6,7 +6,7 @@ import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { getAdjacentProjects, getProjectBySlug } from '../data/projects'
 import { useI18n } from '../i18n/I18nProvider'
-import { breadcrumbSchema, projectSchema } from '../utils/structuredData'
+import { getRouteSeo } from '../seo/routeSeo'
 import { NotFoundPage } from './NotFoundPage'
 
 export function ProjectDetailPage() {
@@ -20,28 +20,27 @@ export function ProjectDetailPage() {
 
   const { previousProject, nextProject } = getAdjacentProjects(project.slug)
   const translatedProject = projectText(project)
-  const seoTitle = `${project.title} | Projet ${translatedProject.category} au Maroc | Eleva Design`
-  const seoDescription = translatedProject.shortDescription
+  const seo = getRouteSeo(`/projets/${project.slug}`)
 
   return (
     <article className="project-detail">
       <Seo
-        title={seoTitle}
-        description={seoDescription}
+        title={seo.title}
+        description={seo.description}
         canonicalPath={`/projets/${project.slug}`}
         image={project.coverImage}
         type="article"
-        jsonLd={[
-          breadcrumbSchema([
-            { name: 'Accueil', path: '/' },
-            { name: 'Projets', path: '/projets' },
-            { name: project.title, path: `/projets/${project.slug}` },
-          ]),
-          projectSchema(project, seoDescription),
-        ]}
+        jsonLd={seo.jsonLd}
       />
       <section className="project-detail__hero" aria-label={project.title}>
-        <img src={project.coverImage} alt={project.coverAlt} fetchPriority="high" />
+        <img
+          src={project.coverImage}
+          alt={project.coverAlt}
+          fetchPriority="high"
+          decoding="async"
+          width={1920}
+          height={1280}
+        />
         <div className="project-detail__hero-overlay" aria-hidden="true" />
         <Container size="wide" className="project-detail__hero-inner">
           <Link className="project-detail__back project-detail__back--hero" to="/projets">

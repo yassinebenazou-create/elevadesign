@@ -47,7 +47,7 @@ export function Header() {
       >
         <div className="header-inner">
           <NavLink className="header-logo" to="/" aria-label="Accueil Eleva Design">
-            <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} />
+            <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} width={2172} height={724} />
           </NavLink>
 
           <div className="mobile-header-actions" aria-label="Actions rapides">

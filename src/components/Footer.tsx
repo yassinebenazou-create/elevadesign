@@ -11,9 +11,9 @@ export function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <NavLink className="footer-logo" to="/" aria-label="Accueil Eleva Design">
-            <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} />
+            <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} width={2172} height={724} />
           </NavLink>
-          <p className="footer-tagline">{t.footer.tagline}</p>
+          {t.footer.tagline ? <p className="footer-tagline">{t.footer.tagline}</p> : null}
         </div>
 
         <div className="footer-col">
@@ -52,7 +52,7 @@ export function Footer() {
           © 2026 Eleva Design. Tous droits réservés. — Site créé par{' '}
           <a
             className="footer-link footer-bottom__link"
-            href="https://github.com/yassinebenazou-create"
+            href="https://portfolio-peach-three-57.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
           >

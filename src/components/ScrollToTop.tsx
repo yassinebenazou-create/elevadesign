@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const scrollToPageTop = () => {
@@ -8,7 +8,7 @@ const scrollToPageTop = () => {
 export function ScrollToTop() {
   const location = useLocation()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     scrollToPageTop()
   }, [location.pathname, location.search, location.key])
 

@@ -74,7 +74,7 @@ export const translations = {
       title: 'Nos Réalisations',
       intro:
         'Une sélection de publications Instagram officielles Eleva Design, présentée comme une galerie vivante et accessible.',
-      curated: 'Publications sélectionnées manuellement depuis le compte Instagram du studio.',
+      curated: 'Flux Instagram synchronisé automatiquement depuis le compte officiel du studio.',
       profileCta: 'Voir le profil',
       galleryAria: 'Galerie des publications Instagram Eleva Design',
       openPost: 'Voir la publication sur Instagram',
@@ -250,7 +250,7 @@ export const translations = {
       title: 'Our Work',
       intro:
         'A selection of official Eleva Design Instagram posts, presented as a living and accessible gallery.',
-      curated: "Posts manually selected from the studio's Instagram account.",
+      curated: "Instagram feed automatically synced from the studio's official account.",
       profileCta: 'View profile',
       galleryAria: 'Eleva Design Instagram post gallery',
       openPost: 'View post on Instagram',
@@ -426,7 +426,7 @@ export const translations = {
       title: 'Realizaciones',
       intro:
         'Una selección de publicaciones oficiales de Instagram de Eleva Design, presentada como una galería viva y accesible.',
-      curated: 'Publicaciones seleccionadas manualmente desde la cuenta de Instagram del estudio.',
+      curated: 'Feed de Instagram sincronizado automáticamente desde la cuenta oficial del estudio.',
       profileCta: 'Ver perfil',
       galleryAria: 'Galería de publicaciones Instagram de Eleva Design',
       openPost: 'Ver la publicación en Instagram',
@@ -602,7 +602,7 @@ export const translations = {
       title: 'Realizzazioni',
       intro:
         'Una selezione di pubblicazioni Instagram ufficiali di Eleva Design, presentata come una galleria viva e accessibile.',
-      curated: "Pubblicazioni selezionate manualmente dall'account Instagram dello studio.",
+      curated: "Feed Instagram sincronizzato automaticamente dall'account ufficiale dello studio.",
       profileCta: 'Vedi profilo',
       galleryAria: 'Galleria delle pubblicazioni Instagram Eleva Design',
       openPost: 'Vedi la pubblicazione su Instagram',

@@ -1,12 +1,22 @@
 import { ExternalLink } from 'lucide-react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
-import { InstagramEmbed } from '../components/InstagramEmbed'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
-import { instagramPortfolioPosts, instagramProfileUrl } from '../data/instagramPortfolio'
+import { SimpleembedFeed } from '../components/SimpleembedFeed'
+import { instagramFeedId, instagramProfileUrl, instagramReelsUrl } from '../data/instagramPortfolio'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
+
+function InstagramGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5.1" />
+      <circle cx="12" cy="12" r="3.7" />
+      <circle cx="17.1" cy="6.9" r="0.85" />
+    </svg>
+  )
+}
 
 export function RealisationsPage() {
   const { t } = useI18n()
@@ -29,7 +39,7 @@ export function RealisationsPage() {
             <p>{t.realisations.intro}</p>
           </Reveal>
           <Reveal className="realisations-hero__aside" delay={0.12}>
-            <span>{String(instagramPortfolioPosts.length).padStart(2, '0')}</span>
+            <span aria-label="Instagram">IG</span>
             <p>{t.realisations.curated}</p>
             <Button href={instagramProfileUrl} variant="secondary" target="_blank" rel="noreferrer">
               <ExternalLink size={17} aria-hidden="true" />
@@ -40,22 +50,21 @@ export function RealisationsPage() {
       </header>
 
       <Container size="wide" className="realisations-gallery-wrap">
-        <div className="realisations-gallery" aria-label={t.realisations.galleryAria}>
-          {instagramPortfolioPosts.map((post, index) => (
-            <Reveal
-              as="article"
-              className="realisations-card"
-              delay={Math.min(index * 0.045, 0.32)}
-              key={post.id}
-            >
-              <InstagramEmbed
-                url={post.url}
-                fallbackLabel={t.realisations.openPost}
-                loadingLabel={t.realisations.loading}
-              />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal className="realisations-gallery">
+          <SimpleembedFeed feedId={instagramFeedId} title={t.realisations.galleryAria} />
+        </Reveal>
+        <Reveal className="realisations-instagram-cta" delay={0.12}>
+          <h2>Découvrez encore plus de nos réalisations sur Instagram</h2>
+          <a
+            className="realisations-instagram-cta__button"
+            href={instagramReelsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramGlyph />
+            <span>Voir tous nos Reels sur Instagram</span>
+          </a>
+        </Reveal>
       </Container>
     </section>
   )

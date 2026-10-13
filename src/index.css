@@ -2545,82 +2545,110 @@ button:disabled {
 }
 
 .realisations-gallery {
-  column-count: 3;
-  column-gap: clamp(1rem, 2vw, 1.6rem);
+  background:
+    linear-gradient(145deg, rgba(184, 148, 79, 0.08), transparent 38%),
+    rgba(255, 253, 248, 0.82);
+  border: 1px solid rgba(184, 148, 79, 0.18);
+  box-shadow:
+    0 1.5rem 4rem rgba(20, 18, 15, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  padding: 12px;
 }
 
-.realisations-card {
-  break-inside: avoid;
-  display: inline-block;
-  margin: 0 0 clamp(1rem, 2vw, 1.6rem);
+.simpleembed-feed {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(247, 241, 232, 0.74)),
+    var(--ed-white);
+  border: 1px solid rgba(126, 121, 112, 0.16);
+  min-height: clamp(24rem, 48vw, 42rem);
+  overflow: hidden;
+}
+
+.simpleembed-feed iframe {
+  background: transparent;
+  display: block;
   width: 100%;
 }
 
-.instagram-embed {
-  background: var(--ed-white);
-  border: 1px solid var(--ed-border);
-  box-shadow: 0 1.3rem 3.5rem rgba(20, 18, 15, 0.07);
+.realisations-instagram-cta {
   display: grid;
-  gap: 0.9rem;
-  overflow: hidden;
-  padding: clamp(0.75rem, 1.5vw, 1rem);
-  transition:
-    border-color 260ms ease,
-    box-shadow 260ms ease,
-    transform 260ms ease;
-}
-
-.instagram-embed:hover,
-.instagram-embed:focus-within {
-  border-color: rgba(184, 148, 79, 0.68);
-  box-shadow: 0 1.7rem 4.5rem rgba(20, 18, 15, 0.12);
-  transform: translateY(-0.25rem);
-}
-
-.instagram-embed .instagram-media {
-  margin: 0 auto !important;
-  max-width: 540px !important;
-  min-width: 0 !important;
-  width: 100% !important;
-}
-
-.instagram-embed__placeholder {
-  align-items: center;
-  background:
-    linear-gradient(145deg, rgba(20, 18, 15, 0.05), transparent 42%),
-    linear-gradient(180deg, #fffaf1, #eee3d2);
-  color: var(--ed-muted);
-  display: flex;
-  justify-content: center;
-  min-height: clamp(24rem, 42vw, 34rem);
-  padding: 2rem;
+  gap: clamp(1.1rem, 2.4vw, 1.6rem);
+  justify-items: center;
+  margin-top: clamp(2.3rem, 5vw, 4rem);
   text-align: center;
 }
 
-.instagram-embed__placeholder span,
-.instagram-embed__fallback {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  line-height: 1.6;
-  text-transform: uppercase;
+.realisations-instagram-cta h2 {
+  color: var(--ed-black);
+  font-family: var(--ed-serif);
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1.08;
+  max-width: 42rem;
 }
 
-.instagram-embed__fallback {
+.realisations-instagram-cta__button {
   align-items: center;
-  border-top: 1px solid var(--ed-border);
-  color: var(--ed-muted);
-  display: flex;
-  gap: 0.55rem;
-  justify-content: space-between;
-  padding-top: 0.9rem;
-  transition: color 180ms ease;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(236, 222, 196, 0.88)),
+    var(--ed-ivory);
+  border: 1px solid rgba(184, 148, 79, 0.62);
+  box-shadow:
+    0 1.1rem 2.7rem rgba(20, 18, 15, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  color: var(--ed-black);
+  display: inline-flex;
+  gap: 0.78rem;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  min-height: 3.55rem;
+  padding: 1rem clamp(1.25rem, 3vw, 2.1rem);
+  text-align: center;
+  transition:
+    background 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.instagram-embed__fallback:hover,
-.instagram-embed__fallback:focus-visible {
+.realisations-instagram-cta__button svg {
   color: var(--ed-gold);
-  outline: 0;
+  flex: 0 0 auto;
+  fill: none;
+  height: 1.18rem;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  transition:
+    color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 1.18rem;
+}
+
+.realisations-instagram-cta__button:hover,
+.realisations-instagram-cta__button:focus-visible {
+  background:
+    linear-gradient(135deg, rgba(184, 148, 79, 0.96), rgba(221, 197, 150, 0.92)),
+    var(--ed-gold);
+  border-color: rgba(184, 148, 79, 0.96);
+  box-shadow:
+    0 1.45rem 3.4rem rgba(20, 18, 15, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  color: var(--ed-black);
+  transform: translateY(-0.28rem);
+}
+
+.realisations-instagram-cta__button:hover svg,
+.realisations-instagram-cta__button:focus-visible svg {
+  color: var(--ed-black);
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.realisations-instagram-cta__button:focus-visible {
+  outline: 1px solid var(--ed-gold);
+  outline-offset: 5px;
 }
 
 @media (max-width: 1023px) {
@@ -2633,8 +2661,8 @@ button:disabled {
     max-width: 28rem;
   }
 
-  .realisations-gallery {
-    column-count: 2;
+  .simpleembed-feed {
+    min-height: 34rem;
   }
 }
 
@@ -2653,11 +2681,15 @@ button:disabled {
   }
 
   .realisations-gallery {
-    column-count: 1;
+    padding: 10px;
   }
 
-  .instagram-embed__placeholder {
-    min-height: 21rem;
+  .simpleembed-feed {
+    min-height: 30rem;
+  }
+
+  .realisations-instagram-cta__button {
+    width: 100%;
   }
 }
 
@@ -4743,7 +4775,6 @@ canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .instagram-embed,
   .contact-title,
   .contact-copy > p {
     animation: none;
@@ -4752,6 +4783,8 @@ canvas {
 
   .contact-detail-card,
   .contact-detail-card__icon,
+  .realisations-instagram-cta__button,
+  .realisations-instagram-cta__button svg,
   .contact-social-links .social-link,
   .social-link__arrow {
     transition: none;
@@ -4759,8 +4792,10 @@ canvas {
 
   a.contact-detail-card:hover,
   a.contact-detail-card:focus-visible,
-  .instagram-embed:hover,
-  .instagram-embed:focus-within,
+  .realisations-instagram-cta__button:hover,
+  .realisations-instagram-cta__button:focus-visible,
+  .realisations-instagram-cta__button:hover svg,
+  .realisations-instagram-cta__button:focus-visible svg,
   .contact-social-links .social-link:hover,
   .contact-social-links .social-link:focus-visible {
     transform: none;

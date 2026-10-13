@@ -69,6 +69,53 @@ export function webPageSchema(name: string, description: string, path: string) {
   }
 }
 
+export function serviceSchema({
+  name,
+  description,
+  path,
+  serviceType,
+}: {
+  name: string
+  description: string
+  path: string
+  serviceType: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    serviceType,
+    url: absoluteSiteUrl(path),
+    provider: {
+      '@type': 'ProfessionalService',
+      name: siteConfig.name,
+      url: seoConfig.siteUrl,
+      telephone: siteConfig.contact.phone,
+      email: siteConfig.contact.email,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Maroc',
+    },
+  }
+}
+
+export function faqPageSchema(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+}
+
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',

@@ -5,6 +5,7 @@ import { useHasMounted } from '../hooks/useHasMounted'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useI18n } from '../i18n/I18nProvider'
 import type { Project } from '../types/project'
+import { isKnownProjectValue } from '../utils/projectFacts'
 
 type ProjectCardProps = {
   project: Project
@@ -16,6 +17,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const { projectText, t } = useI18n()
   const translatedProject = projectText(project)
   const canAnimate = hasMounted && !prefersReducedMotion
+  const metaParts = [
+    translatedProject.category,
+    isKnownProjectValue(project.location) ? translatedProject.location : undefined,
+    isKnownProjectValue(project.year) ? translatedProject.year : undefined,
+  ].filter((part): part is string => Boolean(part))
 
   return (
     <motion.article
@@ -42,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="project-card__content">
           <div>
             <p className="project-card__meta">
-              {translatedProject.category} / {translatedProject.location} / {translatedProject.year}
+              {metaParts.join(' / ')}
             </p>
             <h2 className="project-card__title">{project.title}</h2>
           </div>

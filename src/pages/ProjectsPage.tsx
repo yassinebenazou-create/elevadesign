@@ -1,7 +1,12 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from '../components/Container'
 import { ProjectCard } from '../components/ProjectCard'
+import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { projects } from '../data/projects'
+import { portfolioServiceLinks } from '../data/projectRelations'
+import { serviceLandingPages } from '../data/serviceLandingPages'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
 import type { Project } from '../types/project'
@@ -55,6 +60,9 @@ export function ProjectsPage() {
     () => projects.filter((project) => selectedFilter.matches(project)),
     [selectedFilter],
   )
+  const serviceLinks = portfolioServiceLinks
+    .map((slug) => serviceLandingPages.find((service) => service.slug === slug))
+    .filter((service): service is (typeof serviceLandingPages)[number] => Boolean(service))
 
   return (
     <section className="portfolio-projects" aria-label={t.projects.aria}>
@@ -82,6 +90,23 @@ export function ProjectsPage() {
           </button>
         ))}
       </div>
+
+      <section className="portfolio-needs" aria-labelledby="portfolio-needs-title">
+        <Container size="wide">
+          <Reveal className="portfolio-needs__heading">
+            <p className="eyebrow">Explorer par besoin</p>
+            <h2 id="portfolio-needs-title">Relier les projets aux expertises Eleva Design</h2>
+          </Reveal>
+          <div className="portfolio-needs__grid">
+            {serviceLinks.map((service) => (
+              <Link to={service.path} className="portfolio-needs__link" key={service.slug}>
+                <span>{service.title}</span>
+                <small>{service.primaryKeyword}</small>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <div className="portfolio-projects__grid">
         {visibleProjects.map((project) => (

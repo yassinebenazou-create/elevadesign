@@ -31,8 +31,8 @@ const uploadedProject = ({
   altBase,
   shortDescription,
   description,
-  scope = ['Concept décoratif', 'Aménagement intérieur', 'Sélection des matières'],
-  materials = ['Bois', 'Pierre', 'Tons neutres'],
+  scope = [],
+  materials = [],
 }: ProjectInput): Project => {
   const gallery: ProjectGalleryImage[] = files.map((file, index) => ({
     src: `/images/projects/${imageFolder}/${file}`,
@@ -53,7 +53,7 @@ const uploadedProject = ({
     shortDescription,
     description:
       description ??
-      `${title} présente une intention d'aménagement claire, pensée pour révéler le potentiel du lieu sans surcharger sa lecture. Les volumes, les matières et la lumière sont organisés avec sobriété afin de composer une ambiance élégante, fonctionnelle et facile à faire évoluer lorsque les informations définitives du projet seront disponibles.`,
+      `${shortDescription} Les visuels publiés permettent d'apprécier l'intention générale du projet, sans autre information détaillée actuellement vérifiée.`,
     scope,
     materials,
     gallery,

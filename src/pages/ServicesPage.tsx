@@ -3,6 +3,7 @@ import { Container } from '../components/Container'
 import { ImageReveal } from '../components/ImageReveal'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
+import { serviceLandingPages } from '../data/serviceLandingPages'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
 
@@ -90,6 +91,16 @@ export function ServicesPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="services-detail-links">
+            <p className="eyebrow">Guides services</p>
+            <div className="services-detail-links__grid">
+              {serviceLandingPages.map((page) => (
+                <Button to={page.path} variant="ghost" key={page.slug}>
+                  {page.title}
+                </Button>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       </section>
 

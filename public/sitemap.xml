@@ -6,6 +6,12 @@
   <url><loc>https://www.elevadesign.ma/services</loc><priority>0.88</priority></url>
   <url><loc>https://www.elevadesign.ma/a-propos</loc><priority>0.75</priority></url>
   <url><loc>https://www.elevadesign.ma/contact</loc><priority>0.80</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/architecture-interieure</loc><priority>0.84</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/decoration-interieure</loc><priority>0.84</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/cuisine-salon</loc><priority>0.84</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/villas-appartements</loc><priority>0.84</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/restaurants-cafes-commerces</loc><priority>0.84</priority></url>
+  <url><loc>https://www.elevadesign.ma/services/renovation-interieure</loc><priority>0.84</priority></url>
   <url><loc>https://www.elevadesign.ma/projets/residence-ivoire</loc><priority>0.72</priority></url>
   <url><loc>https://www.elevadesign.ma/projets/villa-horizon</loc><priority>0.72</priority></url>
   <url><loc>https://www.elevadesign.ma/projets/maison-neroli</loc><priority>0.72</priority></url>

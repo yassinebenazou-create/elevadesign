@@ -58,6 +58,7 @@ export function ContactPage() {
   const [isProjectTypeOpen, setIsProjectTypeOpen] = useState(false)
   const [projectTypeError, setProjectTypeError] = useState('')
   const projectTypeRef = useRef<HTMLDivElement | null>(null)
+  const hasVerifiedAddress = !siteConfig.contact.address.toLowerCase().includes('renseigner')
   const addressHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${siteConfig.contact.address} ${siteConfig.contact.city}`,
   )}`
@@ -294,25 +295,27 @@ export function ContactPage() {
                 <span className="contact-detail-card__value">{siteConfig.contact.phone}</span>
               </span>
             </a>
-            <a
-              className="contact-detail-card"
-              href={addressHref}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${t.contact.address}: ${siteConfig.contact.address}, ${siteConfig.contact.city}`}
-            >
-              <span className="contact-detail-card__icon">
-                <MapPin size={18} aria-hidden="true" />
-              </span>
-              <span>
-                <span className="contact-copy__label">{t.contact.address}</span>
-                <span className="contact-detail-card__value">
-                  {siteConfig.contact.address}
-                  <br />
-                  {siteConfig.contact.city}
+            {hasVerifiedAddress ? (
+              <a
+                className="contact-detail-card"
+                href={addressHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${t.contact.address}: ${siteConfig.contact.address}, ${siteConfig.contact.city}`}
+              >
+                <span className="contact-detail-card__icon">
+                  <MapPin size={18} aria-hidden="true" />
                 </span>
-              </span>
-            </a>
+                <span>
+                  <span className="contact-copy__label">{t.contact.address}</span>
+                  <span className="contact-detail-card__value">
+                    {siteConfig.contact.address}
+                    <br />
+                    {siteConfig.contact.city}
+                  </span>
+                </span>
+              </a>
+            ) : null}
           </div>
           <SocialLinks className="contact-social-links" showArrow showPhone={false} />
         </Reveal>

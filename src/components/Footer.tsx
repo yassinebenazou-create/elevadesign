@@ -5,6 +5,7 @@ import { SocialLinks } from './SocialLinks'
 
 export function Footer() {
   const { t } = useI18n()
+  const hasVerifiedAddress = !siteConfig.contact.address.toLowerCase().includes('renseigner')
 
   return (
     <footer className="site-footer">
@@ -29,7 +30,7 @@ export function Footer() {
 
         <div className="footer-col">
           <span className="footer-col-title">{t.footer.contact}</span>
-          <p>{siteConfig.contact.address}</p>
+          {hasVerifiedAddress ? <p>{siteConfig.contact.address}</p> : null}
           <p>
             <a className="footer-link" href={`mailto:${siteConfig.contact.email}`}>
               {siteConfig.contact.email}

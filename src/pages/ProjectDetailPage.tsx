@@ -2,11 +2,15 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { Container } from '../components/Container'
 import { ProjectGallery } from '../components/ProjectGallery'
+import { RelatedProjects } from '../components/RelatedProjects'
+import { RelatedServices } from '../components/RelatedServices'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { getAdjacentProjects, getProjectBySlug } from '../data/projects'
+import { generalServicesLink, getProjectServices, getRelatedProjects } from '../data/projectRelations'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
+import { isKnownProjectValue } from '../utils/projectFacts'
 import { NotFoundPage } from './NotFoundPage'
 
 export function ProjectDetailPage() {
@@ -21,6 +25,15 @@ export function ProjectDetailPage() {
   const { previousProject, nextProject } = getAdjacentProjects(project.slug)
   const translatedProject = projectText(project)
   const seo = getRouteSeo(`/projets/${project.slug}`)
+  const knownLocation = isKnownProjectValue(project.location)
+  const knownYear = isKnownProjectValue(project.year)
+  const metaParts = [
+    translatedProject.category,
+    knownLocation ? translatedProject.location : undefined,
+    knownYear ? translatedProject.year : undefined,
+  ].filter((part): part is string => Boolean(part))
+  const relatedServices = getProjectServices(project.slug)
+  const relatedProjects = getRelatedProjects(project.slug)
 
   return (
     <article className="project-detail">
@@ -48,7 +61,7 @@ export function ProjectDetailPage() {
             {t.projectDetail.back}
           </Link>
           <p className="project-detail__kicker">
-            {translatedProject.category} / {translatedProject.location} / {translatedProject.year}
+            {metaParts.join(' / ')}
           </p>
           <h1>{project.title}</h1>
         </Container>
@@ -61,14 +74,18 @@ export function ProjectDetailPage() {
               <dt>{t.projectDetail.category}</dt>
               <dd>{translatedProject.category}</dd>
             </div>
-            <div>
-              <dt>{t.projectDetail.city}</dt>
-              <dd>{translatedProject.location}</dd>
-            </div>
-            <div>
-              <dt>{t.projectDetail.year}</dt>
-              <dd>{translatedProject.year}</dd>
-            </div>
+            {knownLocation ? (
+              <div>
+                <dt>{t.projectDetail.city}</dt>
+                <dd>{translatedProject.location}</dd>
+              </div>
+            ) : null}
+            {knownYear ? (
+              <div>
+                <dt>{t.projectDetail.year}</dt>
+                <dd>{translatedProject.year}</dd>
+              </div>
+            ) : null}
             <div>
               <dt>{t.projectDetail.studio}</dt>
               <dd>{project.studio}</dd>
@@ -89,6 +106,13 @@ export function ProjectDetailPage() {
       <section className="project-detail__gallery-section">
         <ProjectGallery images={project.gallery} />
       </section>
+
+      <RelatedServices
+        services={relatedServices}
+        fallback={project.slug === 'lotissement-campus' ? generalServicesLink : undefined}
+      />
+
+      <RelatedProjects projects={relatedProjects} />
 
       <section className="project-detail__nav">
         <Container>

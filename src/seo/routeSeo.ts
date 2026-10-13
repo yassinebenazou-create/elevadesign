@@ -1,13 +1,17 @@
 import { pageSeo, seoConfig } from '../config/seo'
 import { projects } from '../data/projects'
+import { serviceLandingPages } from '../data/serviceLandingPages'
 import {
   breadcrumbSchema,
+  faqPageSchema,
   organizationSchema,
   professionalServiceSchema,
   projectSchema,
+  serviceSchema,
   webPageSchema,
   websiteSchema,
 } from '../utils/structuredData'
+import { getProjectSeoDescription, getProjectSeoTitle } from '../utils/projectFacts'
 
 export type RouteSeo = {
   path: string
@@ -112,8 +116,8 @@ const staticRoutes: RouteSeo[] = [
 
 const projectRoutes: RouteSeo[] = projects.map((project) => {
   const path = `/projets/${project.slug}`
-  const title = `${project.title} | ${project.category} au Maroc | Eleva Design`
-  const description = project.shortDescription
+  const title = getProjectSeoTitle(project)
+  const description = getProjectSeoDescription(project)
 
   return {
     path,
@@ -134,7 +138,32 @@ const projectRoutes: RouteSeo[] = projects.map((project) => {
   }
 })
 
-export const indexableRoutes: RouteSeo[] = [...staticRoutes, ...projectRoutes]
+const serviceLandingRoutes: RouteSeo[] = serviceLandingPages.map((page) => ({
+  path: page.path,
+  title: page.metaTitle,
+  description: page.metaDescription,
+  canonicalPath: page.path,
+  image: page.heroImage,
+  priority: 0.84,
+  jsonLd: [
+    professionalServiceSchema(),
+    breadcrumbSchema([
+      { name: 'Accueil', path: '/' },
+      { name: 'Services', path: '/services' },
+      { name: page.title, path: page.path },
+    ]),
+    webPageSchema(page.h1, page.metaDescription, page.path),
+    serviceSchema({
+      name: page.title,
+      description: page.metaDescription,
+      path: page.path,
+      serviceType: page.primaryKeyword,
+    }),
+    faqPageSchema(page.faq),
+  ],
+}))
+
+export const indexableRoutes: RouteSeo[] = [...staticRoutes, ...serviceLandingRoutes, ...projectRoutes]
 
 export const notFoundRouteSeo: RouteSeo = {
   path: '/404',

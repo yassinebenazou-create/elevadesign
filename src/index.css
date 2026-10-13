@@ -2981,6 +2981,7 @@ button:disabled {
   }
 
   .realisations-gallery {
+    margin-inline: -0.35rem;
     padding: 10px;
   }
 
@@ -2989,11 +2990,27 @@ button:disabled {
   }
 
   .custom-instagram__grid {
-    grid-template-columns: 1fr;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .custom-instagram__tile {
-    aspect-ratio: 1 / 1.08;
+    aspect-ratio: 1 / 1;
+  }
+
+  .custom-instagram__badge {
+    right: 0.55rem;
+    bottom: 0.55rem;
+    font-size: 0.58rem;
+    gap: 0.32rem;
+    letter-spacing: 0.12em;
+    min-height: 1.75rem;
+    padding: 0.34rem 0.46rem;
+  }
+
+  .custom-instagram__badge svg {
+    width: 0.95rem;
+    height: 0.95rem;
   }
 
   .custom-instagram__attribution {
@@ -3015,7 +3032,23 @@ button:disabled {
     min-height: 24rem;
   }
 
+  .realisations-gallery-wrap {
+    padding-block: clamp(2.2rem, 9vw, 3.5rem);
+  }
+
+  .realisations-instagram-cta {
+    gap: 0.8rem;
+    margin-top: 1.35rem;
+  }
+
+  .realisations-instagram-cta h2 {
+    font-size: clamp(1.35rem, 7vw, 2rem);
+    max-width: 19rem;
+  }
+
   .realisations-instagram-cta__button {
+    min-height: 3.05rem;
+    padding: 0.78rem 0.9rem;
     width: 100%;
   }
 }

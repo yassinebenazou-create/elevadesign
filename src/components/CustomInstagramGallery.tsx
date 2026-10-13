@@ -152,26 +152,26 @@ function subscribeToLocationChange(callback: () => void) {
   }
 }
 
-function isCustomGalleryRequested() {
+function isSimpleembedRollbackRequested() {
   if (typeof window === 'undefined') {
     return false
   }
 
-  return new URLSearchParams(window.location.search).get('instagramGallery') === 'custom'
+  return new URLSearchParams(window.location.search).get('instagramGallery') === 'simpleembed'
 }
 
 export function InstagramGalleryExperiment(props: CustomInstagramGalleryProps) {
-  const useCustomGallery = useSyncExternalStore(
+  const useSimpleembedRollback = useSyncExternalStore(
     subscribeToLocationChange,
-    isCustomGalleryRequested,
+    isSimpleembedRollbackRequested,
     () => false,
   )
 
-  if (useCustomGallery) {
-    return <CustomInstagramGallery {...props} />
+  if (useSimpleembedRollback) {
+    return <SimpleembedFeed {...props} />
   }
 
-  return <SimpleembedFeed {...props} />
+  return <CustomInstagramGallery {...props} />
 }
 
 export function CustomInstagramGallery({ feedId, title }: CustomInstagramGalleryProps) {

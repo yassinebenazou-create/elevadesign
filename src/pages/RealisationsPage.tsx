@@ -1,9 +1,9 @@
 import { ExternalLink } from 'lucide-react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
+import { InstagramGalleryExperiment } from '../components/CustomInstagramGallery'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
-import { SimpleembedFeed } from '../components/SimpleembedFeed'
 import { instagramFeedId, instagramProfileUrl, instagramReelsUrl } from '../data/instagramPortfolio'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
@@ -32,6 +32,16 @@ export function RealisationsPage() {
       />
 
       <header className="realisations-hero">
+        <img
+          className="realisations-hero__image"
+          src="/images/realisations/realisations-hero.webp"
+          alt=""
+          aria-hidden="true"
+          width={1000}
+          height={571}
+          decoding="async"
+          fetchPriority="high"
+        />
         <Container size="wide" className="realisations-hero__inner">
           <Reveal className="realisations-hero__copy">
             <p className="eyebrow">{t.realisations.eyebrow}</p>
@@ -51,7 +61,7 @@ export function RealisationsPage() {
 
       <Container size="wide" className="realisations-gallery-wrap">
         <Reveal className="realisations-gallery">
-          <SimpleembedFeed feedId={instagramFeedId} title={t.realisations.galleryAria} />
+          <InstagramGalleryExperiment feedId={instagramFeedId} title={t.realisations.galleryAria} />
         </Reveal>
         <Reveal className="realisations-instagram-cta" delay={0.12}>
           <h2>Découvrez encore plus de nos réalisations sur Instagram</h2>

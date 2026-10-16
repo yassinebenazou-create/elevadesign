@@ -5225,3 +5225,7 @@ canvas {
     width: min(7.7rem, 36vw);
   }
 }
+.required-star{
+  color: red;
+  font-weight: bold;
+}

@@ -178,18 +178,12 @@ export function ContactPage() {
                 <label htmlFor="name">{t.contact.name}</label>
                 <input id="name" name="name" placeholder={t.contact.namePlaceholder} required />
               </div>
+              
               <div className="contact-field">
-                <label htmlFor="email">{t.contact.email}</label>
-                <div className="contact-input-wrap">
-                  <Mail size={18} aria-hidden="true" />
-                  <input id="email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
-                </div>
-              </div>
-              <div className="contact-field">
-                <label htmlFor="phone">{t.contact.phone}</label>
+                <label htmlFor="phone">{t.contact.phone}<span className="required-star">*</span></label>
                 <div className="contact-input-wrap">
                   <Phone size={18} aria-hidden="true" />
-                  <input id="phone" name="phone" placeholder={siteConfig.contact.phone} />
+                  <input  id="phone" name="phone" placeholder={siteConfig.contact.phone} required />
                 </div>
               </div>
               <div className="contact-field contact-field--project-type" ref={projectTypeRef}>

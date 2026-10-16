@@ -115,9 +115,10 @@ export function ContactPage() {
       setIsProjectTypeOpen(true)
       return
     }
+    setProjectTypeError('')
 
     const name = String(formData.get('name') ?? '').trim()
-    const email = String(formData.get('email') ?? '').trim()
+    
     const phone = String(formData.get('phone') ?? '').trim()
     const otherProjectTypeSpecification = String(formData.get('otherProjectType') ?? '').trim()
     const projectType = projectTypes
@@ -132,7 +133,7 @@ export function ContactPage() {
       siteConfig.contact.whatsappMessage,
       '',
       `${t.contact.name.replace(' *', '')}: ${name}`,
-      `${t.contact.email.replace(' *', '')}: ${email}`,
+      
       phone ? `${t.contact.phone}: ${phone}` : '',
       `${t.contact.projectType}: ${projectType}`,
       `${t.contact.message.replace(' *', '')}: ${message}`,
@@ -183,7 +184,7 @@ export function ContactPage() {
                 <label htmlFor="phone">{t.contact.phone}<span className="required-star">*</span></label>
                 <div className="contact-input-wrap">
                   <Phone size={18} aria-hidden="true" />
-                  <input  id="phone" name="phone" placeholder={siteConfig.contact.phone} required />
+                  <input  id="phone" name="phone" placeholder="Numéro de téléphone (obligatoire)" required />
                 </div>
               </div>
               <div className="contact-field contact-field--project-type" ref={projectTypeRef}>

@@ -56,7 +56,10 @@ export function ContactPage() {
   const seo = getRouteSeo('/contact')
   const [selectedProjectTypes, setSelectedProjectTypes] = useState<string[]>([])
   const [isProjectTypeOpen, setIsProjectTypeOpen] = useState(false)
-  const [projectTypeError, setProjectTypeError] = useState('')
+  const [hasValidatedProjectTypes, setHasValidatedProjectTypes] = useState(false)
+  const projectTypeError = hasValidatedProjectTypes && !selectedProjectTypes.length
+    ? 'Sélectionnez au moins un type de projet.'
+    : ''
   const projectTypeRef = useRef<HTMLDivElement | null>(null)
   const hasVerifiedAddress = !siteConfig.contact.address.toLowerCase().includes('renseigner')
   const addressHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -87,10 +90,6 @@ export function ContactPage() {
         ? currentProjectTypes.filter((currentProjectType) => currentProjectType !== projectType)
         : [...currentProjectTypes, projectType]
 
-      if (nextProjectTypes.length) {
-        setProjectTypeError('')
-      }
-
       return nextProjectTypes
     })
   }
@@ -110,12 +109,12 @@ export function ContactPage() {
       .map((value) => String(value).trim())
       .filter(Boolean)
 
+    setHasValidatedProjectTypes(true)
+
     if (!projectTypes.length) {
-      setProjectTypeError('Sélectionnez au moins un type de projet.')
       setIsProjectTypeOpen(true)
       return
     }
-    setProjectTypeError('')
 
     const name = String(formData.get('name') ?? '').trim()
     
@@ -192,6 +191,9 @@ export function ContactPage() {
                   {t.contact.projectType}
                 </label>
                 <div className="contact-project-type">
+                  {selectedProjectTypes.map((projectType) => (
+                    <input type="hidden" name="projectTypes" value={projectType} key={projectType} />
+                  ))}
                   <button
                     type="button"
                     className="contact-project-type__button"
@@ -225,7 +227,6 @@ export function ContactPage() {
                               <label className="contact-project-type__option" key={option}>
                                 <input
                                   type="checkbox"
-                                  name="projectTypes"
                                   value={option}
                                   checked={selectedProjectTypes.includes(option)}
                                   onChange={() => toggleProjectType(option)}

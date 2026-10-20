@@ -9,6 +9,7 @@ const AUTOPLAY_DELAY = 5000
 
 export function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [hasLoadedFirstImage, setHasLoadedFirstImage] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const prefersReducedMotion = usePrefersReducedMotion()
   const { t } = useI18n()
@@ -72,19 +73,30 @@ export function HeroSlider() {
     >
       <div className="hero-slider__media" aria-live="off">
         {heroSlides.map((slide, index) => (
-          <img
-            alt={slide.alt}
-            aria-hidden={index !== activeIndex}
-            className={`hero-slider__image ${index === activeIndex ? 'is-active' : ''}`}
-            decoding={index === 0 ? 'sync' : 'async'}
-            fetchPriority={index === 0 ? 'high' : 'auto'}
-            key={slide.id}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            width={5749}
-            height={3833}
-            src={slide.src}
-            style={{ objectPosition: slide.position }}
-          />
+          <picture key={slide.id}>
+            {index === 0 ? (
+              <source
+                type="image/avif"
+                srcSet="/images/hero/hero-01-960.avif 960w, /images/hero/hero-01-1920.avif 1920w, /images/hero/hero-01-2880.avif 2880w, /images/hero/hero-01.jpg 5749w"
+                sizes="max(100vw, 150vh)"
+              />
+            ) : null}
+            <img
+              alt={slide.alt}
+              aria-hidden={index !== activeIndex}
+              className={`hero-slider__image ${index === activeIndex ? 'is-active' : ''}`}
+              decoding={index === 0 ? 'sync' : 'async'}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              width={index === 0 ? 5749 : 1920}
+              height={index === 0 ? 3833 : 1281}
+              src={index === 0 || hasLoadedFirstImage || index === activeIndex ? slide.src : undefined}
+              srcSet={index === 0 ? '/images/hero/hero-01-960.webp 960w, /images/hero/hero-01-1920.webp 1920w, /images/hero/hero-01-2880.webp 2880w, /images/hero/hero-01.jpg 5749w' : undefined}
+              sizes={index === 0 ? 'max(100vw, 150vh)' : undefined}
+              onLoad={index === 0 ? () => setHasLoadedFirstImage(true) : undefined}
+              style={{ objectPosition: slide.position }}
+            />
+          </picture>
         ))}
       </div>
       <div className="hero-slider__overlay" />

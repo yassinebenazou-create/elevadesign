@@ -1,5 +1,5 @@
 export const seoConfig = {
-  siteUrl: 'https://www.elevadesign.ma',
+  siteUrl: 'https://elevadesign.ma',
   siteName: 'Eleva Design',
   defaultTitle: 'Eleva Design | Architecture intérieure et design intérieur au Maroc',
   defaultDescription:

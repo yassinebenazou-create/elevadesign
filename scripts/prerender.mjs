@@ -6,10 +6,10 @@ const rootDir = resolve(import.meta.dirname, '..')
 const distDir = join(rootDir, 'dist')
 const serverEntry = join(rootDir, 'dist-ssr', 'entry-server.js')
 const templatePath = join(distDir, 'index.html')
-const siteUrl = 'https://www.elevadesign.ma'
 
 const template = readFileSync(templatePath, 'utf8')
 const server = await import(pathToFileURL(serverEntry).href)
+const { siteUrl } = server.seoConfig
 const routes = server.getSitemapRoutes()
 const routesToRender = [...routes, server.notFoundRouteSeo]
 
@@ -95,12 +95,12 @@ function buildSitemapXml() {
 function buildRedirects() {
   const rules = routes
     .filter((route) => route.path !== '/')
-    .flatMap((route) => [
-      `${route.path} ${publicOutputPathForRoute(route.path)} 200`,
-      `${route.path}/ ${publicOutputPathForRoute(route.path)} 200`,
-    ])
+    .map((route) => `${route.path} ${publicOutputPathForRoute(route.path)} 200`)
 
-  return `${rules.join('\n')}\n/* /404.html 404\n`
+  // Pages serves directory indexes and the top-level 404.html natively.
+  // Trailing-slash rewrites loop through its HTML normalization; 404 is not
+  // a supported _redirects status code.
+  return `${rules.join('\n')}\n`
 }
 
 for (const route of routesToRender) {
@@ -111,6 +111,7 @@ const sitemapXml = buildSitemapXml()
 writeFileSync(join(distDir, 'sitemap.xml'), sitemapXml)
 writeFileSync(join(rootDir, 'public', 'sitemap.xml'), sitemapXml)
 writeFileSync(join(distDir, '_redirects'), buildRedirects())
+writeFileSync(join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`)
 rmSync(join(rootDir, 'dist-ssr'), { recursive: true, force: true })
 
 console.log(`Prerendered ${routesToRender.length} routes and generated sitemap.xml`)

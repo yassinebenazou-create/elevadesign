@@ -44,7 +44,7 @@ export function SocialLinks({ className = '', showArrow = false, showPhone = tru
         href={siteConfig.contact.instagramUrl}
         target="_blank"
         rel="noreferrer"
-        aria-label="Instagram Eleva Design"
+        aria-label={`Instagram Eleva Design ${siteConfig.contact.instagramHandle}`}
       >
         <InstagramIcon />
         <span>{siteConfig.contact.instagramHandle}</span>

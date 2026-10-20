@@ -127,7 +127,7 @@ export function AboutPage() {
         <Container size="wide" className="about-universe__gallery">
           {universeImages.map((image, index) => (
             <ImageReveal className={`about-universe__image about-universe__image--${index + 1}`} delay={index * 0.1} key={image.src}>
-              <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+              <img src={image.src} alt={image.alt} loading="lazy" />
             </ImageReveal>
           ))}
         </Container>

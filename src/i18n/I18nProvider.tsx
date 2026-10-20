@@ -1,4 +1,4 @@
-import { createContext, type PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, type PropsWithChildren, useContext, useEffect, useMemo, useSyncExternalStore } from 'react'
 import { translations, type LanguageCode, type ProjectText } from './translations'
 import type { Project } from '../types/project'
 
@@ -13,6 +13,30 @@ const I18nContext = createContext<I18nContextValue | undefined>(undefined)
 
 const storageKey = 'eleva-language'
 const supportedLanguages: LanguageCode[] = ['en', 'es', 'fr', 'it']
+const languageChangeEvent = 'eleva-language-change'
+let sessionLanguage: LanguageCode = 'fr'
+
+function subscribeToLanguage(callback: () => void) {
+  window.addEventListener('storage', callback)
+  window.addEventListener(languageChangeEvent, callback)
+  return () => {
+    window.removeEventListener('storage', callback)
+    window.removeEventListener(languageChangeEvent, callback)
+  }
+}
+
+function getStoredLanguage(): LanguageCode {
+  try {
+    const storedLanguage = window.localStorage.getItem(storageKey)
+    return isLanguageCode(storedLanguage) ? storedLanguage : sessionLanguage
+  } catch {
+    return sessionLanguage
+  }
+}
+
+function getServerLanguage(): LanguageCode {
+  return 'fr'
+}
 
 function isLanguageCode(value: string | null): value is LanguageCode {
   return supportedLanguages.includes(value as LanguageCode)
@@ -141,16 +165,17 @@ const projectDescriptions: Partial<Record<LanguageCode, Record<string, Partial<P
 }
 
 export function I18nProvider({ children }: PropsWithChildren) {
-  const [language, setLanguageState] = useState<LanguageCode>(() => {
-    if (typeof window === 'undefined') return 'fr'
-
-    const storedLanguage = window.localStorage.getItem(storageKey)
-    return isLanguageCode(storedLanguage) ? storedLanguage : 'fr'
-  })
+  // Match the prerendered French HTML during hydration, then restore the preference.
+  const language = useSyncExternalStore(subscribeToLanguage, getStoredLanguage, getServerLanguage)
 
   const setLanguage = (nextLanguage: LanguageCode) => {
-    setLanguageState(nextLanguage)
-    window.localStorage.setItem(storageKey, nextLanguage)
+    sessionLanguage = nextLanguage
+    try {
+      window.localStorage.setItem(storageKey, nextLanguage)
+    } catch {
+      // Keep the in-memory preference for this visit.
+    }
+    window.dispatchEvent(new Event(languageChangeEvent))
   }
 
   useEffect(() => {

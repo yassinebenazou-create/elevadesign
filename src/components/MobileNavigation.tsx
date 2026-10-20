@@ -18,10 +18,11 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
       id="mobile-nav"
       aria-label="Navigation mobile"
       aria-hidden={!isOpen}
+      inert={!isOpen}
     >
       <div className="mobile-nav__top">
         <NavLink className="mobile-nav__logo" to="/" onClick={onClose} tabIndex={isOpen ? 0 : -1}>
-          <img src={siteConfig.logo.src} alt={siteConfig.logo.alt} width={2172} height={724} />
+          <img src={siteConfig.logo.src} srcSet={siteConfig.logo.srcSet} sizes="288px" alt={siteConfig.logo.alt} width={2172} height={724} loading="lazy" />
         </NavLink>
         <div className="mobile-nav__actions">
           <LanguageSwitcher isHeroStyle />

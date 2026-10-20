@@ -4,8 +4,7 @@ import { serviceLandingPages } from '../data/serviceLandingPages'
 import {
   breadcrumbSchema,
   faqPageSchema,
-  organizationSchema,
-  professionalServiceSchema,
+  businessSchema,
   projectSchema,
   serviceSchema,
   webPageSchema,
@@ -34,9 +33,8 @@ const staticRoutes: RouteSeo[] = [
     image: seoConfig.defaultImage,
     priority: 1,
     jsonLd: [
-      organizationSchema(),
       websiteSchema(),
-      professionalServiceSchema(),
+      businessSchema(),
       webPageSchema(pageSeo.home.h1, pageSeo.home.description, '/'),
     ],
   },
@@ -75,7 +73,7 @@ const staticRoutes: RouteSeo[] = [
     canonicalPath: '/services',
     priority: 0.88,
     jsonLd: [
-      professionalServiceSchema(),
+      businessSchema(),
       breadcrumbSchema([
         { name: 'Accueil', path: '/' },
         { name: 'Services', path: '/services' },
@@ -104,7 +102,7 @@ const staticRoutes: RouteSeo[] = [
     canonicalPath: '/contact',
     priority: 0.8,
     jsonLd: [
-      professionalServiceSchema(),
+      businessSchema(),
       breadcrumbSchema([
         { name: 'Accueil', path: '/' },
         { name: 'Contact', path: '/contact' },
@@ -146,7 +144,7 @@ const serviceLandingRoutes: RouteSeo[] = serviceLandingPages.map((page) => ({
   image: page.heroImage,
   priority: 0.84,
   jsonLd: [
-    professionalServiceSchema(),
+    businessSchema(),
     breadcrumbSchema([
       { name: 'Accueil', path: '/' },
       { name: 'Services', path: '/services' },

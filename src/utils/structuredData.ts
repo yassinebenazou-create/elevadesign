@@ -10,6 +10,7 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': absoluteSiteUrl('/#organization'),
     name: siteConfig.name,
     url: seoConfig.siteUrl,
     logo: absoluteSiteUrl(siteConfig.logo.src),
@@ -28,28 +29,23 @@ export function websiteSchema() {
   }
 }
 
-export function professionalServiceSchema() {
+export function businessSchema() {
+  const hasVerifiedAddress = !siteConfig.contact.address.toLowerCase().includes('renseigner')
   return {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: siteConfig.name,
-    url: seoConfig.siteUrl,
-    logo: absoluteSiteUrl(siteConfig.logo.src),
+    ...organizationSchema(),
+    // Do not claim LocalBusiness eligibility without a verified physical address.
+    '@type': hasVerifiedAddress ? 'LocalBusiness' : 'Organization',
+    address: hasVerifiedAddress ? {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.contact.address,
+      addressCountry: 'MA',
+    } : undefined,
     image: absoluteSiteUrl(seoConfig.defaultImage),
-    telephone: siteConfig.contact.phone,
-    email: siteConfig.contact.email,
+    telephone: `+${siteConfig.contact.whatsappNumber}`,
     areaServed: {
       '@type': 'Country',
       name: 'Maroc',
     },
-    serviceType: [
-      'Architecture intérieure',
-      'Design intérieur',
-      'Aménagement intérieur',
-      'Aménagement extérieur',
-      'Décoration intérieure',
-    ],
-    sameAs: [siteConfig.contact.instagramUrl, siteConfig.contact.facebookUrl].filter(Boolean),
   }
 }
 
@@ -88,11 +84,7 @@ export function serviceSchema({
     serviceType,
     url: absoluteSiteUrl(path),
     provider: {
-      '@type': 'ProfessionalService',
-      name: siteConfig.name,
-      url: seoConfig.siteUrl,
-      telephone: siteConfig.contact.phone,
-      email: siteConfig.contact.email,
+      '@id': absoluteSiteUrl('/#organization'),
     },
     areaServed: {
       '@type': 'Country',
@@ -144,8 +136,8 @@ export function projectSchema(project: Project, description: string) {
       url: seoConfig.siteUrl,
     },
     about: project.category,
-    contentLocation: knownLocation ? project.location : undefined,
-    dateCreated: project.year.match(/^\d{4}$/) ? project.year : undefined,
+    contentLocation: knownLocation ? { '@type': 'Place', name: project.location } : undefined,
+    temporalCoverage: project.year.match(/^\d{4}$/) ? project.year : undefined,
     url: absoluteSiteUrl(`/projets/${project.slug}`),
   }
 }

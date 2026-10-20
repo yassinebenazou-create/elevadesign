@@ -1,9 +1,9 @@
 import { motion } from 'motion/react'
-import { useRef, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { useHasMounted } from '../hooks/useHasMounted'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import type { ProjectGalleryImage } from '../types/project'
-import { Lightbox } from './Lightbox'
+const Lightbox = lazy(() => import('./Lightbox').then((module) => ({ default: module.Lightbox })))
 
 type ProjectGalleryProps = {
   images: ProjectGalleryImage[]
@@ -66,7 +66,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
               <img
                 src={image.src}
                 alt={image.alt}
-                loading={index === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
                 decoding="async"
                 width={1920}
                 height={1280}
@@ -77,13 +77,15 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
       </div>
 
       {activeIndex !== null ? (
-        <Lightbox
-          images={images}
-          activeIndex={activeIndex}
-          onClose={closeLightbox}
-          onNext={showNext}
-          onPrevious={showPrevious}
-        />
+        <Suspense fallback={null}>
+          <Lightbox
+            images={images}
+            activeIndex={activeIndex}
+            onClose={closeLightbox}
+            onNext={showNext}
+            onPrevious={showPrevious}
+          />
+        </Suspense>
       ) : null}
     </>
   )

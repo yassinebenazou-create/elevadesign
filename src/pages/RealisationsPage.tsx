@@ -1,12 +1,16 @@
 import { ExternalLink } from 'lucide-react'
+import { lazy, Suspense } from 'react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
-import { InstagramGalleryExperiment } from '../components/CustomInstagramGallery'
+import { useHasMounted } from '../hooks/useHasMounted'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { instagramFeedId, instagramProfileUrl, instagramReelsUrl } from '../data/instagramPortfolio'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
+
+const InstagramGalleryExperiment = lazy(() => import('../components/CustomInstagramGallery')
+  .then((module) => ({ default: module.InstagramGalleryExperiment })))
 
 function InstagramGlyph() {
   return (
@@ -21,6 +25,8 @@ function InstagramGlyph() {
 export function RealisationsPage() {
   const { t } = useI18n()
   const seo = getRouteSeo('/realisations')
+  const hasMounted = useHasMounted()
+  const feedPlaceholder = <div className="simpleembed-feed" aria-label={t.realisations.galleryAria} />
 
   return (
     <section className="realisations-page" aria-label={t.realisations.aria}>
@@ -61,7 +67,11 @@ export function RealisationsPage() {
 
       <Container size="wide" className="realisations-gallery-wrap">
         <Reveal className="realisations-gallery">
-          <InstagramGalleryExperiment feedId={instagramFeedId} title={t.realisations.galleryAria} />
+          {hasMounted ? (
+            <Suspense fallback={feedPlaceholder}>
+              <InstagramGalleryExperiment feedId={instagramFeedId} title={t.realisations.galleryAria} />
+            </Suspense>
+          ) : feedPlaceholder}
         </Reveal>
         <Reveal className="realisations-instagram-cta" delay={0.12}>
           <h2>Découvrez encore plus de nos réalisations sur Instagram</h2>

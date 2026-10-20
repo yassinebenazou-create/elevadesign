@@ -183,7 +183,16 @@ export function ContactPage() {
                 <label htmlFor="phone">{t.contact.phone}<span className="required-star">*</span></label>
                 <div className="contact-input-wrap">
                   <Phone size={18} aria-hidden="true" />
-                  <input  id="phone" name="phone" placeholder="Numéro de téléphone (obligatoire)" required />
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    pattern={String.raw`\+?(?:[0-9][\s\(\)\.\-]*){7,15}`}
+                    title="Saisissez un numéro de téléphone de 7 à 15 chiffres, avec un indicatif international si nécessaire."
+                    placeholder="Numéro de téléphone (obligatoire)"
+                    required
+                  />
                 </div>
               </div>
               <div className="contact-field contact-field--project-type" ref={projectTypeRef}>
@@ -202,13 +211,14 @@ export function ContactPage() {
                     aria-controls="projectTypeMenu"
                     aria-expanded={isProjectTypeOpen}
                     aria-invalid={projectTypeError ? true : undefined}
+                    aria-describedby={projectTypeError ? 'projectTypeError' : undefined}
                     aria-labelledby="projectTypeLabel projectTypeButton"
                   >
                     <span>{projectTypeButtonText}</span>
                     <ChevronDown size={18} aria-hidden="true" />
                   </button>
                   {projectTypeError ? (
-                    <p className="contact-field__error" role="alert">
+                    <p id="projectTypeError" className="contact-field__error" role="alert">
                       {projectTypeError}
                     </p>
                   ) : null}

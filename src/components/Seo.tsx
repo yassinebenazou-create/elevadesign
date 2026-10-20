@@ -64,7 +64,6 @@ export function Seo({
     const imageUrl = absoluteUrl(image)
 
     document.title = title
-    document.documentElement.lang = 'fr'
 
     upsertMeta('name', 'description', description)
     upsertMeta('name', 'robots', robots)

@@ -1,0 +1,1406 @@
+{
+  "audit_dates": [
+    "2026-10-20",
+    "2026-10-21"
+  ],
+  "preferred_origin": "https://elevadesign.ma",
+  "deployment_performed_by_audit": false,
+  "push_performed_by_audit": false,
+  "domain_redirects_activated_by_audit": false,
+  "build": {
+    "status": "passed",
+    "public_routes": 38,
+    "prerendered_documents_including_404": 39,
+    "initial_js_kb": 495.68,
+    "initial_js_gzip_kb": 152.44
+  },
+  "lint": {
+    "errors": 0,
+    "pre_existing_warnings": 4
+  },
+  "npm_audit": {
+    "vulnerabilities": 0
+  },
+  "static_audit": {
+    "public_pages": 38,
+    "errors": [],
+    "warnings": [
+      "/a-propos: title is 67 characters (possible truncation)",
+      "/contact: title is 69 characters (possible truncation)",
+      "/projets: title is 71 characters (possible truncation)",
+      "/projets/residence-ivoire: description is 175 characters (possible truncation)",
+      "/projets/villa-horizon: description is 173 characters (possible truncation)",
+      "/projets/villas-assinie-int: title is 72 characters (possible truncation)",
+      "/services: title is 73 characters (possible truncation)",
+      "/services/architecture-interieure: description is 176 characters (possible truncation)"
+    ],
+    "pages": [
+      {
+        "path": "/",
+        "title": "Architecture intérieure et décoration au Maroc | Eleva Design",
+        "description": "Eleva Design accompagne vos projets d'architecture intérieure, décoration, rénovation et aménagement au Maroc pour villas, appartements et espaces commerciaux.",
+        "canonical": "https://elevadesign.ma/",
+        "h1": [
+          "Élever chaque espace avec mesure."
+        ],
+        "h2_count": 4,
+        "main_characters": 1128,
+        "schema_types": [
+          "WebSite",
+          "Organization",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/404",
+        "title": "Page introuvable | Eleva Design",
+        "description": "Cette page n'existe pas encore sur le site Eleva Design.",
+        "canonical": "https://elevadesign.ma/404",
+        "h1": [
+          "Page introuvable"
+        ],
+        "h2_count": 0,
+        "main_characters": 89,
+        "schema_types": []
+      },
+      {
+        "path": "/a-propos",
+        "title": "À propos | Studio d’architecture intérieure au Maroc | Eleva Design",
+        "description": "Découvrez l'approche d'Eleva Design, studio de home decor au Maroc dédié aux espaces intérieurs et extérieurs sobres, chaleureux et durables.",
+        "canonical": "https://elevadesign.ma/a-propos",
+        "h1": [
+          "À propos"
+        ],
+        "h2_count": 5,
+        "main_characters": 1221,
+        "schema_types": [
+          "BreadcrumbList",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/contact",
+        "title": "Contact architecture intérieure et décoration au Maroc | Eleva Design",
+        "description": "Contactez Eleva Design pour un projet d'aménagement intérieur, extérieur, décoration ou design d'espace résidentiel et commercial au Maroc.",
+        "canonical": "https://elevadesign.ma/contact",
+        "h1": [
+          "Parlons de votre Projet"
+        ],
+        "h2_count": 1,
+        "main_characters": 431,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/projets",
+        "title": "Projets d’architecture intérieure et décoration au Maroc | Eleva Design",
+        "description": "Découvrez les réalisations Eleva Design : salons, chambres, villas, bureaux, restaurants, commerces et aménagements extérieurs au Maroc.",
+        "canonical": "https://elevadesign.ma/projets",
+        "h1": [
+          "Projets"
+        ],
+        "h2_count": 24,
+        "main_characters": 4542,
+        "schema_types": [
+          "BreadcrumbList",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/projets/bureau-b1",
+        "title": "Bureau B1 | Bureau professionnel au Maroc | Eleva Design",
+        "description": "Aménagement d’un bureau fonctionnel et élégant, pensé pour la concentration, l’accueil et la fluidité des usages. Bureau professionnel · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/bureau-b1",
+        "h1": [
+          "Bureau B1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1364,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/bureau-b2",
+        "title": "Bureau B2 | Bureau professionnel au Maroc | Eleva Design",
+        "description": "Projet de bureau conçu comme un environnement professionnel clair, structuré et accueillant. Bureau professionnel · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/bureau-b2",
+        "h1": [
+          "Bureau B2"
+        ],
+        "h2_count": 5,
+        "main_characters": 1204,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/bureau-b3",
+        "title": "Bureau B3 | Bureau professionnel au Maroc | Eleva Design",
+        "description": "Aménagement d’un espace de travail aux lignes nettes, avec une ambiance premium et des détails maîtrisés. Bureau professionnel · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/bureau-b3",
+        "h1": [
+          "Bureau B3"
+        ],
+        "h2_count": 5,
+        "main_characters": 1371,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/chambre-a1",
+        "title": "Chambre A1 | Chambre privée au Maroc | Eleva Design",
+        "description": "Conception d’une chambre apaisante autour de matières naturelles, rangements intégrés et éclairage discret. Chambre privée · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/chambre-a1",
+        "h1": [
+          "Chambre A1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1367,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/chambre-a2",
+        "title": "Chambre A2 | Chambre privée au Maroc | Eleva Design",
+        "description": "Aménagement d’un espace nuit confortable avec une palette neutre, des textures raffinées et une lecture claire du volume. Chambre privée · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/chambre-a2",
+        "h1": [
+          "Chambre A2"
+        ],
+        "h2_count": 5,
+        "main_characters": 1369,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/chambre-a3",
+        "title": "Chambre A3 | Chambre privée au Maroc | Eleva Design",
+        "description": "Projet de chambre à l’esthétique sobre, imaginé autour du confort, de la lumière et d’une finition attentive. Chambre privée · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/chambre-a3",
+        "h1": [
+          "Chambre A3"
+        ],
+        "h2_count": 5,
+        "main_characters": 1170,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/chambre-a4",
+        "title": "Chambre A4 | Chambre privée au Maroc | Eleva Design",
+        "description": "Composition d’un espace nuit chaleureux, avec détails décoratifs, matières tactiles et mobilier adapté aux usages. Chambre privée · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/chambre-a4",
+        "h1": [
+          "Chambre A4"
+        ],
+        "h2_count": 5,
+        "main_characters": 1169,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/habillage-mural",
+        "title": "Habillage Mural | Décor mural au Maroc | Eleva Design",
+        "description": "Création d’habillages muraux décoratifs pour structurer les volumes, enrichir les matières et signer l’identité d’un espace. Décor mural · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/habillage-mural",
+        "h1": [
+          "Habillage Mural"
+        ],
+        "h2_count": 5,
+        "main_characters": 1397,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/lotissement-campus",
+        "title": "Lotissement Campus | Projet architectural au Maroc | Eleva Design",
+        "description": "Projet architectural à l’échelle d’un ensemble, destiné à présenter une vision globale d’aménagement et d’implantation. Projet architectural.",
+        "canonical": "https://elevadesign.ma/projets/lotissement-campus",
+        "h1": [
+          "Lotissement Campus"
+        ],
+        "h2_count": 1,
+        "main_characters": 570,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/maison-neroli",
+        "title": "Maison Néroli | Espace commercial à Rabat | Eleva Design",
+        "description": "Création d’un espace commercial raffiné combinant textures naturelles, éclairage d’ambiance et mobilier contemporain. Espace commercial · Rabat · 2025.",
+        "canonical": "https://elevadesign.ma/projets/maison-neroli",
+        "h1": [
+          "Maison Néroli"
+        ],
+        "h2_count": 5,
+        "main_characters": 1440,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/residence-ivoire",
+        "title": "Résidence Ivoire | Résidence privée à Casablanca | Eleva Design",
+        "description": "Réaménagement d’une résidence contemporaine aux lignes épurées, associant lumière naturelle, matériaux chaleureux et mobilier sur mesure. Résidence privée · Casablanca · 2025.",
+        "canonical": "https://elevadesign.ma/projets/residence-ivoire",
+        "h1": [
+          "Résidence Ivoire"
+        ],
+        "h2_count": 5,
+        "main_characters": 1831,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/restaurant-wakame",
+        "title": "Restaurant Wakame | Restaurant au Maroc | Eleva Design",
+        "description": "Création d’une atmosphère de restaurant immersive, entre confort des assises, lumière d’ambiance et identité décorative. Restaurant · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame",
+        "h1": [
+          "Restaurant Wakame"
+        ],
+        "h2_count": 5,
+        "main_characters": 1393,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/restaurant-wakame2",
+        "title": "Restaurant Wakame 2 | Restaurant au Maroc | Eleva Design",
+        "description": "Déclinaison d’un espace de restauration raffiné, pensé pour l’expérience client et la cohérence visuelle. Restaurant · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame2",
+        "h1": [
+          "Restaurant Wakame 2"
+        ],
+        "h2_count": 5,
+        "main_characters": 1390,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/salon-a1",
+        "title": "Salon A1 | Salon résidentiel au Maroc | Eleva Design",
+        "description": "Aménagement d’un salon résidentiel avec une composition chaleureuse, des volumes lisibles et une atmosphère soignée. Salon résidentiel · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/salon-a1",
+        "h1": [
+          "Salon A1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1358,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/salon-a2",
+        "title": "Salon A2 | Salon résidentiel au Maroc | Eleva Design",
+        "description": "Étude décorative d’un salon pensé pour conjuguer confort quotidien, lignes épurées et finitions élégantes. Salon résidentiel · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/salon-a2",
+        "h1": [
+          "Salon A2"
+        ],
+        "h2_count": 5,
+        "main_characters": 1355,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-b3",
+        "title": "Villa B3 | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Étude résidentielle d’une villa contemporaine ouverte sur ses espaces de vie et son environnement extérieur. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-b3",
+        "h1": [
+          "Villa B3"
+        ],
+        "h2_count": 5,
+        "main_characters": 1381,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-c1",
+        "title": "Villa C1 | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Projet de villa autour de volumes contemporains, de vues dégagées et d’un aménagement intérieur cohérent. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-c1",
+        "h1": [
+          "Villa C1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1373,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-celia",
+        "title": "Villa Celia | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Conception résidentielle complète avec une attention portée aux transitions entre intérieur, façade et espace extérieur. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-celia",
+        "h1": [
+          "Villa Celia"
+        ],
+        "h2_count": 5,
+        "main_characters": 1370,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-h1",
+        "title": "Villa H1 | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Projet de villa aux lignes contemporaines, organisé autour de la lumière, de la circulation et du confort résidentiel. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-h1",
+        "h1": [
+          "Villa H1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1368,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-h2",
+        "title": "Villa H2 | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Aménagement résidentiel d’une villa mêlant architecture sobre, matières chaleureuses et espaces de vie fluides. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-h2",
+        "h1": [
+          "Villa H2"
+        ],
+        "h2_count": 5,
+        "main_characters": 1573,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-horizon",
+        "title": "Villa Horizon | Villa contemporaine à Marrakech | Eleva Design",
+        "description": "Conception d’une villa moderne ouverte sur son jardin, avec de grandes baies vitrées, une piscine et des espaces extérieurs élégants. Villa contemporaine · Marrakech · 2024.",
+        "canonical": "https://elevadesign.ma/projets/villa-horizon",
+        "h1": [
+          "Villa Horizon"
+        ],
+        "h2_count": 5,
+        "main_characters": 1418,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villa-m1",
+        "title": "Villa M1 | Villa contemporaine au Maroc | Eleva Design",
+        "description": "Aperçu d’un projet de villa contemporaine, prêt à être enrichi lorsque les informations complètes seront disponibles. Villa contemporaine · Maroc.",
+        "canonical": "https://elevadesign.ma/projets/villa-m1",
+        "h1": [
+          "Villa M1"
+        ],
+        "h2_count": 5,
+        "main_characters": 1181,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/projets/villas-assinie-int",
+        "title": "Villas Assinie Intérieur | Villas résidentielles au Maroc | Eleva Design",
+        "description": "Série d’espaces intérieurs pour villas, organisée autour du confort, de la lumière et de matières naturelles. Villas résidentielles.",
+        "canonical": "https://elevadesign.ma/projets/villas-assinie-int",
+        "h1": [
+          "Villas Assinie Intérieur"
+        ],
+        "h2_count": 5,
+        "main_characters": 1361,
+        "schema_types": [
+          "BreadcrumbList",
+          "CreativeWork"
+        ]
+      },
+      {
+        "path": "/realisations",
+        "title": "Nos Réalisations Instagram | Portfolio Eleva Design au Maroc",
+        "description": "Explorez les publications Instagram officielles d'Eleva Design dans une galerie portfolio élégante dédiée aux réalisations du studio.",
+        "canonical": "https://elevadesign.ma/realisations",
+        "h1": [
+          "Nos Réalisations"
+        ],
+        "h2_count": 1,
+        "main_characters": 334,
+        "schema_types": [
+          "BreadcrumbList",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/services",
+        "title": "Architecture intérieure, décoration et rénovation au Maroc | Eleva Design",
+        "description": "Services Eleva Design au Maroc : architecture intérieure, décoration, cuisines, salons, villas, appartements, restaurants, cafés, commerces, bureaux et extérieurs.",
+        "canonical": "https://elevadesign.ma/services",
+        "h1": [
+          "Services"
+        ],
+        "h2_count": 6,
+        "main_characters": 2478,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage"
+        ]
+      },
+      {
+        "path": "/services/architecture-interieure",
+        "title": "Architecture intérieure au Maroc | Eleva Design",
+        "description": "Eleva Design accompagne les projets d'architecture intérieure au Maroc : volumes, circulation, lumière, matières et détails pour villas, appartements et espaces professionnels.",
+        "canonical": "https://elevadesign.ma/services/architecture-interieure",
+        "h1": [
+          "Architecture intérieure au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 3192,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/cuisine-salon",
+        "title": "Aménagement cuisine et salon au Maroc | Eleva Design",
+        "description": "Aménagement de cuisine et salon au Maroc : espaces de vie fonctionnels, chaleureux et cohérents pour recevoir, cuisiner et vivre au quotidien.",
+        "canonical": "https://elevadesign.ma/services/cuisine-salon",
+        "h1": [
+          "Aménagement cuisine et salon au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 2982,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/cuisine-sur-mesure",
+        "title": "Cuisine sur mesure à Casablanca et au Maroc | Eleva Design",
+        "description": "Conception, fabrication et pose de cuisine sur mesure à Casablanca et partout au Maroc. Eleva Design adapte implantation, rangements et finitions à votre projet.",
+        "canonical": "https://elevadesign.ma/services/cuisine-sur-mesure",
+        "h1": [
+          "Cuisine sur mesure à Casablanca"
+        ],
+        "h2_count": 8,
+        "main_characters": 3380,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/decoration-interieure",
+        "title": "Décoration intérieure au Maroc | Eleva Design",
+        "description": "Décoration intérieure au Maroc par Eleva Design : couleurs, textures, mobilier, habillages muraux et finitions pour salons, chambres, villas et appartements.",
+        "canonical": "https://elevadesign.ma/services/decoration-interieure",
+        "h1": [
+          "Décoration intérieure au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 2912,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/dressing-sur-mesure",
+        "title": "Dressing sur mesure à Casablanca et au Maroc | Eleva Design",
+        "description": "Dressing sur mesure à Casablanca et au Maroc : conception, fabrication et pose par Eleva Design. Un rangement adapté à votre espace et à vos usages.",
+        "canonical": "https://elevadesign.ma/services/dressing-sur-mesure",
+        "h1": [
+          "Dressing sur mesure à Casablanca"
+        ],
+        "h2_count": 6,
+        "main_characters": 3046,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/habillage-mural",
+        "title": "Habillage mural à Casablanca et au Maroc | Eleva Design",
+        "description": "Habillage mural sur mesure à Casablanca et partout au Maroc : conception, fabrication et pose avec Eleva Design. Présentez votre projet pour un devis adapté.",
+        "canonical": "https://elevadesign.ma/services/habillage-mural",
+        "h1": [
+          "Habillage mural à Casablanca"
+        ],
+        "h2_count": 8,
+        "main_characters": 3161,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/renovation-interieure",
+        "title": "Rénovation intérieure au Maroc | Eleva Design",
+        "description": "Rénovation intérieure au Maroc : relecture des volumes, aménagement, décoration, matières et nouveaux usages pour villas, appartements et espaces professionnels.",
+        "canonical": "https://elevadesign.ma/services/renovation-interieure",
+        "h1": [
+          "Rénovation intérieure au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 2982,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/restaurants-cafes-commerces",
+        "title": "Design restaurant, café et commerce au Maroc | Eleva Design",
+        "description": "Design intérieur de restaurants, cafés et commerces au Maroc : ambiance client, parcours, mobilier, éclairage et identité décorative par Eleva Design.",
+        "canonical": "https://elevadesign.ma/services/restaurants-cafes-commerces",
+        "h1": [
+          "Design de restaurants, cafés et commerces au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 2997,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      },
+      {
+        "path": "/services/villas-appartements",
+        "title": "Aménagement villa et appartement au Maroc | Eleva Design",
+        "description": "Aménagement de villa et appartement au Maroc : intérieur, décoration, pièces de vie, suites, chambres, salles de bain et continuité avec les espaces extérieurs.",
+        "canonical": "https://elevadesign.ma/services/villas-appartements",
+        "h1": [
+          "Aménagement de villas et appartements au Maroc"
+        ],
+        "h2_count": 10,
+        "main_characters": 3042,
+        "schema_types": [
+          "Organization",
+          "BreadcrumbList",
+          "WebPage",
+          "Service",
+          "FAQPage"
+        ]
+      }
+    ]
+  },
+  "browser_audit": [
+    "38 public routes and 37 trailing-slash routes return 200 with rendered HTML",
+    "Unknown general, project and service URLs return HTTP 404 with noindex",
+    "All 38 routes hydrate on mobile with one H1, canonical and JSON-LD block; no horizontal overflow",
+    "Phone required/format, empty dropdown, multi-select persistence, last-option removal, Other required field and encoded WhatsApp payload pass; no message sent",
+    "Contact interaction durations: [160,160,160,120,120,120,80,80,80,48,48,48,48,48,48,32,32,32,56,48,48,40,40,40,48,48,48,48,48,48,40,40,40] ms (unthrottled lab sample, not field INP)",
+    "Mobile navigation opens, navigates and closes; hidden navigation is inert",
+    "Saved English hydrates without mismatch and lang remains en after client navigation",
+    "Observed interaction event durations on final mobile page: [72,72,72,80,80,80] ms (lab sample, not field INP)",
+    "Home, contact, existing/new service and project layouts fit 320/390/768/1440px viewports",
+    "Project lightbox opens and Escape closes it",
+    "Hero slider controls advance slides",
+    "No browser runtime or hydration errors across the tested routes and interactions"
+  ],
+  "live_http_recheck": {
+    "date": "2026-10-21",
+    "user_agent": "Mozilla/5.0",
+    "initial_default_python_user_agent": "403 on apex and pages.dev; www DNS failed",
+    "responses": [
+      {
+        "url": "https://elevadesign.ma/",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/",
+        "canonical": "https://elevadesign.ma/",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/",
+        "canonical": "https://elevadesign.ma/projets",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/realisations",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/realisations/",
+        "canonical": "https://elevadesign.ma/realisations",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/",
+        "canonical": "https://elevadesign.ma/services",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/a-propos",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/a-propos/",
+        "canonical": "https://elevadesign.ma/a-propos",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/contact",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/contact/",
+        "canonical": "https://elevadesign.ma/contact",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/habillage-mural",
+        "status": 404,
+        "final_url": "https://elevadesign.ma/services/habillage-mural",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/dressing-sur-mesure",
+        "status": 404,
+        "final_url": "https://elevadesign.ma/services/dressing-sur-mesure",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/cuisine-sur-mesure",
+        "status": 404,
+        "final_url": "https://elevadesign.ma/services/cuisine-sur-mesure",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/architecture-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/architecture-interieure/",
+        "canonical": "https://elevadesign.ma/services/architecture-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/decoration-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/decoration-interieure/",
+        "canonical": "https://elevadesign.ma/services/decoration-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/cuisine-salon",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/cuisine-salon/",
+        "canonical": "https://elevadesign.ma/services/cuisine-salon",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/villas-appartements",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/villas-appartements/",
+        "canonical": "https://elevadesign.ma/services/villas-appartements",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/restaurants-cafes-commerces",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/restaurants-cafes-commerces/",
+        "canonical": "https://elevadesign.ma/services/restaurants-cafes-commerces",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/services/renovation-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/services/renovation-interieure/",
+        "canonical": "https://elevadesign.ma/services/renovation-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/residence-ivoire",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/residence-ivoire/",
+        "canonical": "https://elevadesign.ma/projets/residence-ivoire",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-horizon",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-horizon/",
+        "canonical": "https://elevadesign.ma/projets/villa-horizon",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/maison-neroli",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/maison-neroli/",
+        "canonical": "https://elevadesign.ma/projets/maison-neroli",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/salon-a1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/salon-a1/",
+        "canonical": "https://elevadesign.ma/projets/salon-a1",
+        "x_robots_tag": null,
+        "retry_after_timeout": true
+      },
+      {
+        "url": "https://elevadesign.ma/projets/salon-a2",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/salon-a2/",
+        "canonical": "https://elevadesign.ma/projets/salon-a2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/chambre-a1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/chambre-a1/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/chambre-a2",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/chambre-a2/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/chambre-a3",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/chambre-a3/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a3",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/chambre-a4",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/chambre-a4/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a4",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/bureau-b1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/bureau-b1/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/bureau-b2",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/bureau-b2/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/bureau-b3",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/bureau-b3/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b3",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/restaurant-wakame",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/restaurant-wakame/",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/restaurant-wakame2",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/restaurant-wakame2/",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-b3",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-b3/",
+        "canonical": "https://elevadesign.ma/projets/villa-b3",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-c1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-c1/",
+        "canonical": "https://elevadesign.ma/projets/villa-c1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-celia",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-celia/",
+        "canonical": "https://elevadesign.ma/projets/villa-celia",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-h1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-h1/",
+        "canonical": "https://elevadesign.ma/projets/villa-h1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-h2",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-h2/",
+        "canonical": "https://elevadesign.ma/projets/villa-h2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villa-m1",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villa-m1/",
+        "canonical": "https://elevadesign.ma/projets/villa-m1",
+        "x_robots_tag": null,
+        "retry_after_timeout": true
+      },
+      {
+        "url": "https://elevadesign.ma/projets/villas-assinie-int",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/villas-assinie-int/",
+        "canonical": "https://elevadesign.ma/projets/villas-assinie-int",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/habillage-mural",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/habillage-mural/",
+        "canonical": "https://elevadesign.ma/projets/habillage-mural",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/projets/lotissement-campus",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/projets/lotissement-campus/",
+        "canonical": "https://elevadesign.ma/projets/lotissement-campus",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.ma/robots.txt",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/robots.txt",
+        "canonical": null,
+        "x_robots_tag": null,
+        "robots_or_sitemap": "User-agent: *\nAllow: /\n\nSitemap: https://elevadesign.ma/sitemap.xml\n"
+      },
+      {
+        "url": "https://elevadesign.ma/sitemap.xml",
+        "status": 200,
+        "final_url": "https://elevadesign.ma/sitemap.xml",
+        "canonical": null,
+        "x_robots_tag": null,
+        "robots_or_sitemap": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://elevadesign.ma/</loc><priority>1.00</priority></url>\n  <url><loc>https://elevadesign.ma/projets</loc><priority>0.90</priority></url>\n  <url><loc>https://elevadesign.ma/realisations</loc><priority>0.78</priority></url>\n  <url><loc>https://elevadesign.ma/services</loc><priority>0.88</priority></url>\n  <url><loc>https://elevadesign.ma/a-propos</loc><priority>0.75</priority></url>\n  <url><loc>https://elevadesign.ma/contact</loc><priority>0.80</priority></url>\n  <url><loc>https://elevadesign.ma/services/architecture-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/decoration-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/cuisine-salon</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/villas-appartements</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/restaurants-cafes-commerces</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/renovation-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/projets/residence-ivoire</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-horizon</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/maison-neroli</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/salon-a1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/salon-a2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a4</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/restaurant-wakame</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/restaurant-wakame2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-b3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-c1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-celia</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-h1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-h2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-m1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villas-assinie-int</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/habillage-mural</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/lotissement-campus</loc><priority>0.65</priority></url>\n</urlset>\n"
+      },
+      {
+        "url": "https://elevadesign.ma/missing-audit-page",
+        "status": 404,
+        "final_url": "https://elevadesign.ma/missing-audit-page",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/",
+        "canonical": "https://elevadesign.ma/",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/",
+        "canonical": "https://elevadesign.ma/projets",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/realisations",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/realisations/",
+        "canonical": "https://elevadesign.ma/realisations",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/",
+        "canonical": "https://elevadesign.ma/services",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/a-propos",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/a-propos/",
+        "canonical": "https://elevadesign.ma/a-propos",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/contact",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/contact/",
+        "canonical": "https://elevadesign.ma/contact",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/habillage-mural",
+        "status": 404,
+        "final_url": "https://elevadesign.pages.dev/services/habillage-mural",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/dressing-sur-mesure",
+        "status": 404,
+        "final_url": "https://elevadesign.pages.dev/services/dressing-sur-mesure",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/cuisine-sur-mesure",
+        "status": 404,
+        "final_url": "https://elevadesign.pages.dev/services/cuisine-sur-mesure",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/architecture-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/architecture-interieure/",
+        "canonical": "https://elevadesign.ma/services/architecture-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/decoration-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/decoration-interieure/",
+        "canonical": "https://elevadesign.ma/services/decoration-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/cuisine-salon",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/cuisine-salon/",
+        "canonical": "https://elevadesign.ma/services/cuisine-salon",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/villas-appartements",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/villas-appartements/",
+        "canonical": "https://elevadesign.ma/services/villas-appartements",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/restaurants-cafes-commerces",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/restaurants-cafes-commerces/",
+        "canonical": "https://elevadesign.ma/services/restaurants-cafes-commerces",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/services/renovation-interieure",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/services/renovation-interieure/",
+        "canonical": "https://elevadesign.ma/services/renovation-interieure",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/residence-ivoire",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/residence-ivoire/",
+        "canonical": "https://elevadesign.ma/projets/residence-ivoire",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-horizon",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-horizon/",
+        "canonical": "https://elevadesign.ma/projets/villa-horizon",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/maison-neroli",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/maison-neroli/",
+        "canonical": "https://elevadesign.ma/projets/maison-neroli",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/salon-a1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/salon-a1/",
+        "canonical": "https://elevadesign.ma/projets/salon-a1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/salon-a2",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/salon-a2/",
+        "canonical": "https://elevadesign.ma/projets/salon-a2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/chambre-a1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/chambre-a1/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/chambre-a2",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/chambre-a2/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/chambre-a3",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/chambre-a3/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a3",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/chambre-a4",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/chambre-a4/",
+        "canonical": "https://elevadesign.ma/projets/chambre-a4",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/bureau-b1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/bureau-b1/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/bureau-b2",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/bureau-b2/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/bureau-b3",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/bureau-b3/",
+        "canonical": "https://elevadesign.ma/projets/bureau-b3",
+        "x_robots_tag": null,
+        "retry_after_timeout": true
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/restaurant-wakame",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/restaurant-wakame/",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/restaurant-wakame2",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/restaurant-wakame2/",
+        "canonical": "https://elevadesign.ma/projets/restaurant-wakame2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-b3",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-b3/",
+        "canonical": "https://elevadesign.ma/projets/villa-b3",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-c1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-c1/",
+        "canonical": "https://elevadesign.ma/projets/villa-c1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-celia",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-celia/",
+        "canonical": "https://elevadesign.ma/projets/villa-celia",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-h1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-h1/",
+        "canonical": "https://elevadesign.ma/projets/villa-h1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-h2",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-h2/",
+        "canonical": "https://elevadesign.ma/projets/villa-h2",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villa-m1",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villa-m1/",
+        "canonical": "https://elevadesign.ma/projets/villa-m1",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/villas-assinie-int",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/villas-assinie-int/",
+        "canonical": "https://elevadesign.ma/projets/villas-assinie-int",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/habillage-mural",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/habillage-mural/",
+        "canonical": "https://elevadesign.ma/projets/habillage-mural",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/projets/lotissement-campus",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/projets/lotissement-campus/",
+        "canonical": "https://elevadesign.ma/projets/lotissement-campus",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://elevadesign.pages.dev/robots.txt",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/robots.txt",
+        "canonical": null,
+        "x_robots_tag": null,
+        "robots_or_sitemap": "User-agent: *\nAllow: /\n\nSitemap: https://elevadesign.ma/sitemap.xml\n"
+      },
+      {
+        "url": "https://elevadesign.pages.dev/sitemap.xml",
+        "status": 200,
+        "final_url": "https://elevadesign.pages.dev/sitemap.xml",
+        "canonical": null,
+        "x_robots_tag": null,
+        "robots_or_sitemap": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://elevadesign.ma/</loc><priority>1.00</priority></url>\n  <url><loc>https://elevadesign.ma/projets</loc><priority>0.90</priority></url>\n  <url><loc>https://elevadesign.ma/realisations</loc><priority>0.78</priority></url>\n  <url><loc>https://elevadesign.ma/services</loc><priority>0.88</priority></url>\n  <url><loc>https://elevadesign.ma/a-propos</loc><priority>0.75</priority></url>\n  <url><loc>https://elevadesign.ma/contact</loc><priority>0.80</priority></url>\n  <url><loc>https://elevadesign.ma/services/architecture-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/decoration-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/cuisine-salon</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/villas-appartements</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/restaurants-cafes-commerces</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/services/renovation-interieure</loc><priority>0.84</priority></url>\n  <url><loc>https://elevadesign.ma/projets/residence-ivoire</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-horizon</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/maison-neroli</loc><priority>0.72</priority></url>\n  <url><loc>https://elevadesign.ma/projets/salon-a1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/salon-a2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/chambre-a4</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/bureau-b3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/restaurant-wakame</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/restaurant-wakame2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-b3</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-c1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-celia</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-h1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-h2</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villa-m1</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/villas-assinie-int</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/habillage-mural</loc><priority>0.65</priority></url>\n  <url><loc>https://elevadesign.ma/projets/lotissement-campus</loc><priority>0.65</priority></url>\n</urlset>\n"
+      },
+      {
+        "url": "https://elevadesign.pages.dev/missing-audit-page",
+        "status": 404,
+        "final_url": "https://elevadesign.pages.dev/missing-audit-page",
+        "canonical": "https://elevadesign.ma/404",
+        "x_robots_tag": null,
+        "robots_or_sitemap": null
+      },
+      {
+        "url": "https://www.elevadesign.ma/",
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+      }
+    ]
+  },
+  "lighthouse": [
+    {
+      "artifact": "lighthouse-before.json",
+      "url": "http://127.0.0.1:4173/",
+      "fetch_time": "2026-10-20T21:24:40.634Z",
+      "lighthouse_version": "13.5.0",
+      "performance_score": 39.0,
+      "lcp_ms": 28953.476500000004,
+      "cls": 0,
+      "tbt_ms": 1112.999999999999,
+      "transfer_bytes": 7081201,
+      "warnings": [
+        "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+      ],
+      "scope": "Measured before new service pages and final Instagram accessible-name fix; not field CWV"
+    },
+    {
+      "artifact": "lighthouse-final-home.json",
+      "url": "http://127.0.0.1:4173/",
+      "fetch_time": "2026-10-20T21:37:21.519Z",
+      "lighthouse_version": "13.5.0",
+      "performance_score": 46.0,
+      "lcp_ms": 11417.4005,
+      "cls": 0,
+      "tbt_ms": 799,
+      "transfer_bytes": 2584529,
+      "warnings": [
+        "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+      ],
+      "scope": "Measured before new service pages and final Instagram accessible-name fix; not field CWV"
+    },
+    {
+      "artifact": "lighthouse-final-contact.json",
+      "url": "http://127.0.0.1:4173/contact",
+      "fetch_time": "2026-10-20T21:37:47.543Z",
+      "lighthouse_version": "13.5.0",
+      "performance_score": 39.0,
+      "lcp_ms": 14081.2595,
+      "cls": 0,
+      "tbt_ms": 1359,
+      "transfer_bytes": 3012779,
+      "warnings": [
+        "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+      ],
+      "scope": "Measured before new service pages and final Instagram accessible-name fix; not field CWV"
+    },
+    {
+      "artifact": "lighthouse-final-service.json",
+      "url": "http://127.0.0.1:4173/services/architecture-interieure",
+      "fetch_time": "2026-10-20T21:38:09.805Z",
+      "lighthouse_version": "13.5.0",
+      "performance_score": 49.0,
+      "lcp_ms": 13369.630999999998,
+      "cls": 0,
+      "tbt_ms": 788,
+      "transfer_bytes": 2985013,
+      "warnings": [],
+      "scope": "Measured before new service pages and final Instagram accessible-name fix; not field CWV"
+    },
+    {
+      "artifact": "lighthouse-final-project.json",
+      "url": "http://127.0.0.1:4173/projets/villa-h2",
+      "fetch_time": "2026-10-20T21:38:32.237Z",
+      "lighthouse_version": "13.5.0",
+      "performance_score": 50.0,
+      "lcp_ms": 23912.640000000014,
+      "cls": 0,
+      "tbt_ms": 744,
+      "transfer_bytes": 24951781,
+      "warnings": [],
+      "scope": "Measured before new service pages and final Instagram accessible-name fix; not field CWV"
+    }
+  ]
+}

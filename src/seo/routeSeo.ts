@@ -42,7 +42,7 @@ const staticRoutes: RouteSeo[] = [
     path: '/projets',
     title: pageSeo.projects.title,
     description: pageSeo.projects.description,
-    canonicalPath: '/projets',
+    canonicalPath: '/projets/',
     priority: 0.9,
     jsonLd: [
       breadcrumbSchema([
@@ -56,7 +56,7 @@ const staticRoutes: RouteSeo[] = [
     path: '/realisations',
     title: pageSeo.realisations.title,
     description: pageSeo.realisations.description,
-    canonicalPath: '/realisations',
+    canonicalPath: '/realisations/',
     priority: 0.78,
     jsonLd: [
       breadcrumbSchema([
@@ -70,7 +70,7 @@ const staticRoutes: RouteSeo[] = [
     path: '/services',
     title: pageSeo.services.title,
     description: pageSeo.services.description,
-    canonicalPath: '/services',
+    canonicalPath: '/services/',
     priority: 0.88,
     jsonLd: [
       businessSchema(),
@@ -85,7 +85,7 @@ const staticRoutes: RouteSeo[] = [
     path: '/a-propos',
     title: pageSeo.about.title,
     description: pageSeo.about.description,
-    canonicalPath: '/a-propos',
+    canonicalPath: '/a-propos/',
     priority: 0.75,
     jsonLd: [
       breadcrumbSchema([
@@ -99,7 +99,7 @@ const staticRoutes: RouteSeo[] = [
     path: '/contact',
     title: pageSeo.contact.title,
     description: pageSeo.contact.description,
-    canonicalPath: '/contact',
+    canonicalPath: '/contact/',
     priority: 0.8,
     jsonLd: [
       businessSchema(),
@@ -121,7 +121,7 @@ const projectRoutes: RouteSeo[] = projects.map((project) => {
     path,
     title,
     description,
-    canonicalPath: path,
+    canonicalPath: `${path}/`,
     image: project.coverImage,
     type: 'article',
     priority: project.featured ? 0.72 : 0.65,
@@ -140,7 +140,7 @@ const serviceLandingRoutes: RouteSeo[] = serviceLandingPages.map((page) => ({
   path: page.path,
   title: page.metaTitle,
   description: page.metaDescription,
-  canonicalPath: page.path,
+  canonicalPath: `${page.path}/`,
   image: page.heroImage,
   priority: 0.84,
   jsonLd: [

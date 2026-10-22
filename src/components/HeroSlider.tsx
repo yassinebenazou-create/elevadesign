@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { heroSlides } from '../data/heroSlides'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useI18n } from '../i18n/I18nProvider'
+import { preferredPagePath } from '../utils/urls'
 
 const AUTOPLAY_DELAY = 5000
 
@@ -76,8 +77,16 @@ export function HeroSlider() {
           <picture key={slide.id}>
             {index === 0 ? (
               <source
+                media="(max-width: 767px)"
                 type="image/avif"
-                srcSet="/images/hero/hero-01-960.avif 960w, /images/hero/hero-01-1920.avif 1920w, /images/hero/hero-01-2880.avif 2880w, /images/hero/hero-01.jpg 5749w"
+                srcSet="/images/hero/hero-01-mobile-720.avif 720w, /images/hero/hero-01-mobile-1080.avif 1080w, /images/hero/hero-01-mobile-1440.avif 1440w"
+                sizes="100vw"
+              />
+            ) : null}
+            {index === 0 ? (
+              <source
+                type="image/avif"
+                srcSet="/images/hero/hero-01-960.avif 960w, /images/hero/hero-01-1600.avif 1600w, /images/hero/hero-01-2400.avif 2400w"
                 sizes="max(100vw, 150vh)"
               />
             ) : null}
@@ -85,13 +94,13 @@ export function HeroSlider() {
               alt={slide.alt}
               aria-hidden={index !== activeIndex}
               className={`hero-slider__image ${index === activeIndex ? 'is-active' : ''}`}
-              decoding={index === 0 ? 'sync' : 'async'}
+              decoding="async"
               fetchPriority={index === 0 ? 'high' : 'auto'}
               loading={index === 0 ? 'eager' : 'lazy'}
               width={index === 0 ? 5749 : 1920}
               height={index === 0 ? 3833 : 1281}
               src={index === 0 || hasLoadedFirstImage || index === activeIndex ? slide.src : undefined}
-              srcSet={index === 0 ? '/images/hero/hero-01-960.webp 960w, /images/hero/hero-01-1920.webp 1920w, /images/hero/hero-01-2880.webp 2880w, /images/hero/hero-01.jpg 5749w' : undefined}
+              srcSet={index === 0 ? '/images/hero/hero-01-960.webp 960w, /images/hero/hero-01-1600.webp 1600w, /images/hero/hero-01-2400.webp 2400w' : undefined}
               sizes={index === 0 ? 'max(100vw, 150vh)' : undefined}
               onLoad={index === 0 ? () => setHasLoadedFirstImage(true) : undefined}
               style={{ objectPosition: slide.position }}
@@ -104,7 +113,7 @@ export function HeroSlider() {
       <div className="hero-slider__content">
         <p className="hero-slider__eyebrow">{t.hero.eyebrow}</p>
         <h1 className="hero-slider__title">{t.hero.title}</h1>
-        <Link className="hero-slider__cta" to="/projets">
+        <Link className="hero-slider__cta" to={preferredPagePath('/projets')}>
           {t.hero.cta}
         </Link>
       </div>

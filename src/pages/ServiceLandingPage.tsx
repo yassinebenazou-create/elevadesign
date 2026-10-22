@@ -5,6 +5,7 @@ import { Container } from '../components/Container'
 import { ImageReveal } from '../components/ImageReveal'
 import { ProjectCard } from '../components/ProjectCard'
 import { Reveal } from '../components/Reveal'
+import { ResponsiveImage } from '../components/ResponsiveImage'
 import { Seo } from '../components/Seo'
 import { getProjectsForService } from '../data/projectRelations'
 import {
@@ -12,6 +13,7 @@ import {
   getServiceLandingPageBySlug,
 } from '../data/serviceLandingPages'
 import { getRouteSeo } from '../seo/routeSeo'
+import { preferredPagePath } from '../utils/urls'
 import { NotFoundPage } from './NotFoundPage'
 
 export function ServiceLandingPage() {
@@ -38,7 +40,7 @@ export function ServiceLandingPage() {
 
       <section className="service-detail-hero">
         <Container size="wide" className="service-detail-hero__inner">
-          <Reveal className="service-detail-hero__copy">
+          <Reveal className="service-detail-hero__copy" eager>
             <p className="eyebrow">{page.eyebrow}</p>
             <h1>{page.h1}</h1>
             <p>{page.intro}</p>
@@ -48,9 +50,10 @@ export function ServiceLandingPage() {
             </div>
           </Reveal>
           <ImageReveal className="service-detail-hero__media" delay={0.12}>
-            <img
+            <ResponsiveImage
               src={page.heroImage}
               alt={page.heroAlt}
+              sizes="(max-width: 767px) 100vw, 50vw"
               loading="eager"
               fetchPriority="high"
               decoding="async"
@@ -137,7 +140,7 @@ export function ServiceLandingPage() {
           </Reveal>
           <div className="service-detail-related__grid">
             {relatedServices.map((service) => (
-              <Link to={service.path} className="service-detail-related__link" key={service.slug}>
+              <Link to={preferredPagePath(service.path)} className="service-detail-related__link" key={service.slug}>
                 <span>{service.title}</span>
                 <ArrowUpRight aria-hidden="true" />
               </Link>

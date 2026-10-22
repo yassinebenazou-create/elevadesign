@@ -6,6 +6,8 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useI18n } from '../i18n/I18nProvider'
 import type { Project } from '../types/project'
 import { isKnownProjectValue } from '../utils/projectFacts'
+import { preferredPagePath } from '../utils/urls'
+import { ResponsiveImage } from './ResponsiveImage'
 
 type ProjectCardProps = {
   project: Project
@@ -31,11 +33,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       transition={{ duration: 0.72, ease: [0.25, 0.1, 0.25, 1] }}
       viewport={{ once: true, amount: 0.16 }}
     >
-      <Link to={`/projets/${project.slug}`} className="project-card__link">
+      <Link to={preferredPagePath(`/projets/${project.slug}`)} className="project-card__link">
         <div className="project-card__media">
-          <img
+          <ResponsiveImage
             src={project.coverImage}
             alt={project.coverAlt}
+            sizes="(max-width: 767px) 100vw, 50vw"
             loading="lazy"
             decoding="async"
             width={1920}

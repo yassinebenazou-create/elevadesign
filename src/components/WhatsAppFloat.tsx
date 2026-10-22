@@ -12,7 +12,7 @@ export function WhatsAppFloat() {
       rel="noopener"
       aria-label="Nous contacter sur WhatsApp"
     >
-      <img src={siteConfig.contact.whatsappIcon} srcSet={siteConfig.contact.whatsappIconSrcSet} sizes="64px" width={1254} height={1254} alt="" aria-hidden="true" />
+      <img src={siteConfig.contact.whatsappIcon} srcSet={siteConfig.contact.whatsappIconSrcSet} sizes="(max-width: 767px) 49px, 64px" width={1254} height={1254} alt="" aria-hidden="true" />
     </a>
   )
 }

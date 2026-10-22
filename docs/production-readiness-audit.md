@@ -1,8 +1,10 @@
 # Eleva Design — production readiness and technical SEO audit
 
-Audit date: 20 October 2026. Preferred origin: **https://elevadesign.ma**.
+Audit dates: 20–22 October 2026. Preferred origin: **https://elevadesign.ma/**.
 
-**Status: code corrections are ready for review; domain launch is not yet cleared.** The apex and www hosts resolved to `169.50.173.20`, but HTTPS connections were refused from the audit environment. The existing `https://elevadesign.pages.dev` site responded successfully. DNS, TLS, the eventual production deployment and real-user performance still require launch verification.
+> The final 22 October performance pass, preferred trailing-slash URL checks and deployment decision are in [`final-deployment-readiness.md`](./final-deployment-readiness.md). Its Lighthouse table supersedes the earlier measurements retained below as audit history.
+
+**Status: local changes are ready for review; migration is not fully verified.** On 20 October, HTTPS to the apex/www failed. A fresh 21 October check with a browser User-Agent confirms valid HTTPS and HTTP 200 on all 35 existing public routes at both `elevadesign.ma` and `elevadesign.pages.dev`, after retrying three timeouts. Both now emit apex canonicals. The three new service pages return 404 publicly and are ready only in the local build. The www host fails DNS resolution here. Default Python User-Agent requests returned 403, while browser User-Agent requests passed; actual Googlebot/WAF access still needs account-side verification. No Cloudflare changes were made by this audit.
 
 No deployment, push, Cloudflare dashboard change, or domain redirect activation was performed during this audit. The working tree was clean at the beginning. Existing visual styles and animation timings were preserved; `src/index.css` was not edited.
 
@@ -10,12 +12,12 @@ No deployment, push, Cloudflare dashboard change, or domain redirect activation 
 
 | Area | Result |
 | --- | --- |
-| Route coverage | 35 public pages: 6 main pages, 6 service landing pages, 23 project pages; a separate 404 document |
-| Static rendering | All 35 public routes contain meaningful main content without executing JavaScript |
+| Route coverage | 38 public pages: 6 main pages, 9 service landing pages, 23 project pages; a separate 404 document |
+| Static rendering | All 38 public routes contain meaningful main content without executing JavaScript |
 | Metadata | Unique titles and descriptions; one canonical, description and robots directive per document; matching Open Graph and Twitter metadata |
 | Heading structure | One H1 per route; H2 sections and subordinate content are present; no heading-order issue in the home Lighthouse audit |
 | Canonical origin | Canonicals, social URLs/images, sitemap and JSON-LD use `https://elevadesign.ma` |
-| Sitemap | 35 unique valid public URLs; no 404, invalid project/service slug, query URL or non-public route |
+| Sitemap | 38 unique valid public URLs; no 404, invalid project/service slug, query URL or non-public route |
 | Robots | `User-agent: *` and `Allow: /`; production sitemap URL; public HTML has `index, follow` |
 | 404 behavior | Cloudflare local runtime returns HTTP 404 plus `noindex, follow` for unknown general, project and service routes |
 | Links and assets | No broken local links, image sources/srcsets, stylesheet assets, scripts or social preview images in the generated site |
@@ -25,7 +27,7 @@ No deployment, push, Cloudflare dashboard change, or domain redirect activation 
 | Contact | Empty/invalid phone rejected; valid domestic/international formats accepted; dropdown errors clear immediately; selections persist when closed; Other details required; encoded WhatsApp payload verified |
 | Mobile | All routes checked at 390px; key routes also checked at 320, 768 and 1440px; no horizontal document overflow |
 | Interaction | Mobile menu, language persistence, hero slider and project lightbox pass; no runtime or hydration errors in the browser suite |
-| Live preview | All 35 public routes returned HTTP 200; tested invalid route returned 404; robots and sitemap reachable |
+| Published hosts | All 35 existing public routes on apex and pages.dev returned final HTTP 200 with browser User-Agent; unknown route 404; robots and sitemap reachable. New local pages are not published |
 | Dependencies | Updated lockfile passes `npm audit` with zero known vulnerabilities; clean install and production build succeed |
 
 Metadata and content checks distinguish exact duplicates from editorial similarity. They are not a search-ranking prediction. External Instagram content is supplied by a third party and is not part of the static internal-link/image inventory.
@@ -33,25 +35,43 @@ Metadata and content checks distinguish exact duplicates from editorial similari
 ## Confirmed problems fixed
 
 1. **Wrong preferred host.** Existing SEO URLs used `www.elevadesign.ma`. Updated to the requested apex host and made the prerenderer read `seoConfig.siteUrl` instead of keeping a second hardcoded origin. Build-time robots generation uses the same configuration.
-2. **Invalid Cloudflare routing rules.** The local Pages runtime rejected 34 trailing-slash rewrites as loops and rejected the catch-all status `404`. Removed those rules. Valid extensionless internal rewrites remain; Pages serves directory indexes and the top-level `404.html` natively. All 35 routes, 34 trailing-slash variants and three invalid-route cases were tested.
+2. **Invalid Cloudflare routing rules.** The local Pages runtime rejected 34 trailing-slash rewrites as loops and rejected the catch-all status `404`. Removed those rules. Valid extensionless internal rewrites remain; Pages serves directory indexes and the top-level `404.html` natively. All 38 routes, 37 trailing-slash variants and three invalid-route cases were tested.
 3. **Structured-data vocabulary and entity duplication.** Removed deprecated `ProfessionalService`, the incorrectly placed `serviceType`, and duplicate home business entities. The business has one stable Organization ID and service providers reference it. LocalBusiness is conditional on a verified address; the current placeholder is excluded. Project `contentLocation` now uses a Place object, and year-only project dates use `temporalCoverage` instead of claiming an exact creation date. [Schema.org ProfessionalService](https://schema.org/ProfessionalService), [serviceType](https://schema.org/serviceType), [contentLocation](https://schema.org/contentLocation).
 4. **Returning-visitor hydration failure.** A stored English preference caused React error #418 because the browser's first render disagreed with French prerendered HTML. `useSyncExternalStore` now supplies the French hydration snapshot and then restores the browser preference. Removed the SEO effect that reset the HTML language to French on route navigation. Storage failures retain an in-memory preference.
 5. **Unnecessary image transfers.** Removed the global home-hero preload from every route. Added responsive AVIF/WebP hero variants and responsive lossless WebP logo/WhatsApp variants. Originals are retained. Full-resolution brand conversions were checked for identical decoded pixels; resized derivatives use Lanczos, and hero derivatives use high-quality encoding. Hidden carousel image requests start after the first image loads. Offscreen gallery and about-page images load lazily.
-6. **Unnecessary initial JavaScript.** The interactive lightbox and Instagram widget now load on demand, while meaningful prerendered page text remains intact. The final initial JS bundle is 484.44 kB / 149.49 kB gzip, versus 523.98 kB / 161.33 kB gzip in the baseline build.
+6. **Unnecessary initial JavaScript.** The interactive lightbox and Instagram widget now load on demand, while meaningful prerendered page text remains intact. Before the new service content, the initial JS bundle fell to 484.47 kB / 149.50 kB gzip from 523.98 kB / 161.33 kB gzip. The final build including the three added services is 495.68 kB / 152.44 kB gzip.
 7. **Phone input and accessibility.** Required phone input now uses `type="tel"`, autofill and a 7–15 digit format rule allowing an international prefix and common separators. Linked dropdown error text with `aria-describedby`. Hidden mobile navigation is inert. The Instagram link's accessible name now includes its visible handle, correcting the Lighthouse label/name mismatch.
 8. **Stale dependency lockfile.** The lockfile still pinned vulnerable Vite/source-map-js versions despite patched versions being installed locally. Updated to Vite 8.3.4 and source-map-js 1.2.2, with the corresponding build-tool dependencies. A clean install verified the resulting lockfile.
 
-No business address, geographic coordinates, opening hours, reviews, ratings, prices or awards were invented. Existing project facts and page copy were preserved. LocalBusiness rich-result eligibility is **not** claimed without verified business address data. [Google LocalBusiness requirements](https://developers.google.com/search/docs/appearance/structured-data/local-business).
+No business address, geographic coordinates, opening hours, reviews, ratings, prices or awards were invented. Existing project facts and page copy were preserved; new service copy uses the confirmed conception/fabrication/installation scope and nationwide coverage, prioritizing Casablanca. LocalBusiness rich-result eligibility is **not** claimed without verified business address data. [Google LocalBusiness requirements](https://developers.google.com/search/docs/appearance/structured-data/local-business).
+
+## Client keyword priorities implemented
+
+The user confirmed conception, fabrication and pose in all Moroccan cities, with Casablanca first. Added three distinct service pages using the existing design and SEO generator:
+
+- `/services/habillage-mural`: mural composition, constraints, fabrication/pose, quote FAQ and the existing wall project.
+- `/services/dressing-sur-mesure`: storage needs, room constraints, fabrication/pose and a clearly identified ambience illustration. No unverified dressing project is presented as a completed reference.
+- `/services/cuisine-sur-mesure`: kitchen layout and custom furniture through installation. The existing `/services/cuisine-salon` retains its broader living-space subject. Appliances are not presumed included.
+
+Each has a unique title/description/H1, apex canonical, social metadata, Service/FAQ/Breadcrumb markup, meaningful static HTML and sitemap inclusion. Services and portfolio link to them; relevant project/service relationships were added. The national coverage is a service-area statement, not an invented office address. See `keyword-strategy.md` for the Casablanca-first keyword map, evidence gaps and Search Console measurement plan. No ranking position or timeline is promised.
 
 ## Performance and remaining limitations
 
-<!-- performance-results -->
+| Mobile lab page | Performance / 100 | LCP | CLS | TBT | Transfer |
+| --- | --- | --- | --- | --- | --- |
+| Home, baseline | 39 | 29.0 s | 0 | 1110 ms | 6915 KiB |
+| Home, after technical fixes | 46 | 11.4 s | 0 | 800 ms | 2524 KiB |
+| Contact, after technical fixes | 39 | 14.1 s | 0 | 1360 ms | 2942 KiB |
+| Architecture service, after technical fixes | 49 | 13.4 s | 0 | 790 ms | 2915 KiB |
+| Villa H2 project, after technical fixes | 50 | 23.9 s | 0 | 740 ms | 24367 KiB |
+
+**Performance is improved but does not pass a good mobile Core Web Vitals standard.** These measurements were collected after the image/code-loading fixes and before the final Instagram accessible-name adjustment and three additional service pages. No performance score is claimed for the three new pages. Some runs reported a slower-than-expected host CPU. The home transfer fell about 64%; this does not resolve the remaining LCP and CPU issues.
 
 These are single-run Lighthouse mobile lab measurements against the local production build, using Lighthouse's default simulated mobile throttling. They are not production network measurements or field Core Web Vitals. Results vary with the host machine, external fonts and browser scheduling. The browser suite also samples interaction durations, but these are **not field INP**. After launch, assess LCP, CLS and INP at the 75th percentile through PageSpeed Insights/Search Console or real-user measurement. [Web Vitals](https://web.dev/articles/vitals).
 
 Remaining issues for review:
 
-- The new apex/www domain does not yet serve usable HTTPS from the test environment. This blocks domain migration approval.
+- Apex HTTPS now works with a browser User-Agent, but www DNS resolution fails here. Default Python User-Agent requests received 403 on both published hosts. Verify Googlebot access and WAF/bot rules in Cloudflare before launch acceptance; do not infer Googlebot blocking solely from this test.
 - Mobile performance needs further work; the home hero remains substantial at high pixel densities, and several full-resolution project photos exceed 4 MB (largest approximately 6.3 MB). Original portfolio imagery was retained to protect full-screen viewing quality. A further responsive-gallery pass should be reviewed visually.
 - Google Fonts CSS remains render blocking (about 0.9 seconds estimated opportunity in the first post-fix home run). Fonts already use `display=swap` and preconnect. Self-hosting the same fonts is a possible next optimization; this audit does not replace typography or remove animations to inflate a score.
 - Gold text on ivory backgrounds has insufficient contrast in Lighthouse (for example, approximately 2.79:1 on home eyebrow/project metadata). Resolving it requires a color/design decision, so the existing palette was preserved.
@@ -65,14 +85,14 @@ Remaining issues for review:
 
 - Baseline production build and generated-HTML inventory before application changes.
 - `npm ci --ignore-scripts`: passed after stopping the local preview process that held a Windows native-module file lock.
-- `npm run build`: TypeScript, client bundle, SSR bundle, 36 prerendered documents and sitemap generation passed on the clean install.
+- `npm run build`: TypeScript, client bundle, SSR bundle, 39 prerendered documents and sitemap generation passed on the clean install.
 - `npm run lint`: passed with four pre-existing warnings (Fast Refresh exports in Seo/I18nProvider; effect-state warnings in Header/usePrefersReducedMotion).
 - `npm audit`: zero known vulnerabilities after lockfile correction.
-- `python scripts/audit-production.py`: 35 public routes, zero errors, eight advisory metadata-length warnings. Checks include assets/srcsets, metadata uniqueness, schema, sitemap, robots and inactive domain redirects.
+- `python scripts/audit-production.py`: 38 public routes, zero errors, eight advisory metadata-length warnings. Checks include assets/srcsets, metadata uniqueness, schema, sitemap, robots and inactive domain redirects.
 - `node scripts/audit-browser.mjs` against `wrangler pages dev dist --port 8788`: direct HTTP route/status checks, all-route mobile hydration, contact/WhatsApp cases, saved-language navigation, viewport checks, lightbox and slider passed. Screenshots were captured at mobile and desktop sizes and inspected.
-- Read-only live-preview HTTP crawl: 35/35 public pages returned 200. The preview still has the old www SEO origin because these changes have not been deployed.
-- Read-only DNS/HTTPS checks: apex/www resolve but HTTPS connection refused; production TLS and redirects cannot yet be accepted.
-- Lighthouse mobile baseline plus final home/contact/service/project runs; results above.
+- Read-only 21 October crawl: all 35 existing public pages on each of apex and pages.dev returned final HTTP 200 with a browser User-Agent, after retrying three timeouts. Both now use apex canonical URLs. The three added local services and a deliberately invalid route returned 404 on both hosts. This public-state update was observed externally; this audit performed no deployment.
+- Read-only DNS/HTTPS recheck: apex HTTPS works with a browser User-Agent; www DNS resolution fails; default Python User-Agent received 403 on apex/pages.dev. Migration redirects have not been activated by this audit.
+- Lighthouse mobile baseline plus post-technical-fix home/contact/service/project runs; results above, measured before the three new service pages.
 
 The automated results and route inventory are in `audit-results.json`. Screenshot and full Lighthouse JSON artifacts from this run are in `%TEMP%\eleva-audit` on this workstation.
 
@@ -95,17 +115,18 @@ In a second terminal, run `node scripts/audit-browser.mjs` with Playwright avail
 | `src/i18n/I18nProvider.tsx`, `src/components/Seo.tsx` | Hydration-safe language state and correct document language |
 | `src/config/site.ts`, `src/components/Header.tsx`, `Footer.tsx`, `MobileNavigation.tsx`, `WhatsAppFloat.tsx`, `HeroSlider.tsx`, `SocialLinks.tsx` | Responsive asset delivery, hidden-navigation accessibility and matching Instagram label |
 | `src/components/ProjectGallery.tsx`, `src/pages/AboutPage.tsx`, `src/pages/RealisationsPage.tsx` | Deferred below-fold images and on-demand interactive code |
+| `src/data/priorityServicePages.ts`, `src/data/serviceLandingPages.ts`, `src/data/projectRelations.ts` | Three confirmed commercial services, Casablanca-first content and internal links |
 | `src/pages/ContactPage.tsx` | Phone validation and accessible dropdown error association |
 | `package-lock.json`, `.gitignore` | Patched reproducible dependencies; ignore local Wrangler state |
 | Seven new `public/images/brand/*.webp` files | Logo and WhatsApp full-resolution/width variants |
 | Six new `public/images/hero/hero-01-{960,1920,2880}.{webp,avif}` files | Responsive first-slide assets; original JPEG retained |
 | `scripts/audit-production.py`, `scripts/audit-browser.mjs`, `scripts/optimize-images.py` | Repeatable validation and asset generation |
-| `docs/production-readiness-audit.md`, `docs/audit-results.json` | Review report and test evidence |
+| `docs/production-readiness-audit.md`, `docs/audit-results.json`, `docs/keyword-strategy.md` | Review report, test evidence and the client's three service-keyword priorities |
 
 ## Remaining manual Cloudflare actions — after review
 
 1. Confirm that the intended Pages project serves `elevadesign.pages.dev`; retain build command `npm run build` and output directory `dist`. Use a compatible Node version (this audit used Node 22.20.0). Deploy reviewed changes only after approval.
-2. Add `elevadesign.ma` to that project's Custom domains. For an apex Pages domain, configure the Cloudflare zone/nameservers and verify the resulting DNS mapping. Preserve unrelated mail/DNS records. Wait for the domain to become active and receive a valid certificate. [Cloudflare custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/).
+2. Verify `elevadesign.ma` in that project's Custom domains (it is now serving HTTPS in the latest read-only check). For an apex Pages domain, configure the Cloudflare zone/nameservers and verify the resulting DNS mapping. Preserve unrelated mail/DNS records. Wait for the domain to become active and receive a valid certificate. [Cloudflare custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/).
 3. Before enabling redirects, verify `https://elevadesign.ma/`, `/contact`, all sitemap routes, assets, robots, sitemap, one unknown URL, and the form. Check there is no Cloudflare Access/challenge or `X-Robots-Tag: noindex` on public production responses. Verify Googlebot access under the actual WAF/bot rules; source robots.txt alone cannot establish this.
 4. Set up HTTPS for `www.elevadesign.ma`, then enable permanent redirects to the apex. Use the following **planned, currently inactive** Bulk Redirect entries:
 

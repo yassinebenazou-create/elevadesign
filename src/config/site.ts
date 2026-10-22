@@ -5,7 +5,7 @@ export const siteConfig = {
   wordmark: 'ED',
   logo: {
     src: '/images/brand/logo-eleva.webp',
-    srcSet: '/images/brand/logo-eleva-640.webp 640w, /images/brand/logo-eleva-1280.webp 1280w, /images/brand/logo-eleva.webp 2172w',
+    srcSet: '/images/brand/logo-eleva-384.webp 384w, /images/brand/logo-eleva-640.webp 640w, /images/brand/logo-eleva-1280.webp 1280w, /images/brand/logo-eleva.webp 2172w',
     alt: 'Eleva Design',
   },
   activity: 'Home Decor - Aménagement intérieur & extérieur',
@@ -18,7 +18,7 @@ export const siteConfig = {
     whatsappNumber: '212613790624',
     whatsappMessage: 'Bonjour, je souhaite échanger sur un projet Eleva Design.',
     whatsappIcon: '/images/brand/whatsapp-icon.webp',
-    whatsappIconSrcSet: '/images/brand/whatsapp-icon-96.webp 96w, /images/brand/whatsapp-icon-192.webp 192w, /images/brand/whatsapp-icon-384.webp 384w, /images/brand/whatsapp-icon.webp 1254w',
+    whatsappIconSrcSet: '/images/brand/whatsapp-icon-96.webp 96w, /images/brand/whatsapp-icon-128.webp 128w, /images/brand/whatsapp-icon-192.webp 192w, /images/brand/whatsapp-icon-384.webp 384w, /images/brand/whatsapp-icon.webp 1254w',
     address: 'Adresse du studio à renseigner',
     city: 'Maroc',
     instagramHandle: '@eleva_design1',
@@ -30,9 +30,9 @@ export const siteConfig = {
 
 export const navigationItems: NavItem[] = [
   { label: 'Accueil', href: '/' },
-  { label: 'Projets', href: '/projets' },
-  { label: 'Nos Réalisations', href: '/realisations' },
-  { label: 'À propos', href: '/a-propos' },
-  { label: 'Services', href: '/services' },
-  { label: 'Demande de devis', href: '/contact' },
+  { label: 'Projets', href: '/projets/' },
+  { label: 'Nos Réalisations', href: '/realisations/' },
+  { label: 'À propos', href: '/a-propos/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Demande de devis', href: '/contact/' },
 ]

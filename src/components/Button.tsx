@@ -4,6 +4,7 @@ import type {
   PropsWithChildren,
 } from 'react'
 import { Link } from 'react-router-dom'
+import { preferredPagePath } from '../utils/urls'
 
 type SharedButtonProps = PropsWithChildren<{
   className?: string
@@ -45,7 +46,7 @@ export function Button({
 
   if ('to' in props && props.to) {
     return (
-      <Link className={classes} to={props.to}>
+      <Link className={classes} to={preferredPagePath(props.to)}>
         {children}
       </Link>
     )

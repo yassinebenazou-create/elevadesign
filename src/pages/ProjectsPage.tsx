@@ -10,6 +10,7 @@ import { serviceLandingPages } from '../data/serviceLandingPages'
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
 import type { Project } from '../types/project'
+import { preferredPagePath } from '../utils/urls'
 
 type FilterKey = 'all' | 'villas' | 'interior' | 'commercial' | 'residential' | 'offices' | 'wall'
 
@@ -99,7 +100,7 @@ export function ProjectsPage() {
           </Reveal>
           <div className="portfolio-needs__grid">
             {serviceLinks.map((service) => (
-              <Link to={service.path} className="portfolio-needs__link" key={service.slug}>
+              <Link to={preferredPagePath(service.path)} className="portfolio-needs__link" key={service.slug}>
                 <span>{service.title}</span>
                 <small>{service.primaryKeyword}</small>
               </Link>

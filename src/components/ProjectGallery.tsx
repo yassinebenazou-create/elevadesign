@@ -3,6 +3,7 @@ import { lazy, Suspense, useRef, useState } from 'react'
 import { useHasMounted } from '../hooks/useHasMounted'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import type { ProjectGalleryImage } from '../types/project'
+import { ResponsiveImage } from './ResponsiveImage'
 const Lightbox = lazy(() => import('./Lightbox').then((module) => ({ default: module.Lightbox })))
 
 type ProjectGalleryProps = {
@@ -63,9 +64,10 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
                 triggerRefs.current[index] = element
               }}
             >
-              <img
+              <ResponsiveImage
                 src={image.src}
                 alt={image.alt}
+                sizes="(max-width: 767px) 100vw, 50vw"
                 loading="lazy"
                 decoding="async"
                 width={1920}

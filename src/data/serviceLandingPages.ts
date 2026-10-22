@@ -1,3 +1,5 @@
+import { priorityServicePages } from './priorityServicePages'
+
 export type ServiceLandingPage = {
   slug: string
   path: string
@@ -22,6 +24,7 @@ export type ServiceLandingPage = {
 }
 
 export const serviceLandingPages: ServiceLandingPage[] = [
+  ...priorityServicePages,
   {
     slug: 'architecture-interieure',
     path: '/services/architecture-interieure',
@@ -143,7 +146,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
     projectSlugs: ['salon-a1', 'chambre-a1', 'habillage-mural'],
-    relatedServiceSlugs: ['architecture-interieure', 'cuisine-salon', 'villas-appartements'],
+    relatedServiceSlugs: ['habillage-mural', 'architecture-interieure', 'cuisine-salon', 'villas-appartements'],
     faq: [
       {
         question: 'La décoration concerne-t-elle uniquement les salons ?',

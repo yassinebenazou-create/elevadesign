@@ -11,6 +11,7 @@ export const projectServiceMap: Record<string, string[]> = {
   'residence-ivoire': [
     'architecture-interieure',
     'cuisine-salon',
+    'cuisine-sur-mesure',
     'renovation-interieure',
     'villas-appartements',
   ],
@@ -34,11 +35,14 @@ export const projectServiceMap: Record<string, string[]> = {
   'villa-h2': ['villas-appartements', 'architecture-interieure', 'cuisine-salon'],
   'villa-m1': ['villas-appartements'],
   'villas-assinie-int': ['villas-appartements', 'architecture-interieure'],
-  'habillage-mural': ['decoration-interieure'],
+  'habillage-mural': ['habillage-mural', 'decoration-interieure'],
   'lotissement-campus': [],
 }
 
 export const portfolioServiceLinks = [
+  'habillage-mural',
+  'dressing-sur-mesure',
+  'cuisine-sur-mesure',
   'architecture-interieure',
   'decoration-interieure',
   'cuisine-salon',

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-22",
+  "environment": "Local Cloudflare Pages runtime, Lighthouse 13.5 mobile simulated throttling",
+  "environment_note": "Results are local Lighthouse lab data, not field Core Web Vitals.",
+  "results": [
+    { "page": "Homepage", "path": "/", "performance": 81, "lcp_seconds": 4.61, "fcp_seconds": 1.81, "tbt_ms": 101, "cls": 0, "transfer_kib": 823, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" },
+    { "page": "Projects", "path": "/projets/", "performance": 75, "lcp_seconds": 4.32, "fcp_seconds": 2.38, "tbt_ms": 209, "cls": 0, "transfer_kib": 821, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" },
+    { "page": "Services overview", "path": "/services/", "performance": 76, "lcp_seconds": 5.24, "fcp_seconds": 2.07, "tbt_ms": 138, "cls": 0.001, "transfer_kib": 1009, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" },
+    { "page": "Habillage mural", "path": "/services/habillage-mural/", "performance": 91, "lcp_seconds": 3.29, "fcp_seconds": 1.79, "tbt_ms": 76, "cls": 0, "transfer_kib": 395, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" },
+    { "page": "Dressing sur mesure", "path": "/services/dressing-sur-mesure/", "performance": 87, "lcp_seconds": 3.85, "fcp_seconds": 1.79, "tbt_ms": 70, "cls": 0, "transfer_kib": 497, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" },
+    { "page": "Cuisine sur mesure", "path": "/services/cuisine-sur-mesure/", "performance": 90, "lcp_seconds": 3.48, "fcp_seconds": 1.82, "tbt_ms": 58, "cls": 0, "transfer_kib": 424, "seo": 100, "accessibility": 100, "best_practices": 100, "color_contrast": "pass" }
+  ]
+}

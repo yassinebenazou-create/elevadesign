@@ -7,13 +7,14 @@ type RevealProps = PropsWithChildren<{
   as?: 'div' | 'section' | 'article'
   className?: string
   delay?: number
+  eager?: boolean
 }>
 
-export function Reveal({ as = 'div', children, className = '', delay = 0 }: RevealProps) {
+export function Reveal({ as = 'div', children, className = '', delay = 0, eager = false }: RevealProps) {
   const hasMounted = useHasMounted()
   const prefersReducedMotion = usePrefersReducedMotion()
   const Component = motion[as]
-  const canAnimate = hasMounted && !prefersReducedMotion
+  const canAnimate = !eager && hasMounted && !prefersReducedMotion
 
   return (
     <Component

@@ -2,6 +2,7 @@ import { Button } from '../components/Button'
 import { Container } from '../components/Container'
 import { ImageReveal } from '../components/ImageReveal'
 import { Reveal } from '../components/Reveal'
+import { ResponsiveImage } from '../components/ResponsiveImage'
 import { Seo } from '../components/Seo'
 import { serviceLandingPages } from '../data/serviceLandingPages'
 import { useI18n } from '../i18n/I18nProvider'
@@ -44,7 +45,7 @@ export function ServicesPage() {
       />
       <section className="services-hero">
         <Container size="wide">
-          <Reveal className="services-hero__content">
+          <Reveal className="services-hero__content" eager>
             <p className="eyebrow">{t.services.eyebrow}</p>
             <h1>{t.services.title}</h1>
             <p>{t.services.intro}</p>
@@ -63,7 +64,13 @@ export function ServicesPage() {
             >
               <Container size="wide" className="service-panel__inner">
                 <ImageReveal className="service-panel__media" delay={0.08}>
-                  <img src={asset.image} alt={asset.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+                  <ResponsiveImage
+                    src={asset.image}
+                    alt={asset.alt}
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
                 </ImageReveal>
                 <Reveal className="service-panel__copy">
                   <span>{number}</span>

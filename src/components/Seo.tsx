@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { seoConfig } from '../config/seo'
+import { preferredPagePath } from '../utils/urls'
 
 type SeoProps = {
   title: string
@@ -60,7 +61,7 @@ export function Seo({
   const location = useLocation()
 
   useEffect(() => {
-    const canonicalUrl = absoluteUrl(canonicalPath ?? location.pathname)
+    const canonicalUrl = absoluteUrl(preferredPagePath(canonicalPath ?? location.pathname))
     const imageUrl = absoluteUrl(image)
 
     document.title = title

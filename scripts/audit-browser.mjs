@@ -11,6 +11,8 @@ if (output) mkdirSync(output, { recursive: true })
 const paths = [...readFileSync('dist/sitemap.xml', 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)]
   .map(match => new URL(match[1]).pathname)
 const results = []
+const keyPaths = ['/', '/contact/', '/services/architecture-interieure/', '/projets/villa-h2/',
+  '/services/habillage-mural/', '/services/dressing-sur-mesure/', '/services/cuisine-sur-mesure/']
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || undefined })
 try {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, deviceScaleFactor: 3 })
@@ -36,14 +38,16 @@ try {
     assert.ok(html.includes(`href="https://elevadesign.ma${path}"`), path)
     assert.ok(html.includes('<div id="root"><'), path)
     if (path !== '/') {
-      const trailing = await context.request.get(base + path + '/')
-      assert.equal(trailing.status(), 200, path + '/')
+      const legacyPath = path.replace(/\/$/, '')
+      const legacy = await context.request.get(base + legacyPath, { maxRedirects: 0 })
+      assert.ok([301, 302, 307, 308].includes(legacy.status()), legacyPath)
+      assert.equal(new URL(legacy.headers().location, base).pathname, path)
     }
   }
-  results.push(`35 public routes and 34 trailing-slash routes return 200 with rendered HTML`)
-  const queryResponse = await context.request.get(base + '/contact?utm_source=audit&ref=one%20two')
+  results.push(`${paths.length} preferred trailing-slash routes return 200; ${paths.length - 1} legacy variants redirect to them`)
+  const queryResponse = await context.request.get(base + '/contact/?utm_source=audit&ref=one%20two')
   assert.equal(queryResponse.status(), 200)
-  assert.match(await queryResponse.text(), /href="https:\/\/elevadesign.ma\/contact"/)
+  assert.match(await queryResponse.text(), /href="https:\/\/elevadesign.ma\/contact\/"/)
   for (const path of ['/missing-audit-page', '/services/missing-audit-page', '/projets/missing-audit-page']) {
     const response = await context.request.get(base + path)
     assert.equal(response.status(), 404, path)
@@ -58,8 +62,14 @@ try {
     assert.equal(await page.locator('script[type="application/ld+json"]').count(), 1, path)
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Mobile overflow: ${path}`)
   }
-  results.push('All 35 routes hydrate on mobile with one H1, canonical and JSON-LD block; no horizontal overflow')
-  await page.goto(base + '/contact')
+  results.push(`All ${paths.length} routes hydrate on mobile with one H1, canonical and JSON-LD block; no horizontal overflow`)
+  for (const path of ['/services/habillage-mural/', '/services/dressing-sur-mesure/', '/services/cuisine-sur-mesure/', '/projets/villa-h2/']) {
+    await page.goto(base + path)
+    await page.locator('.responsive-picture img').first().waitFor()
+    assert.match(await page.locator('.responsive-picture img').first().evaluate(image => image.currentSrc), /\.avif$/)
+  }
+  results.push('New service and project pages select responsive AVIF display images')
+  await page.goto(base + '/contact/')
   const form = page.locator('.contact-form')
   const submit = form.locator('button[type="submit"]')
   const dropdown = page.locator('#projectTypeButton')
@@ -109,18 +119,18 @@ try {
   await page.getByRole('button', { name: 'Ouvrir le menu', exact: true }).click()
   assert.equal(await page.locator('#mobile-nav').getAttribute('aria-hidden'), 'false')
   await page.locator('#mobile-nav').getByRole('link', { name: 'Services', exact: true }).click()
-  await page.waitForURL('**/services')
+  await page.waitForURL('**/services/')
   assert.equal(await page.locator('#mobile-nav').getAttribute('aria-hidden'), 'true')
   assert.equal(await page.locator('#mobile-nav').evaluate(el => el.inert), true)
   results.push('Mobile navigation opens, navigates and closes; hidden navigation is inert')
   // Regression: initial browser content must match French SSR, even with saved English.
   await page.evaluate(() => localStorage.setItem('eleva-language', 'en'))
-  await page.goto(base + '/contact')
+  await page.goto(base + '/contact/')
   await page.waitForFunction(() => document.documentElement.lang === 'en')
   assert.match(await page.locator('h1').innerText(), /Project/)
   await page.getByRole('button', { name: 'Ouvrir le menu', exact: true }).click()
   await page.locator('#mobile-nav').getByRole('link', { name: 'Services', exact: true }).click()
-  await page.waitForURL('**/services')
+  await page.waitForURL('**/services/')
   assert.equal(await page.locator('html').getAttribute('lang'), 'en')
   results.push('Saved English hydrates without mismatch and lang remains en after client navigation')
   const interactions = await page.evaluate(() => window.auditInteractions)
@@ -128,14 +138,14 @@ try {
   await page.evaluate(() => localStorage.setItem('eleva-language', 'fr'))
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 })
-    for (const path of ['/', '/contact', '/services/architecture-interieure', '/projets/villa-h2']) {
+    for (const path of keyPaths) {
       await page.goto(base + path)
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${path}`)
     }
   }
-  results.push('Home, contact, service and project layouts fit 320/390/768/1440px viewports')
+  results.push('Home, contact, existing/new service and project layouts fit 320/390/768/1440px viewports')
   await page.setViewportSize({ width: 1440, height: 900 })
-  await page.goto(base + '/projets/villa-h2')
+  await page.goto(base + '/projets/villa-h2/')
   await page.locator('.project-gallery button').first().click()
   await page.getByRole('dialog').waitFor()
   await page.keyboard.press('Escape')
@@ -148,7 +158,7 @@ try {
   if (output) {
     for (const width of [390, 1440]) {
       await page.setViewportSize({ width, height: 844 })
-      for (const path of ['/', '/contact', '/services/architecture-interieure', '/projets/villa-h2']) {
+      for (const path of keyPaths) {
         await page.goto(base + path)
         await page.evaluate(() => document.fonts.ready)
         await page.waitForTimeout(1800)

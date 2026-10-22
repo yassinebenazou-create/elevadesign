@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { preferredPagePath } from '../utils/urls'
 import { Container } from './Container'
 import { Reveal } from './Reveal'
 
@@ -32,7 +33,7 @@ export function RelatedServices({ services, fallback }: RelatedServicesProps) {
         <div className="related-services__grid">
           {items.map((service) => (
             <Reveal as="article" className="related-services__item" key={service.path}>
-              <Link to={service.path}>
+              <Link to={preferredPagePath(service.path)}>
                 <span>{service.title}</span>
                 <ArrowUpRight aria-hidden="true" />
               </Link>

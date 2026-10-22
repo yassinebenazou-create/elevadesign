@@ -6,6 +6,7 @@ import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { featuredProjects } from '../data/projects'
 import { useI18n } from '../i18n/I18nProvider'
+import { preferredPagePath } from '../utils/urls'
 import { getRouteSeo } from '../seo/routeSeo'
 
 export function HomePage() {
@@ -31,8 +32,8 @@ export function HomePage() {
           <Reveal delay={0.12}>
             <p>{t.home.nationalText}</p>
             <div className="home-seo-intro__links" aria-label={t.home.nationalLinksLabel}>
-              <Link to="/services">{t.home.servicesLink}</Link>
-              <Link to="/projets">{t.home.projectsLink}</Link>
+              <Link to={preferredPagePath('/services')}>{t.home.servicesLink}</Link>
+              <Link to={preferredPagePath('/projets')}>{t.home.projectsLink}</Link>
             </div>
           </Reveal>
         </Container>
@@ -40,7 +41,7 @@ export function HomePage() {
       <section className="home-projects" aria-label={t.home.recent}>
         <div className="home-projects__bar">
           <span>{t.home.recent}</span>
-          <Link to="/projets">{t.home.allProjects}</Link>
+          <Link to={preferredPagePath('/projets')}>{t.home.allProjects}</Link>
         </div>
         <div className="home-projects__grid">
           {featuredProjects.map((project) => (

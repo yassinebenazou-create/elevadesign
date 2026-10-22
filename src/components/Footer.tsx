@@ -12,7 +12,7 @@ export function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <NavLink className="footer-logo" to="/" aria-label="Accueil Eleva Design">
-            <img src={siteConfig.logo.src} srcSet={siteConfig.logo.srcSet} sizes="288px" alt={siteConfig.logo.alt} width={2172} height={724} loading="lazy" />
+            <img src={siteConfig.logo.src} srcSet={siteConfig.logo.srcSet} sizes="208px" alt={siteConfig.logo.alt} width={2172} height={724} loading="lazy" />
           </NavLink>
           {t.footer.tagline ? <p className="footer-tagline">{t.footer.tagline}</p> : null}
         </div>

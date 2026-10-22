@@ -1,9 +1,14 @@
 import { seoConfig } from '../config/seo'
 import { siteConfig } from '../config/site'
 import type { Project } from '../types/project'
+import { preferredPagePath } from './urls'
 
 export function absoluteSiteUrl(path = '/') {
   return `${seoConfig.siteUrl}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+export function absolutePageUrl(path = '/') {
+  return absoluteSiteUrl(preferredPagePath(path))
 }
 
 export function organizationSchema() {
@@ -12,7 +17,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': absoluteSiteUrl('/#organization'),
     name: siteConfig.name,
-    url: seoConfig.siteUrl,
+    url: absolutePageUrl('/'),
     logo: absoluteSiteUrl(siteConfig.logo.src),
     email: siteConfig.contact.email,
     sameAs: [siteConfig.contact.instagramUrl, siteConfig.contact.facebookUrl].filter(Boolean),
@@ -24,7 +29,7 @@ export function websiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: seoConfig.siteName,
-    url: seoConfig.siteUrl,
+    url: absolutePageUrl('/'),
     inLanguage: 'fr-FR',
   }
 }
@@ -55,12 +60,12 @@ export function webPageSchema(name: string, description: string, path: string) {
     '@type': 'WebPage',
     name,
     description,
-    url: absoluteSiteUrl(path),
+    url: absolutePageUrl(path),
     inLanguage: 'fr-FR',
     isPartOf: {
       '@type': 'WebSite',
       name: seoConfig.siteName,
-      url: seoConfig.siteUrl,
+      url: absolutePageUrl('/'),
     },
   }
 }
@@ -82,7 +87,7 @@ export function serviceSchema({
     name,
     description,
     serviceType,
-    url: absoluteSiteUrl(path),
+    url: absolutePageUrl(path),
     provider: {
       '@id': absoluteSiteUrl('/#organization'),
     },
@@ -116,7 +121,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: absoluteSiteUrl(item.path),
+      item: absolutePageUrl(item.path),
     })),
   }
 }
@@ -133,11 +138,11 @@ export function projectSchema(project: Project, description: string) {
     creator: {
       '@type': 'Organization',
       name: siteConfig.name,
-      url: seoConfig.siteUrl,
+      url: absolutePageUrl('/'),
     },
     about: project.category,
     contentLocation: knownLocation ? { '@type': 'Place', name: project.location } : undefined,
     temporalCoverage: project.year.match(/^\d{4}$/) ? project.year : undefined,
-    url: absoluteSiteUrl(`/projets/${project.slug}`),
+    url: absolutePageUrl(`/projets/${project.slug}`),
   }
 }

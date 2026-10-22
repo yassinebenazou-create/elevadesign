@@ -4,6 +4,7 @@ import { Container } from '../components/Container'
 import { ProjectGallery } from '../components/ProjectGallery'
 import { RelatedProjects } from '../components/RelatedProjects'
 import { RelatedServices } from '../components/RelatedServices'
+import { ResponsiveImage } from '../components/ResponsiveImage'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { getAdjacentProjects, getProjectBySlug } from '../data/projects'
@@ -11,6 +12,7 @@ import { generalServicesLink, getProjectServices, getRelatedProjects } from '../
 import { useI18n } from '../i18n/I18nProvider'
 import { getRouteSeo } from '../seo/routeSeo'
 import { isKnownProjectValue } from '../utils/projectFacts'
+import { preferredPagePath } from '../utils/urls'
 import { NotFoundPage } from './NotFoundPage'
 
 export function ProjectDetailPage() {
@@ -46,9 +48,10 @@ export function ProjectDetailPage() {
         jsonLd={seo.jsonLd}
       />
       <section className="project-detail__hero" aria-label={project.title}>
-        <img
+        <ResponsiveImage
           src={project.coverImage}
           alt={project.coverAlt}
+          sizes="100vw"
           fetchPriority="high"
           decoding="async"
           width={1920}
@@ -56,7 +59,7 @@ export function ProjectDetailPage() {
         />
         <div className="project-detail__hero-overlay" aria-hidden="true" />
         <Container size="wide" className="project-detail__hero-inner">
-          <Link className="project-detail__back project-detail__back--hero" to="/projets">
+          <Link className="project-detail__back project-detail__back--hero" to={preferredPagePath('/projets')}>
             <ArrowLeft size={16} />
             {t.projectDetail.back}
           </Link>
@@ -118,7 +121,7 @@ export function ProjectDetailPage() {
         <Container>
           <div className="project-detail__nav-grid">
             {previousProject ? (
-              <Link to={`/projets/${previousProject.slug}`} className="project-detail__nav-link">
+              <Link to={preferredPagePath(`/projets/${previousProject.slug}`)} className="project-detail__nav-link">
                 <ArrowLeft size={18} />
                 <span>
                   <small>{t.projectDetail.previous}</small>
@@ -129,7 +132,7 @@ export function ProjectDetailPage() {
 
             {nextProject ? (
               <Link
-                to={`/projets/${nextProject.slug}`}
+                to={preferredPagePath(`/projets/${nextProject.slug}`)}
                 className="project-detail__nav-link project-detail__nav-link--next"
               >
                 <span>
@@ -140,7 +143,7 @@ export function ProjectDetailPage() {
               </Link>
             ) : null}
           </div>
-          <Link className="project-detail__all" to="/projets">
+          <Link className="project-detail__all" to={preferredPagePath('/projets')}>
             {t.projectDetail.all}
             <ArrowRight size={16} />
           </Link>

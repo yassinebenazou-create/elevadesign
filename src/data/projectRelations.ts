@@ -11,7 +11,6 @@ export const projectServiceMap: Record<string, string[]> = {
   'residence-ivoire': [
     'architecture-interieure',
     'cuisine-salon',
-    'cuisine-sur-mesure',
     'renovation-interieure',
     'villas-appartements',
   ],

@@ -1686,6 +1686,14 @@ button:disabled {
   text-transform: uppercase;
 }
 
+.service-detail-keywords > .service-detail-keywords__intro {
+  color: var(--ed-muted);
+  font-size: 0.96rem;
+  letter-spacing: 0;
+  line-height: 1.75;
+  text-transform: none;
+}
+
 .service-detail-keywords ul {
   display: grid;
   gap: 0.7rem;
@@ -1699,6 +1707,18 @@ button:disabled {
   color: var(--ed-muted);
   line-height: 1.7;
   padding-bottom: 0.7rem;
+}
+
+.service-detail-keywords li a {
+  border-bottom: 1px solid var(--ed-gold);
+  color: var(--ed-black);
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.service-detail-keywords li a:hover,
+.service-detail-keywords li a:focus-visible {
+  color: var(--ed-gold-text);
 }
 
 .service-detail-highlights {

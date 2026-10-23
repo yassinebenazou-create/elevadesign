@@ -11,9 +11,9 @@ export const seoConfig = {
 
 export const pageSeo = {
   home: {
-    title: 'Architecture intérieure et décoration au Maroc | Eleva Design',
+    title: 'Eleva Design | Architecture intérieure à Casablanca et au Maroc',
     description:
-      "Eleva Design accompagne vos projets d'architecture intérieure, décoration, rénovation et aménagement au Maroc pour villas, appartements et espaces commerciaux.",
+      "Eleva Design accompagne vos projets d'architecture intérieure, de décoration et de rénovation à Casablanca et partout au Maroc.",
     h1: 'Élever chaque espace avec mesure.',
     keyword: 'architecture intérieure et décoration au Maroc',
   },

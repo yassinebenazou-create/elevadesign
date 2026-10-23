@@ -74,13 +74,35 @@ export function ServiceLandingPage() {
             ))}
           </Reveal>
           <Reveal className="service-detail-keywords" delay={0.12}>
-            <h2>Intentions couvertes</h2>
-            <p>{page.primaryKeyword}</p>
-            <ul>
-              {page.secondaryKeywords.map((keyword) => (
-                <li key={keyword}>{keyword}</li>
-              ))}
-            </ul>
+            {page.customerSection ? (
+              <>
+                <h2>{page.customerSection.title}</h2>
+                <p className="service-detail-keywords__intro">{page.customerSection.intro}</p>
+                <ul>
+                  {page.customerSection.items.map((item) => (
+                    <li key={item.text}>
+                      {item.text}
+                      {item.link ? (
+                        <>
+                          {' '}
+                          <Link to={preferredPagePath(item.link.path)}>{item.link.label}</Link>
+                        </>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <>
+                <h2>Intentions couvertes</h2>
+                <p>{page.primaryKeyword}</p>
+                <ul>
+                  {page.secondaryKeywords.map((keyword) => (
+                    <li key={keyword}>{keyword}</li>
+                  ))}
+                </ul>
+              </>
+            )}
           </Reveal>
         </Container>
       </section>
@@ -121,7 +143,7 @@ export function ServiceLandingPage() {
           <Container size="wide">
             <Reveal className="service-detail-section-heading">
               <p className="eyebrow">Références</p>
-              <h2>Projets liés à ce service</h2>
+              <h2>{page.projectsTitle ?? 'Projets liés à ce service'}</h2>
             </Reveal>
             <div className="service-detail-projects__grid">
               {referencedProjects.map((project) => (

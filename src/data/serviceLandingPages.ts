@@ -15,10 +15,19 @@ export type ServiceLandingPage = {
   heroAlt: string
   overviewTitle: string
   overview: string[]
+  customerSection?: {
+    title: string
+    intro: string
+    items: {
+      text: string
+      link?: { label: string; path: string }
+    }[]
+  }
   highlights: string[]
   processTitle: string
   process: { title: string; text: string }[]
   projectSlugs: string[]
+  projectsTitle?: string
   relatedServiceSlugs: string[]
   faq: { question: string; answer: string }[]
 }
@@ -31,7 +40,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     title: 'Architecture intérieure',
     metaTitle: 'Architecture intérieure au Maroc | Eleva Design',
     metaDescription:
-      "Eleva Design accompagne les projets d'architecture intérieure au Maroc : volumes, circulation, lumière, matières et détails pour villas, appartements et espaces professionnels.",
+      "Eleva Design conçoit des intérieurs fonctionnels à Casablanca et au Maroc : volumes, circulation et aménagement de villas, appartements et espaces professionnels.",
     primaryKeyword: 'architecture intérieure au Maroc',
     secondaryKeywords: [
       'design intérieur Maroc',
@@ -40,23 +49,43 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       'architecture intérieure appartement Maroc',
     ],
     eyebrow: 'Service',
-    h1: 'Architecture intérieure au Maroc',
+    h1: 'Architecture intérieure à Casablanca et au Maroc',
     intro:
-      "Eleva Design conçoit des intérieurs lisibles, chaleureux et fonctionnels pour les lieux de vie, les villas, les appartements et les espaces professionnels au Maroc.",
+      "Eleva Design conçoit des intérieurs lisibles, chaleureux et fonctionnels à Casablanca et partout au Maroc, pour les villas, les appartements et les espaces professionnels.",
     heroImage: '/images/services/amenagement-interieur.jfif',
     heroAlt: 'Intérieur contemporain lumineux avec lignes sobres, bois, pierre et baies vitrées.',
-    overviewTitle: 'Donner une structure claire à chaque espace',
+    overviewTitle: 'Concevoir les volumes autour de vos usages',
     overview: [
       "L'architecture intérieure commence par les usages : circuler, recevoir, cuisiner, travailler, se reposer et vivre un lieu sans effort. Le studio étudie les volumes, les proportions, les axes de vue et la lumière pour créer une base cohérente avant de travailler l'ambiance.",
       "Cette approche s'applique aux projets résidentiels comme aux espaces professionnels. Elle permet de relier les pièces, d'améliorer la lecture du lieu et de donner aux matières, au mobilier et aux finitions une place juste.",
     ],
+    customerSection: {
+      title: 'Quels espaces souhaitez-vous repenser ?',
+      intro:
+        "Le projet se définit à partir du lieu, de ses contraintes et des usages que vous souhaitez améliorer.",
+      items: [
+        {
+          text: 'Pour une villa, les volumes, la lumière et la continuité avec les espaces extérieurs structurent la réflexion.',
+          link: { label: 'Voir Villa Horizon', path: '/projets/villa-horizon' },
+        },
+        {
+          text: 'Dans une résidence existante, la circulation et les fonctions de chaque pièce peuvent être réorganisées.',
+          link: { label: 'Voir Résidence Ivoire', path: '/projets/residence-ivoire' },
+        },
+        {
+          text: 'Un espace professionnel demande une organisation claire pour le travail, l’accueil et les déplacements.',
+          link: { label: 'Voir Bureau B1', path: '/projets/bureau-b1' },
+        },
+        { text: 'Une intervention peut concerner une seule pièce ou un ensemble plus large selon les priorités du projet.' },
+      ],
+    },
     highlights: [
       'Analyse des volumes, circulations et usages',
       'Intentions de matières, lumière et ambiance',
       'Agencement intérieur partiel ou global',
       'Cohérence entre esthétique, confort et fonctionnalité',
     ],
-    processTitle: "Comment se construit l'accompagnement",
+    processTitle: "De l’analyse du lieu à une direction intérieure cohérente",
     process: [
       {
         title: 'Comprendre le lieu',
@@ -76,6 +105,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
     projectSlugs: ['residence-ivoire', 'villa-horizon', 'villas-assinie-int'],
+    projectsTitle: 'Projets d’architecture intérieure sélectionnés',
     relatedServiceSlugs: ['decoration-interieure', 'villas-appartements', 'renovation-interieure'],
     faq: [
       {
@@ -101,7 +131,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     title: 'Décoration intérieure',
     metaTitle: 'Décoration intérieure au Maroc | Eleva Design',
     metaDescription:
-      'Décoration intérieure au Maroc par Eleva Design : couleurs, textures, mobilier, habillages muraux et finitions pour salons, chambres, villas et appartements.',
+      'Accompagnement en décoration intérieure au Maroc : couleurs, matières, mobilier, éclairage et finitions pour salons, chambres, villas et espaces professionnels.',
     primaryKeyword: 'décoration intérieure au Maroc',
     secondaryKeywords: [
       'décorateur intérieur Maroc',
@@ -115,18 +145,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Une décoration intérieure réussie ne surcharge pas le lieu : elle révèle son caractère avec des matières, des couleurs, des objets et des détails choisis avec précision.",
     heroImage: '/images/services/decoration-styling.jfif',
     heroAlt: 'Salon raffiné aux tons clairs avec mobilier contemporain, bois et lumière naturelle.',
-    overviewTitle: 'Créer une atmosphère juste et durable',
+    overviewTitle: 'Composer une ambiance cohérente avec votre quotidien',
     overview: [
       "Eleva Design travaille la décoration comme une composition complète : palette de couleurs, textures, mobilier, éclairage, objets, habillages muraux et finitions. Chaque choix sert l'équilibre du lieu et son usage quotidien.",
       "L'objectif est de donner une identité élégante aux salons, chambres, séjours ou espaces professionnels, sans inventer une ambiance déconnectée de la vie réelle du client.",
     ],
+    customerSection: {
+      title: 'Couleurs, matières, mobilier et lumière',
+      intro:
+        "La décoration relie les choix visuels aux proportions de la pièce, à son usage et aux éléments que vous souhaitez conserver.",
+      items: [
+        {
+          text: 'Dans un salon, les assises, les textiles, les teintes et l’éclairage doivent former un ensemble équilibré.',
+          link: { label: 'Voir Salon A1', path: '/projets/salon-a1' },
+        },
+        {
+          text: 'Dans une chambre, les matières et la lumière accompagnent le repos sans négliger les usages quotidiens.',
+          link: { label: 'Voir Chambre A1', path: '/projets/chambre-a1' },
+        },
+        {
+          text: 'Un mur décoratif peut donner un point d’ancrage à la composition générale.',
+          link: { label: 'Voir le projet Habillage Mural', path: '/projets/habillage-mural' },
+        },
+        { text: 'Le mobilier existant peut être intégré lorsque ses dimensions, son état et son style conviennent au projet.' },
+      ],
+    },
     highlights: [
       'Palette de couleurs et matières',
       'Mobilier, objets décoratifs et finitions',
       'Habillages muraux et détails de caractère',
       'Ambiance cohérente pour pièces de vie et espaces privés',
     ],
-    processTitle: 'Une décoration pensée comme un ensemble',
+    processTitle: 'De l’inspiration aux choix décoratifs',
     process: [
       {
         title: 'Définir une direction',
@@ -309,9 +359,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: 'restaurants-cafes-commerces',
     path: '/services/restaurants-cafes-commerces',
     title: 'Restaurants, cafés et commerces',
-    metaTitle: 'Design restaurant, café et commerce au Maroc | Eleva Design',
+    metaTitle: 'Aménagement restaurant, café et commerce au Maroc | Eleva Design',
     metaDescription:
-      'Design intérieur de restaurants, cafés et commerces au Maroc : ambiance client, parcours, mobilier, éclairage et identité décorative par Eleva Design.',
+      'Eleva Design conçoit restaurants, cafés et commerces au Maroc : parcours client, zones d’accueil, mobilier, matières, éclairage et identité intérieure.',
     primaryKeyword: 'design restaurant café commerce au Maroc',
     secondaryKeywords: [
       'design commercial Maroc',
@@ -320,23 +370,40 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       'aménagement commerce Maroc',
     ],
     eyebrow: 'Service',
-    h1: 'Design de restaurants, cafés et commerces au Maroc',
+    h1: 'Aménagement de restaurants, cafés et commerces au Maroc',
     intro:
       "Pour un lieu commercial, l'intérieur doit accueillir, orienter et marquer la mémoire du visiteur. Eleva Design conçoit des ambiances client lisibles, confortables et distinctives.",
     heroImage: '/images/projects/maison-neroli/02-seating.jpg',
     heroAlt: 'Salle de restaurant élégante avec plafond en lames de bois, tables dressées et banquettes rouges.',
-    overviewTitle: "Concevoir une expérience client, pas seulement un décor",
+    overviewTitle: 'Concevoir un lieu pour ses clients et ses usages',
     overview: [
       "Un restaurant, un café ou un commerce a besoin d'une atmosphère, mais aussi d'un parcours clair, d'assises confortables, d'un éclairage maîtrisé et de matières capables de porter l'identité du lieu.",
       "Les projets commerciaux présentés par Eleva Design montrent une attention forte aux plafonds, banquettes, bars, murs décoratifs et lumières d'ambiance, sans inventer de promesses opérationnelles ou commerciales.",
     ],
+    customerSection: {
+      title: 'Parcours, assises, éclairage et identité du lieu',
+      intro:
+        "L’aménagement intérieur doit traduire le concept du lieu tout en rendant l’accueil, la circulation et les espaces destinés aux clients faciles à comprendre.",
+      items: [
+        { text: 'Le type d’activité, le public et les usages attendus donnent une direction au projet intérieur.' },
+        {
+          text: 'Les zones d’accueil, de circulation et d’assise sont hiérarchisées pour rendre le parcours plus lisible.',
+          link: { label: 'Voir Restaurant Wakame', path: '/projets/restaurant-wakame' },
+        },
+        {
+          text: 'La lumière, le mobilier et les matières construisent une ambiance cohérente avec l’identité recherchée.',
+          link: { label: 'Voir Restaurant Wakame 2', path: '/projets/restaurant-wakame2' },
+        },
+        { text: 'La surface, les espaces concernés et le niveau de transformation sont précisés avant toute proposition.' },
+      ],
+    },
     highlights: [
       'Concept intérieur pour restaurants, cafés et commerces',
       'Ambiance client, parcours et zones d’accueil',
       'Éclairage décoratif, bars, banquettes et matières',
       'Identité visuelle du lieu traduite dans l’espace',
     ],
-    processTitle: 'Une approche centrée sur le lieu et ses visiteurs',
+    processTitle: 'Du concept intérieur à une expérience cohérente',
     process: [
       {
         title: 'Clarifier le concept',
@@ -356,6 +423,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
     projectSlugs: ['maison-neroli', 'restaurant-wakame', 'restaurant-wakame2'],
+    projectsTitle: 'Références de restaurants et espaces commerciaux',
     relatedServiceSlugs: ['architecture-interieure', 'decoration-interieure', 'renovation-interieure'],
     faq: [
       {
@@ -379,9 +447,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: 'renovation-interieure',
     path: '/services/renovation-interieure',
     title: 'Rénovation intérieure',
-    metaTitle: 'Rénovation intérieure au Maroc | Eleva Design',
+    metaTitle: 'Rénovation d’appartement et intérieur au Maroc | Eleva Design',
     metaDescription:
-      'Rénovation intérieure au Maroc : relecture des volumes, aménagement, décoration, matières et nouveaux usages pour villas, appartements et espaces professionnels.',
+      'Eleva Design repense appartements, villas et espaces professionnels au Maroc : volumes, circulation, aménagement, matières et finitions selon le projet.',
     primaryKeyword: 'rénovation intérieure au Maroc',
     secondaryKeywords: [
       'rénovation appartement Maroc',
@@ -390,23 +458,37 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       'rénovation décoration Maroc',
     ],
     eyebrow: 'Service',
-    h1: 'Rénovation intérieure au Maroc',
+    h1: 'Rénovation intérieure d’appartements et villas au Maroc',
     intro:
       "Rénover un intérieur, c'est relire un lieu existant pour l'adapter à de nouveaux usages, à une meilleure circulation et à une atmosphère plus cohérente.",
     heroImage: '/images/projects/residence-ivoire/01-cover.jpg',
     heroAlt: 'Salon contemporain lumineux avec canapé gris, escalier en verre et grandes fenêtres.',
-    overviewTitle: 'Transformer sans perdre le sens du lieu',
+    overviewTitle: 'Définir le bon niveau de transformation',
     overview: [
       "Eleva Design aborde la rénovation comme une relecture : comprendre ce qui fonctionne, identifier ce qui freine les usages, puis recomposer les volumes, les matières et les détails avec mesure.",
       "Le site présente notamment des projets de réaménagement intérieur, de décoration de salons et chambres, ainsi que des espaces résidentiels et commerciaux pouvant servir de références visuelles pour une demande de devis.",
     ],
+    customerSection: {
+      title: 'Ce qui influence votre projet et votre devis',
+      intro:
+        "Le niveau d’intervention dépend de l’état existant, des espaces concernés et des changements nécessaires pour répondre aux nouveaux usages.",
+      items: [
+        { text: 'Une rénovation peut concerner une seule pièce, plusieurs espaces liés ou un intérieur plus global.' },
+        { text: 'La surface, les contraintes existantes et les éléments à conserver déterminent le périmètre à étudier.' },
+        { text: 'Les choix de matières, de mobilier, d’éclairage et de finition sont définis avec le projet, sans prix standard.' },
+        {
+          text: 'Résidence Ivoire présente un exemple de réaménagement intérieur résidentiel.',
+          link: { label: 'Voir Résidence Ivoire', path: '/projets/residence-ivoire' },
+        },
+      ],
+    },
     highlights: [
       'Réaménagement intérieur partiel ou complet',
       'Actualisation des matières, couleurs et finitions',
       'Amélioration de la circulation et des usages',
       'Cohérence entre ancien espace et nouvelle ambiance',
     ],
-    processTitle: 'Une rénovation structurée par les priorités',
+    processTitle: 'De l’état existant aux nouveaux usages',
     process: [
       {
         title: 'Observer l’existant',
@@ -425,7 +507,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: 'Les détails, éclairages, textures et habillages apportent la cohérence finale au projet.',
       },
     ],
-    projectSlugs: ['residence-ivoire', 'salon-a2', 'chambre-a2'],
+    projectSlugs: ['residence-ivoire'],
     relatedServiceSlugs: ['architecture-interieure', 'decoration-interieure', 'villas-appartements'],
     faq: [
       {

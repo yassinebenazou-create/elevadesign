@@ -32,6 +32,10 @@ export function HomePage() {
           <Reveal delay={0.12}>
             <p>{t.home.nationalText}</p>
             <div className="home-seo-intro__links" aria-label={t.home.nationalLinksLabel}>
+              <Link to={preferredPagePath('/services/architecture-interieure')}>{t.home.architectureLink}</Link>
+              <Link to={preferredPagePath('/services/habillage-mural')}>{t.home.wallLink}</Link>
+              <Link to={preferredPagePath('/services/cuisine-sur-mesure')}>{t.home.kitchenLink}</Link>
+              <Link to={preferredPagePath('/services/dressing-sur-mesure')}>{t.home.dressingLink}</Link>
               <Link to={preferredPagePath('/services')}>{t.home.servicesLink}</Link>
               <Link to={preferredPagePath('/projets')}>{t.home.projectsLink}</Link>
             </div>
